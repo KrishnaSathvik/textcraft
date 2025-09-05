@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WordCounterPage from "./pages/tools/WordCounter";
 import CaseConverterPage from "./pages/tools/CaseConverter";
+import LineBreaksPage from "./pages/tools/LineBreaks";
+import DiffCheckerPage from "./pages/tools/DiffChecker";
+import LoremIpsumPage from "./pages/tools/LoremIpsum";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +24,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/tools/word-counter" element={<WordCounterPage />} />
             <Route path="/tools/case-converter" element={<CaseConverterPage />} />
+            <Route path="/tools/line-breaks" element={<LineBreaksPage />} />
+            <Route path="/tools/diff-checker" element={<DiffCheckerPage />} />
+            <Route path="/tools/lorem-ipsum" element={<LoremIpsumPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

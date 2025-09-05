@@ -52,16 +52,28 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Tool-specific colors
+				tool: {
+					bg: 'hsl(var(--tool-bg))',
+					border: 'hsl(var(--tool-border))'
+				},
+				code: {
+					bg: 'hsl(var(--code-bg))'
+				},
+				// Status colors
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))',
+				info: 'hsl(var(--info))',
+				// Interactive states
+				hover: 'hsl(var(--hover-bg))',
+				active: 'hsl(var(--active-bg))'
+			},
+			fontFamily: {
+				mono: 'var(--font-mono)'
+			},
+			backgroundImage: {
+				'gradient-brand': 'linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)))',
+				'gradient-accent': 'linear-gradient(135deg, hsl(var(--gradient-end)), hsl(var(--gradient-accent)))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

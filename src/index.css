@@ -2,57 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Byte Tool Box Design System - Dark Theme Default */
 
 @layer base {
   :root {
+    /* Dark theme as default */
+    --background: 220 13% 8%;
+    --foreground: 220 13% 95%;
+
+    --card: 220 13% 10%;
+    --card-foreground: 220 13% 95%;
+
+    --popover: 220 13% 10%;
+    --popover-foreground: 220 13% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 13% 8%;
+
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 220 13% 95%;
+
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 13% 65%;
+
+    --accent: 220 13% 16%;
+    --accent-foreground: 220 13% 95%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 220 13% 95%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 14%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Tool-specific colors */
+    --tool-bg: 220 13% 6%;
+    --tool-border: 220 13% 18%;
+    --code-bg: 220 13% 4%;
+    
+    /* Gradient colors for branding */
+    --gradient-start: 217 91% 60%;
+    --gradient-end: 212 100% 70%;
+    --gradient-accent: 200 100% 65%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 200 98% 39%;
+
+    /* Interactive states */
+    --hover-bg: 220 13% 18%;
+    --active-bg: 220 13% 22%;
+
+    /* Typography */
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+  }
+
+  .light {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --ring: 217 91% 60%;
+    --tool-bg: 210 40% 98%;
+    --tool-border: 214.3 31.8% 91.4%;
+    --code-bg: 210 40% 96.1%;
   }
 
   .dark {

@@ -42,10 +42,10 @@
     --tool-border: 220 13% 18%;
     --code-bg: 220 13% 4%;
     
-    /* Gradient colors for branding */
-    --gradient-start: 217 91% 60%;
-    --gradient-end: 212 100% 70%;
-    --gradient-accent: 200 100% 65%;
+    /* Gradient colors for branding - ByteToolBox Purple */
+    --gradient-start: 280 100% 70%;
+    --gradient-end: 250 100% 70%;
+    --purple: 280 100% 70%;
 
     /* Status colors */
     --success: 142 76% 36%;

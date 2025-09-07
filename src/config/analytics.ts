@@ -20,16 +20,16 @@ export const ANALYTICS_CONFIG = {
 
 // Error Reporting Configuration
 export const ERROR_REPORTING_CONFIG = {
-  // Replace with your error reporting endpoint
-  ENDPOINT: 'https://your-error-endpoint.com/api/errors',
-  ENABLED: import.meta.env.PROD,
+  // Disabled - using Google Analytics for error tracking
+  ENDPOINT: '',
+  ENABLED: false,
 };
 
 // Performance Monitoring Configuration
 export const PERFORMANCE_CONFIG = {
-  // Replace with your performance monitoring endpoint
-  ENDPOINT: 'https://your-analytics-endpoint.com/api/vitals',
-  ENABLED: import.meta.env.PROD,
+  // Disabled - using Google Analytics for performance tracking
+  ENDPOINT: '',
+  ENABLED: false,
 };
 
 /**

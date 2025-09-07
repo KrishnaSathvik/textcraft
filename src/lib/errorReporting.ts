@@ -17,7 +17,7 @@ interface ErrorReport {
 
 class ErrorReporter {
   private isProduction = import.meta.env.PROD;
-  private endpoint = 'https://your-error-endpoint.com/api/errors'; // Replace with your endpoint
+  private endpoint = ''; // Disabled - using Google Analytics for error tracking
 
   /**
    * Report an error
@@ -47,6 +47,11 @@ class ErrorReporter {
    * Send error report to external service
    */
   private async sendErrorReport(errorReport: ErrorReport) {
+    // Skip if no endpoint is configured
+    if (!this.endpoint) {
+      return;
+    }
+
     try {
       await fetch(this.endpoint, {
         method: 'POST',

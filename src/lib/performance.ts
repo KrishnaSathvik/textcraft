@@ -23,7 +23,7 @@ interface WebVitals {
 class PerformanceMonitor {
   private isProduction = import.meta.env.PROD;
   private metrics: PerformanceMetric[] = [];
-  private endpoint = 'https://your-analytics-endpoint.com/api/vitals'; // Replace with your endpoint
+  private endpoint = ''; // Disabled - using Google Analytics for performance tracking
 
   /**
    * Initialize performance monitoring
@@ -185,6 +185,11 @@ class PerformanceMonitor {
    * Send metric to analytics service
    */
   private async sendMetric(metric: PerformanceMetric, context?: Record<string, any>) {
+    // Skip if no endpoint is configured
+    if (!this.endpoint) {
+      return;
+    }
+
     try {
       await fetch(this.endpoint, {
         method: 'POST',

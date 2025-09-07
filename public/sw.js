@@ -42,27 +42,42 @@ self.addEventListener('fetch', (event) => {
           return response;
         }
         
-        return fetch(event.request).then((response) => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
+        return fetch(event.request)
+          .then((response) => {
+            // Check if we received a valid response
+            if (!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // Clone the response
+            const responseToCache = response.clone();
+
+            caches.open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(event.request, responseToCache);
+              });
+
             return response;
-          }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        }).catch(() => {
-          // If both cache and network fail, show offline page
-          if (event.request.destination === 'document') {
-            return caches.match('/offline.html');
-          }
-        });
+          })
+          .catch(() => {
+            // If both cache and network fail, show offline page
+            if (event.request.destination === 'document') {
+              return caches.match('/offline.html');
+            }
+            // Return a basic response for non-document requests
+            return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+          });
+      })
+      .catch(() => {
+        // If cache match fails, try to fetch from network
+        return fetch(event.request)
+          .catch(() => {
+            // If all else fails, show offline page for documents
+            if (event.request.destination === 'document') {
+              return caches.match('/offline.html');
+            }
+            return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+          });
       })
   );
 });

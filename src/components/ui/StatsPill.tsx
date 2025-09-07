@@ -11,8 +11,8 @@ export function StatsPill({ label, value, variant = 'default', className }: Stat
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium",
-        "border transition-colors",
+        "inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium",
+        "border transition-colors min-w-0 flex-shrink-0",
         {
           'bg-secondary text-secondary-foreground border-border': variant === 'default',
           'bg-gradient-accent text-white border-transparent': variant === 'accent', 
@@ -21,8 +21,8 @@ export function StatsPill({ label, value, variant = 'default', className }: Stat
         className
       )}
     >
-      <span className="text-muted-foreground">{label}:</span>
-      <span className="font-semibold">{value}</span>
+      <span className="text-muted-foreground truncate">{label}:</span>
+      <span className="font-semibold whitespace-nowrap">{value}</span>
     </div>
   );
 }
@@ -34,7 +34,7 @@ interface StatsGridProps {
 
 export function StatsGrid({ children, className }: StatsGridProps) {
   return (
-    <div className={cn("flex flex-wrap gap-2 mb-4", className)}>
+    <div className={cn("flex flex-wrap gap-1.5 sm:gap-2 mb-4", className)}>
       {children}
     </div>
   );

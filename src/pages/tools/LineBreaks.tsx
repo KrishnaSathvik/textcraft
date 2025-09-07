@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import ToolLayout from '@/components/layouts/ToolLayout';
+import { ToolLayout } from '@/components/layouts/ToolLayout';
 import { TextArea } from '@/components/ui/TextArea';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { DownloadButton } from '@/components/ui/DownloadButton';
@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { cleanupText, CleanupOptions } from '@/lib/text/cleanup';
-import { Trash2, RotateCcw } from 'lucide-react';
+import { Trash2, RotateCcw, Target, Zap, CheckCircle, FileText, BarChart3, Lightbulb } from 'lucide-react';
 
 const cleanupOptionsList = [
   {
@@ -88,13 +88,45 @@ export default function LineBreaksPage() {
     <ToolLayout
       title="Line Breaks Remover"
       description="Clean up and normalize text whitespace, remove extra line breaks, and fix formatting issues."
-      related={[
-        { href: '/tools/word-counter', label: 'Word Counter' },
-        { href: '/tools/case-converter', label: 'Case Converter' },
-        { href: '/tools/diff-checker', label: 'Text Diff Checker' }
-      ]}
     >
-      <div className="space-y-6">
+      <div className="space-y-8">
+        {/* How to Use */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileText className="h-5 w-5 text-primary" />
+              How to Use Line Breaks Remover
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">1</span>
+                </div>
+                <h3 className="font-semibold mb-2">Paste Your Text</h3>
+                <p className="text-sm text-muted-foreground">Copy and paste your messy text into the left text area. The tool will show a live preview.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">2</span>
+                </div>
+                <h3 className="font-semibold mb-2">Select Options</h3>
+                <p className="text-sm text-muted-foreground">Choose which cleanup options to apply: remove extra lines, trim spaces, join lines, etc.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">3</span>
+                </div>
+                <h3 className="font-semibold mb-2">Apply & Export</h3>
+                <p className="text-sm text-muted-foreground">Apply the changes, copy the cleaned text, or download it as a file.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Tool Logic */}
+        <div className="space-y-6">
         {/* Cleanup Options */}
         <Card>
           <CardHeader>
@@ -161,13 +193,13 @@ export default function LineBreaksPage() {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 justify-between">
-          <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-3 justify-between">
+          <div className="flex flex-wrap gap-2">
             <Button
               variant="outline"
               onClick={handleClear}
               disabled={!text}
-              className="gap-2"
+              className="gap-2 w-full sm:w-auto"
             >
               <Trash2 className="h-4 w-4" />
               Clear
@@ -177,7 +209,7 @@ export default function LineBreaksPage() {
               <Button
                 variant="outline"
                 onClick={handleUndo}
-                className="gap-2"
+                className="gap-2 w-full sm:w-auto"
               >
                 <RotateCcw className="h-4 w-4" />
                 Undo
@@ -185,11 +217,12 @@ export default function LineBreaksPage() {
             )}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 w-full sm:w-auto">
             <Button
               onClick={handleApply}
               disabled={!text || !hasChanges}
               variant="default"
+              className="w-full sm:w-auto"
             >
               Apply Changes
             </Button>
@@ -206,27 +239,110 @@ export default function LineBreaksPage() {
         {hasChanges && (
           <Card>
             <CardContent className="pt-6">
-              <div className="text-sm grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-sm grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <div>
-                  <span className="text-muted-foreground">Original lines:</span>
-                  <div className="font-semibold">{text.split('\n').length}</div>
+                  <span className="text-muted-foreground text-xs sm:text-sm">Original lines:</span>
+                  <div className="font-semibold text-sm sm:text-base">{text.split('\n').length}</div>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Cleaned lines:</span>
-                  <div className="font-semibold">{cleanedText.split('\n').length}</div>
+                  <span className="text-muted-foreground text-xs sm:text-sm">Cleaned lines:</span>
+                  <div className="font-semibold text-sm sm:text-base">{cleanedText.split('\n').length}</div>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Original chars:</span>
-                  <div className="font-semibold">{text.length}</div>
+                  <span className="text-muted-foreground text-xs sm:text-sm">Original chars:</span>
+                  <div className="font-semibold text-sm sm:text-base">{text.length}</div>
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Cleaned chars:</span>
-                  <div className="font-semibold">{cleanedText.length}</div>
+                  <span className="text-muted-foreground text-xs sm:text-sm">Cleaned chars:</span>
+                  <div className="font-semibold text-sm sm:text-base">{cleanedText.length}</div>
                 </div>
               </div>
             </CardContent>
           </Card>
         )}
+        </div>
+
+        {/* Why Use + Key Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                Why Use Line Breaks Remover?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Clean Text Formatting</p>
+                  <p className="text-sm text-muted-foreground">Remove inconsistent line breaks, extra spaces, and formatting issues from copied text.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Improve Readability</p>
+                  <p className="text-sm text-muted-foreground">Normalize text structure for better reading experience and professional appearance.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Data Processing</p>
+                  <p className="text-sm text-muted-foreground">Prepare text for databases, APIs, and data analysis by standardizing format.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Code Preparation</p>
+                  <p className="text-sm text-muted-foreground">Clean up text before processing in code, removing unwanted whitespace and line breaks.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Zap className="h-5 w-5 text-primary" />
+                Key Features
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Remove extra blank lines and normalize spacing</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Trim trailing spaces and tabs</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Join lines with single spaces</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Convert smart quotes to ASCII</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Normalize line break formats</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Real-time preview and character count</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Customizable cleanup options</span>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </ToolLayout>
   );

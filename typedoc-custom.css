@@ -1,0 +1,300 @@
+/* TextCraft Documentation Custom Theme */
+
+:root {
+  --textcraft-primary: #8b5cf6;
+  --textcraft-primary-dark: #7c3aed;
+  --textcraft-secondary: #3b82f6;
+  --textcraft-accent: #06b6d4;
+  --textcraft-gradient: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  --textcraft-bg: #0f0f23;
+  --textcraft-bg-light: #1a1a2e;
+  --textcraft-text: #e2e8f0;
+  --textcraft-text-muted: #94a3b8;
+  --textcraft-border: #334155;
+  --textcraft-card: #1e293b;
+}
+
+/* Dark theme overrides */
+.tsd-theme-dark {
+  --tsd-color-background: var(--textcraft-bg);
+  --tsd-color-background-secondary: var(--textcraft-bg-light);
+  --tsd-color-foreground: var(--textcraft-text);
+  --tsd-color-foreground-secondary: var(--textcraft-text-muted);
+  --tsd-color-border: var(--textcraft-border);
+  --tsd-color-accent: var(--textcraft-primary);
+  --tsd-color-accent-foreground: #ffffff;
+}
+
+/* Header styling */
+.tsd-page-toolbar {
+  background: var(--textcraft-bg-light);
+  border-bottom: 1px solid var(--textcraft-border);
+}
+
+.tsd-page-toolbar .title {
+  background: var(--textcraft-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Navigation styling */
+.tsd-navigation {
+  background: var(--textcraft-bg-light);
+  border-right: 1px solid var(--textcraft-border);
+}
+
+.tsd-navigation a {
+  color: var(--textcraft-text-muted);
+  transition: color 0.2s ease;
+}
+
+.tsd-navigation a:hover {
+  color: var(--textcraft-primary);
+}
+
+.tsd-navigation .tsd-kind-module a {
+  color: var(--textcraft-text);
+  font-weight: 600;
+}
+
+/* Content styling */
+.tsd-page-title h1 {
+  background: var(--textcraft-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Code blocks */
+.tsd-signature {
+  background: var(--textcraft-card);
+  border: 1px solid var(--textcraft-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.tsd-signature code {
+  color: var(--textcraft-accent);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+/* Buttons and interactive elements */
+.tsd-page-toolbar button {
+  background: var(--textcraft-primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.tsd-page-toolbar button:hover {
+  background: var(--textcraft-primary-dark);
+}
+
+/* Search styling */
+#tsd-search {
+  background: var(--textcraft-bg-light);
+  border: 1px solid var(--textcraft-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#tsd-search input {
+  background: transparent;
+  color: var(--textcraft-text);
+  border: none;
+  outline: none;
+}
+
+#tsd-search input::placeholder {
+  color: var(--textcraft-text-muted);
+}
+
+/* Cards and panels */
+.tsd-panel {
+  background: var(--textcraft-card);
+  border: 1px solid var(--textcraft-border);
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.tsd-panel h3 {
+  color: var(--textcraft-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Type definitions */
+.tsd-kind-interface,
+.tsd-kind-type-alias {
+  border-left: 4px solid var(--textcraft-primary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.tsd-kind-function {
+  border-left: 4px solid var(--textcraft-secondary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.tsd-kind-class {
+  border-left: 4px solid var(--textcraft-accent);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+/* Examples and code */
+.tsd-comment .tsd-comment-tags .tsd-tag-example {
+  background: var(--textcraft-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tsd-page-title h1 {
+    font-size: 2rem;
+  }
+  
+  .tsd-navigation {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  
+  .tsd-navigation.open {
+    left: 0;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--textcraft-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--textcraft-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--textcraft-primary-dark);
+}
+
+/* Link styling */
+a {
+  color: var(--textcraft-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--textcraft-primary-dark);
+  text-decoration: underline;
+}
+
+/* Table styling */
+.tsd-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.tsd-panel th,
+.tsd-panel td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--textcraft-border);
+}
+
+.tsd-panel th {
+  background: var(--textcraft-bg-light);
+  color: var(--textcraft-primary);
+  font-weight: 600;
+}
+
+/* Badge styling */
+.tsd-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tsd-badge-optional {
+  background: var(--textcraft-accent);
+  color: white;
+}
+
+.tsd-badge-required {
+  background: var(--textcraft-primary);
+  color: white;
+}
+
+/* Footer styling */
+footer {
+  background: var(--textcraft-bg-light);
+  border-top: 1px solid var(--textcraft-border);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--textcraft-text-muted);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tsd-loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Print styles */
+@media print {
+  .tsd-navigation,
+  .tsd-page-toolbar {
+    display: none;
+  }
+  
+  .tsd-page-content {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tsd-panel {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

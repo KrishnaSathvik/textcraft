@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import ToolLayout from '@/components/layouts/ToolLayout';
+import { ToolLayout } from '@/components/layouts/ToolLayout';
 import { TextArea } from '@/components/ui/TextArea';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { DownloadButton } from '@/components/ui/DownloadButton';
@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { diffLines, diffWords, generateUnifiedDiff } from '@/lib/text/diff';
-import { Trash2, ArrowLeftRight } from 'lucide-react';
+import { Trash2, ArrowLeftRight, Target, Zap, CheckCircle, FileText, BarChart3, Lightbulb } from 'lucide-react';
 
 export default function DiffCheckerPage() {
   const [text1, setText1] = useState('');
@@ -65,28 +65,60 @@ export default function DiffCheckerPage() {
     <ToolLayout
       title="Text Diff Checker"
       description="Compare two texts and highlight differences with side-by-side or unified diff views."
-      related={[
-        { href: '/tools/word-counter', label: 'Word Counter' },
-        { href: '/tools/case-converter', label: 'Case Converter' },
-        { href: '/tools/line-breaks', label: 'Line Breaks Remover' }
-      ]}
     >
-      <div className="space-y-6">
+      <div className="space-y-8">
+        {/* How to Use */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileText className="h-5 w-5 text-primary" />
+              How to Use Text Diff Checker
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">1</span>
+                </div>
+                <h3 className="font-semibold mb-2">Enter Both Texts</h3>
+                <p className="text-sm text-muted-foreground">Paste your original text in the left area and the modified text in the right area.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">2</span>
+                </div>
+                <h3 className="font-semibold mb-2">Choose Comparison Mode</h3>
+                <p className="text-sm text-muted-foreground">Select line-by-line or word-by-word comparison based on your needs.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-primary font-bold">3</span>
+                </div>
+                <h3 className="font-semibold mb-2">Review Differences</h3>
+                <p className="text-sm text-muted-foreground">Examine the highlighted differences and export the results if needed.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Tool Logic */}
+        <div className="space-y-6">
         {/* Diff Mode Selection */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <Tabs value={diffMode} onValueChange={(value) => setDiffMode(value as 'lines' | 'words')}>
-            <TabsList>
-              <TabsTrigger value="lines">Line Diff</TabsTrigger>
-              <TabsTrigger value="words">Word Diff</TabsTrigger>
+            <TabsList className="w-full sm:w-auto">
+              <TabsTrigger value="lines" className="flex-1 sm:flex-none">Line Diff</TabsTrigger>
+              <TabsTrigger value="words" className="flex-1 sm:flex-none">Word Diff</TabsTrigger>
             </TabsList>
           </Tabs>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 w-full sm:w-auto">
             <Button
               variant="outline"
               onClick={handleSwap}
               disabled={!text1 && !text2}
-              className="gap-2"
+              className="gap-2 flex-1 sm:flex-none"
             >
               <ArrowLeftRight className="h-4 w-4" />
               Swap
@@ -95,7 +127,7 @@ export default function DiffCheckerPage() {
               variant="outline"
               onClick={handleClear}
               disabled={!text1 && !text2}
-              className="gap-2"
+              className="gap-2 flex-1 sm:flex-none"
             >
               <Trash2 className="h-4 w-4" />
               Clear All
@@ -137,24 +169,24 @@ export default function DiffCheckerPage() {
                 <CardTitle className="text-lg">Diff Summary</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-                  <div className="bg-green-500/10 rounded-lg p-3 border border-green-500/20">
-                    <div className="text-2xl font-bold text-green-400">+{diffResult.additions}</div>
-                    <div className="text-sm text-muted-foreground">Additions</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-center">
+                  <div className="bg-green-500/10 rounded-lg p-2 sm:p-3 border border-green-500/20">
+                    <div className="text-lg sm:text-2xl font-bold text-green-400">+{diffResult.additions}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Additions</div>
                   </div>
-                  <div className="bg-red-500/10 rounded-lg p-3 border border-red-500/20">
-                    <div className="text-2xl font-bold text-red-400">-{diffResult.deletions}</div>
-                    <div className="text-sm text-muted-foreground">Deletions</div>
+                  <div className="bg-red-500/10 rounded-lg p-2 sm:p-3 border border-red-500/20">
+                    <div className="text-lg sm:text-2xl font-bold text-red-400">-{diffResult.deletions}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Deletions</div>
                   </div>
-                  <div className="bg-yellow-500/10 rounded-lg p-3 border border-yellow-500/20">
-                    <div className="text-2xl font-bold text-yellow-400">{diffResult.changes}</div>
-                    <div className="text-sm text-muted-foreground">Changes</div>
+                  <div className="bg-yellow-500/10 rounded-lg p-2 sm:p-3 border border-yellow-500/20">
+                    <div className="text-lg sm:text-2xl font-bold text-yellow-400">{diffResult.changes}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Changes</div>
                   </div>
-                  <div className="bg-blue-500/10 rounded-lg p-3 border border-blue-500/20">
-                    <div className="text-2xl font-bold text-blue-400">
+                  <div className="bg-blue-500/10 rounded-lg p-2 sm:p-3 border border-blue-500/20">
+                    <div className="text-lg sm:text-2xl font-bold text-blue-400">
                       {Math.round(((diffResult.chunks.filter(c => c.type === 'equal').length) / diffResult.chunks.length) * 100)}%
                     </div>
-                    <div className="text-sm text-muted-foreground">Similarity</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Similarity</div>
                   </div>
                 </div>
               </CardContent>
@@ -162,9 +194,9 @@ export default function DiffCheckerPage() {
 
             {/* Diff Views */}
             <Tabs defaultValue="visual">
-              <TabsList>
-                <TabsTrigger value="visual">Visual Diff</TabsTrigger>
-                <TabsTrigger value="unified">Unified Diff</TabsTrigger>
+              <TabsList className="w-full sm:w-auto">
+                <TabsTrigger value="visual" className="flex-1 sm:flex-none">Visual Diff</TabsTrigger>
+                <TabsTrigger value="unified" className="flex-1 sm:flex-none">Unified Diff</TabsTrigger>
               </TabsList>
 
               <TabsContent value="visual" className="space-y-4">
@@ -180,9 +212,9 @@ export default function DiffCheckerPage() {
 
               <TabsContent value="unified" className="space-y-4">
                 <Card>
-                  <CardHeader className="flex flex-row items-center justify-between">
+                  <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <CardTitle className="text-lg">Unified Diff Format</CardTitle>
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                       <CopyButton text={unifiedDiff} disabled={!unifiedDiff} size="sm" />
                       <DownloadButton 
                         content={unifiedDiff} 
@@ -216,6 +248,89 @@ export default function DiffCheckerPage() {
             </CardContent>
           </Card>
         )}
+        </div>
+
+        {/* Why Use + Key Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                Why Use Text Diff Checker?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Version Control</p>
+                  <p className="text-sm text-muted-foreground">Compare different versions of documents, code, or content to track changes.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Quality Assurance</p>
+                  <p className="text-sm text-muted-foreground">Identify differences between original and edited content for proofreading.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Code Review</p>
+                  <p className="text-sm text-muted-foreground">Compare code changes, identify bugs, and review modifications.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Document Comparison</p>
+                  <p className="text-sm text-muted-foreground">Compare contracts, legal documents, or any text-based files.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Zap className="h-5 w-5 text-primary" />
+                Key Features
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Line-by-line and word-by-word comparison</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Color-coded differences (added, removed, unchanged)</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Unified diff format output</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Side-by-side text comparison</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Real-time diff calculation</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Export and copy diff results</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm">Text swap functionality</span>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </ToolLayout>
   );

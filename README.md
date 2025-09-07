@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+# TextCraft 🛠️
 
-## Project info
+> Professional text processing tools that run entirely in your browser. Fast, secure, and always available.
 
-**URL**: https://lovable.dev/projects/5b80211c-76f6-40fb-adf6-bfef305ab95a
+[![Website](https://img.shields.io/badge/Website-www.textcraft.dev-blue)](https://www.textcraft.dev)
+[![Email](https://img.shields.io/badge/Email-testcraftdev@gmail.com-red)](mailto:testcraftdev@gmail.com)
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- 🚀 **Lightning Fast** - Instant processing with zero server round-trips
+- 🔒 **Privacy First** - Your data never leaves your device
+- 🌐 **Always Available** - Works offline once loaded
+- 📱 **Mobile Friendly** - Responsive design for all devices
+- 🎨 **Modern UI** - Clean, intuitive interface
+- 🆓 **Completely Free** - No usage limits or hidden costs
 
-**Use Lovable**
+## 🛠️ Tools
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5b80211c-76f6-40fb-adf6-bfef305ab95a) and start prompting.
+### Word Counter
+Count words, characters, sentences, and paragraphs with live reading time estimates. Perfect for writers, bloggers, and content creators.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Case Converter
+Transform text between different cases: UPPERCASE, lowercase, Title Case, camelCase, kebab-case, snake_case, and more.
 
-**Use your preferred IDE**
+### Line Breaks Remover
+Clean up and normalize text whitespace and formatting. Remove extra line breaks, normalize spacing, and format text properly.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Text Diff Checker
+Compare two texts and highlight differences side by side. Great for reviewing changes, comparing versions, and finding discrepancies.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Lorem Ipsum Generator
+Generate placeholder text for your projects and mockups. Choose from different types and lengths of Lorem Ipsum text.
 
-Follow these steps:
+## 🌐 Live Website
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Visit [www.textcraft.dev](https://www.textcraft.dev) to use TextCraft online.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📧 Contact
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Email**: testcraftdev@gmail.com
+- **Website**: [www.textcraft.dev](https://www.textcraft.dev)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## ⚠️ Important Notice
+
+This project and its design are proprietary. The code, design, and user interface are protected intellectual property. Unauthorized copying, distribution, or use of this design is strictly prohibited.
+
+## 🏗️ Project Structure
+
+```
+textcraft/
+├── public/                 # Static assets
+├── src/
+│   ├── components/        # Reusable UI components
+│   │   ├── ui/           # Base UI components
+│   │   └── layouts/      # Layout components
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   │   └── text/         # Text processing utilities
+│   ├── pages/            # Page components
+│   │   └── tools/        # Individual tool pages
+│   └── main.tsx          # Application entry point
+├── docs/                 # Generated documentation
+├── tests/                # Test files
+└── README.md
 ```
 
-**Edit a file directly in GitHub**
+## 🔒 Proprietary Software
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+TextCraft is proprietary software. The source code, design, and user interface are protected intellectual property.
 
-**Use GitHub Codespaces**
+### Terms of Use
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- This software is provided for personal and commercial use
+- The design and user interface are proprietary and protected
+- Unauthorized copying, distribution, or reverse engineering is prohibited
+- Any violation of these terms may result in legal action
 
-## What technologies are used for this project?
+## 🐛 Bug Reports
 
-This project is built with:
+Found a bug? Please report it!
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Email us at **testcraftdev@gmail.com** with:
+- Clear description of the problem
+- Steps to reproduce
+- Expected vs actual behavior
+- Browser and OS information
+- Screenshots if applicable
 
-## How can I deploy this project?
+## 💡 Feature Requests
 
-Simply open [Lovable](https://lovable.dev/projects/5b80211c-76f6-40fb-adf6-bfef305ab95a) and click on Share -> Publish.
+Have an idea for a new tool or improvement?
 
-## Can I connect a custom domain to my Lovable project?
+Email us at **testcraftdev@gmail.com** with:
+- Description of the feature
+- Use cases and benefits
+- Any mockups or examples
 
-Yes, you can!
+## 📧 Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+For any questions, issues, or feature requests, please contact us at **testcraftdev@gmail.com**.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📄 License
+
+This is proprietary software. All rights reserved.
+
+## 🙏 Acknowledgments
+
+- [React](https://reactjs.org/) - UI library
+- [Vite](https://vitejs.dev/) - Build tool
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Radix UI](https://www.radix-ui.com/) - Accessible components
+- [Lucide React](https://lucide.dev/) - Icons
+
+## 📊 Project Status
+
+- ✅ **Core Tools** - All 5 text processing tools implemented
+- ✅ **Responsive Design** - Mobile and desktop optimized
+- ✅ **SEO Optimized** - Search engine friendly
+- ✅ **Analytics Ready** - Google Analytics 4 integration
+- ✅ **PWA Support** - Progressive Web App features
+
+## 📞 Support
+
+- 📧 **Email**: testcraftdev@gmail.com
+- 🌐 **Website**: [www.textcraft.dev](https://www.textcraft.dev)
+
+## 🔗 Links
+
+- 🌐 **Website**: [www.textcraft.dev](https://www.textcraft.dev)
+- 📧 **Email**: testcraftdev@gmail.com
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by TextCraft</p>
+  <p>
+    <a href="https://www.textcraft.dev">Website</a> •
+    <a href="mailto:testcraftdev@gmail.com">Contact</a>
+  </p>
+</div>

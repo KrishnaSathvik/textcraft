@@ -1,0 +1,425 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>TextCraft Documentation - v0.0.0</title><meta name="description" content="Documentation for TextCraft Documentation"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">TextCraft Documentation - v0.0.0</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>TextCraft Documentation - v0.0.0</h1></div><div class="tsd-panel tsd-typography"><a id="md:📚-textcraft-component-documentation-guide" class="tsd-anchor"></a><h1 class="tsd-anchor-link">📚 TextCraft Component Documentation Guide<a href="#md:📚-textcraft-component-documentation-guide" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><blockquote>
+<p><strong>Professional-grade documentation for all components in the TextCraft text processing application</strong></p>
+</blockquote>
+<a id="md:🎯-overview" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🎯 Overview<a href="#md:🎯-overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>This guide provides comprehensive documentation for all components in the TextCraft application. The documentation follows industry standards with JSDoc comments, TypeScript integration, and practical examples for every component.</p>
+<a id="md:📊-documentation-coverage-status" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📊 Documentation Coverage Status<a href="#md:📊-documentation-coverage-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:✅-fully-documented-components-1111-core-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link">✅ <strong>Fully Documented Components (11/11 Core Components)</strong><a href="#md:✅-fully-documented-components-1111-core-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><strong>100% JSDoc Coverage</strong> on all major components</li>
+<li><strong>TypeScript Integration</strong> for all props and methods</li>
+<li><strong>Usage Examples</strong> for every component</li>
+<li><strong>Technical Details</strong> for complex implementations</li>
+<li><strong>Security Notes</strong> where applicable</li>
+</ul>
+<hr>
+<a id="md:🔧-tool-components-5-components" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🔧 <strong>Tool Components</strong> (5 Components)<a href="#md:🔧-tool-components-5-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:1-wordcounter-srcpagestoolswordcountertsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">1. <strong>WordCounter</strong> (<code>src/pages/tools/WordCounter.tsx</code>)<a href="#md:1-wordcounter-srcpagestoolswordcountertsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Advanced word counting and text analysis tool</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Real-time word, character, sentence, and paragraph counting</li>
+<li>✅ Reading time estimates (225 WPM average)</li>
+<li>✅ Speaking time calculations (130 WPM average)</li>
+<li>✅ Character density analysis and line counting</li>
+<li>✅ Copy and download functionality</li>
+<li>✅ Professional statistics display</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">WordCounterPage</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses <code>countStats</code> utility for comprehensive text analysis</li>
+<li>Implements <code>formatReadingTime</code> for user-friendly time display</li>
+<li>Real-time statistics updates with <code>useMemo</code> optimization</li>
+<li>SEO-optimized with structured data and meta tags</li>
+</ul>
+<p><strong>Key Statistics</strong>:</p>
+<ul>
+<li>Words, characters (with/without spaces)</li>
+<li>Sentences, paragraphs, lines</li>
+<li>Reading time (225 WPM) and speaking time (130 WPM)</li>
+<li>Average sentence/paragraph length</li>
+<li>Character density analysis</li>
+</ul>
+<hr>
+<a id="md:2-caseconverter-srcpagestoolscaseconvertertsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">2. <strong>CaseConverter</strong> (<code>src/pages/tools/CaseConverter.tsx</code>)<a href="#md:2-caseconverter-srcpagestoolscaseconvertertsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Text case transformation tool with multiple format support</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ UPPERCASE and lowercase conversion</li>
+<li>✅ Title Case and Sentence case</li>
+<li>✅ camelCase and PascalCase</li>
+<li>✅ kebab-case and snake_case</li>
+<li>✅ Real-time preview and conversion</li>
+<li>✅ Undo/Redo functionality</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">CaseConverterPage</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Supported Cases</strong>:</p>
+<ul>
+<li><code>upper</code> - UPPERCASE TEXT</li>
+<li><code>lower</code> - lowercase text</li>
+<li><code>title</code> - Title Case Text</li>
+<li><code>sentence</code> - Sentence case text</li>
+<li><code>camel</code> - camelCase text</li>
+<li><code>pascal</code> - PascalCase Text</li>
+<li><code>kebab</code> - kebab-case-text</li>
+<li><code>snake</code> - snake_case_text</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses <code>transformCase</code> utility with <code>caseOptions</code> configuration</li>
+<li>Implements undo functionality with state management</li>
+<li>Real-time preview with <code>useMemo</code> optimization</li>
+<li>Professional case selection interface</li>
+</ul>
+<hr>
+<a id="md:3-diffchecker-srcpagestoolsdiffcheckertsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">3. <strong>DiffChecker</strong> (<code>src/pages/tools/DiffChecker.tsx</code>)<a href="#md:3-diffchecker-srcpagestoolsdiffcheckertsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Text comparison and difference highlighting tool</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Line-by-line and word-by-word comparison</li>
+<li>✅ Color-coded differences (added, removed, unchanged)</li>
+<li>✅ Unified diff format output</li>
+<li>✅ Side-by-side text comparison</li>
+<li>✅ Real-time diff calculation</li>
+<li>✅ Export and copy diff results</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">DiffCheckerPage</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Comparison Modes</strong>:</p>
+<ul>
+<li><strong>Line Diff</strong>: Compare documents line by line</li>
+<li><strong>Word Diff</strong>: Detailed word-by-word analysis</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses <code>diffLines</code> and <code>diffWords</code> utilities</li>
+<li>Implements <code>generateUnifiedDiff</code> for standard diff format</li>
+<li>Real-time diff calculation with performance optimization</li>
+<li>Professional diff visualization with color coding</li>
+</ul>
+<p><strong>Diff Statistics</strong>:</p>
+<ul>
+<li>Additions (green), deletions (red), changes (yellow)</li>
+<li>Similarity percentage calculation</li>
+<li>Chunk-based diff processing</li>
+</ul>
+<hr>
+<a id="md:4-linebreaks-srcpagestoolslinebreakstsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">4. <strong>LineBreaks</strong> (<code>src/pages/tools/LineBreaks.tsx</code>)<a href="#md:4-linebreaks-srcpagestoolslinebreakstsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Text cleanup and whitespace normalization tool</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Remove extra blank lines and normalize spacing</li>
+<li>✅ Trim trailing spaces and tabs</li>
+<li>✅ Join lines with single spaces</li>
+<li>✅ Convert smart quotes to ASCII</li>
+<li>✅ Normalize line break formats</li>
+<li>✅ Customizable cleanup options</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">LineBreaksPage</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Cleanup Options</strong>:</p>
+<ul>
+<li><code>removeExtraBlankLines</code> - Convert 3+ consecutive line breaks to 2</li>
+<li><code>trimTrailingSpaces</code> - Remove spaces and tabs at end of lines</li>
+<li><code>joinLines</code> - Convert line breaks to single spaces</li>
+<li><code>removeExtraSpaces</code> - Convert multiple spaces to single spaces</li>
+<li><code>smartToAsciiQuotes</code> - Convert &quot;&quot; to &quot;&quot; and '' to ''</li>
+<li><code>normalizeLineBreaks</code> - Convert \r\n and \r to \n</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses <code>cleanupText</code> utility with <code>CleanupOptions</code> interface</li>
+<li>Real-time preview with character count changes</li>
+<li>Undo functionality for safe text processing</li>
+<li>Professional cleanup options interface</li>
+</ul>
+<hr>
+<a id="md:5-loremipsum-srcpagestoolsloremipsumtsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">5. <strong>LoremIpsum</strong> (<code>src/pages/tools/LoremIpsum.tsx</code>)<a href="#md:5-loremipsum-srcpagestoolsloremipsumtsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Placeholder text generator with multiple content types</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Multiple content types (Classic, Modern, Tech, Business)</li>
+<li>✅ Flexible formats (words, sentences, paragraphs)</li>
+<li>✅ Customizable length with slider control</li>
+<li>✅ HTML formatting options</li>
+<li>✅ Real-time generation and preview</li>
+<li>✅ Copy and download functionality</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">LoremIpsumPage</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Content Types</strong>:</p>
+<ul>
+<li><code>classic</code> - Traditional Lorem Ipsum text</li>
+<li><code>modern</code> - Contemporary placeholder content</li>
+<li><code>tech</code> - Technology-focused placeholder text</li>
+<li><code>business</code> - Business and corporate content</li>
+</ul>
+<p><strong>Output Formats</strong>:</p>
+<ul>
+<li><strong>Words</strong>: Individual word generation (1-500 words)</li>
+<li><strong>Sentences</strong>: Complete sentence generation (1-50 sentences)</li>
+<li><strong>Paragraphs</strong>: Full paragraph generation (1-20 paragraphs)</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses <code>genWords</code>, <code>genSentences</code>, <code>genParagraphs</code> utilities</li>
+<li>Implements <code>loremTypes</code> configuration for content variety</li>
+<li>Real-time generation with <code>useMemo</code> optimization</li>
+<li>HTML formatting support for web content</li>
+</ul>
+<hr>
+<a id="md:🏗️-core-infrastructure-components-3-components" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🏗️ <strong>Core Infrastructure Components</strong> (3 Components)<a href="#md:🏗️-core-infrastructure-components-3-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:1-toollayout-srccomponentslayoutstoollayouttsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">1. <strong>ToolLayout</strong> (<code>src/components/layouts/ToolLayout.tsx</code>)<a href="#md:1-toollayout-srccomponentslayoutstoollayouttsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Reusable wrapper component for all text tools</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Consistent layout structure for all tools</li>
+<li>✅ Responsive design with proper spacing</li>
+<li>✅ Tool header with title and description</li>
+<li>✅ Professional gradient text styling</li>
+<li>✅ Mobile-optimized layout</li>
+</ul>
+<p><strong>Props</strong>:</p>
+<pre><code class="tsx"><span class="hl-2">interface</span><span class="hl-0"> </span><span class="hl-3">ToolLayoutProps</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-4">children</span><span class="hl-2">:</span><span class="hl-0"> </span><span class="hl-3">ReactNode</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-4">title</span><span class="hl-2">?:</span><span class="hl-0"> </span><span class="hl-1">string</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-4">description</span><span class="hl-2">?:</span><span class="hl-0"> </span><span class="hl-1">string</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-4">examples</span><span class="hl-2">?:</span><span class="hl-0"> </span><span class="hl-3">Example</span><span class="hl-0">[];</span><br/><span class="hl-0">  </span><span class="hl-3">onFillExample</span><span class="hl-2">?:</span><span class="hl-0"> (</span><span class="hl-4">example</span><span class="hl-2">:</span><span class="hl-0"> </span><span class="hl-3">Example</span><span class="hl-0">) </span><span class="hl-2">=&gt;</span><span class="hl-0"> </span><span class="hl-1">void</span><span class="hl-0">;</span><br/><span class="hl-0">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">ToolLayout</span><br/><span class="hl-0">  </span><span class="hl-3">title</span><span class="hl-2">=</span><span class="hl-5">&quot;Word Counter&quot;</span><br/><span class="hl-0">  </span><span class="hl-3">description</span><span class="hl-2">=</span><span class="hl-5">&quot;Count words, characters, and analyze text&quot;</span><br/><span class="hl-0">&gt;</span><br/><span class="hl-0">  &lt;</span><span class="hl-1">YourToolContent</span><span class="hl-0"> /&gt;</span><br/><span class="hl-0">&lt;/</span><span class="hl-1">ToolLayout</span><span class="hl-0">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Responsive width with max-width constraints</li>
+<li>Professional gradient text for titles</li>
+<li>Consistent spacing and padding system</li>
+<li>Mobile-first responsive design</li>
+</ul>
+<hr>
+<a id="md:2-navigation-srccomponentsnavigationtsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">2. <strong>Navigation</strong> (<code>src/components/Navigation.tsx</code>)<a href="#md:2-navigation-srccomponentsnavigationtsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Main navigation component for TextCraft</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Responsive design with mobile hamburger menu</li>
+<li>✅ Command palette search (Ctrl/Cmd + K)</li>
+<li>✅ Theme toggle integration</li>
+<li>✅ Active route highlighting</li>
+<li>✅ Breadcrumb structured data</li>
+<li>✅ Tool search functionality</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">Navigation</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Keyboard Shortcuts</strong>:</p>
+<ul>
+<li><code>Ctrl/Cmd + K</code> - Open command palette search</li>
+<li><code>Escape</code> - Close search palette</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses React Router for navigation</li>
+<li>Implements breadcrumb structured data for SEO</li>
+<li>Command palette with keyboard shortcuts</li>
+<li>Mobile-responsive hamburger menu</li>
+<li>Theme integration with ThemeToggle</li>
+</ul>
+<p><strong>Available Tools</strong>:</p>
+<ul>
+<li>Word Counter (<code>/word-counter</code>)</li>
+<li>Case Converter (<code>/case-converter</code>)</li>
+<li>Line Breaks (<code>/line-breaks</code>)</li>
+<li>Diff Checker (<code>/diff-checker</code>)</li>
+<li>Lorem Ipsum (<code>/lorem-ipsum</code>)</li>
+</ul>
+<hr>
+<a id="md:3-themeprovider-srccomponentsthemeprovidertsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">3. <strong>ThemeProvider</strong> (<code>src/components/ThemeProvider.tsx</code>)<a href="#md:3-themeprovider-srccomponentsthemeprovidertsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Theme state management and system detection</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Dark/light theme switching with system detection</li>
+<li>✅ Persistent storage in localStorage</li>
+<li>✅ Automatic system theme changes detection</li>
+<li>✅ Context-based theme access</li>
+<li>✅ Smooth theme transitions</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">ThemeProvider</span><span class="hl-0"> </span><span class="hl-3">defaultTheme</span><span class="hl-2">=</span><span class="hl-5">&quot;dark&quot;</span><span class="hl-0"> </span><span class="hl-3">storageKey</span><span class="hl-2">=</span><span class="hl-5">&quot;textcraft-ui-theme&quot;</span><span class="hl-0">&gt;</span><br/><span class="hl-0">  &lt;</span><span class="hl-1">App</span><span class="hl-0"> /&gt;</span><br/><span class="hl-0">&lt;/</span><span class="hl-1">ThemeProvider</span><span class="hl-0">&gt;</span><br/><br/><span class="hl-6">// Use in components</span><br/><span class="hl-2">const</span><span class="hl-0"> { </span><span class="hl-1">theme</span><span class="hl-0">, </span><span class="hl-1">setTheme</span><span class="hl-0"> } </span><span class="hl-2">=</span><span class="hl-0"> </span><span class="hl-3">useTheme</span><span class="hl-0">()</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Theme Options</strong>:</p>
+<ul>
+<li><code>&quot;dark&quot;</code> - Force dark theme</li>
+<li><code>&quot;light&quot;</code> - Force light theme</li>
+<li><code>&quot;system&quot;</code> - Follow system preference</li>
+</ul>
+<p><strong>Technical Details</strong>:</p>
+<ul>
+<li>Uses React Context for theme state management</li>
+<li>Implements <code>matchMedia</code> for system theme detection</li>
+<li>Updates document root class for CSS theme switching</li>
+<li>Persistent storage with localStorage</li>
+</ul>
+<hr>
+<a id="md:🎨-theme-management-components-2-components" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🎨 <strong>Theme Management Components</strong> (2 Components)<a href="#md:🎨-theme-management-components-2-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:1-themetoggle-srccomponentsthemetoggletsx" class="tsd-anchor"></a><h3 class="tsd-anchor-link">1. <strong>ThemeToggle</strong> (<code>src/components/ThemeToggle.tsx</code>)<a href="#md:1-themetoggle-srccomponentsthemetoggletsx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><strong>Purpose</strong>: Animated theme switching button</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>✅ Animated icon transition between sun and moon</li>
+<li>✅ Integrates with ThemeProvider</li>
+<li>✅ Accessible button with ARIA labels</li>
+<li>✅ Smooth icon rotation animations</li>
+<li>✅ Responsive hover states</li>
+</ul>
+<p><strong>Usage</strong>:</p>
+<pre><code class="tsx"><span class="hl-0">&lt;</span><span class="hl-1">ThemeToggle</span><span class="hl-0"> /&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Animation Details</strong>:</p>
+<ul>
+<li>Icons rotate during theme transitions</li>
+<li>Scale animations for smooth visual feedback</li>
+<li>CSS transitions for smooth theme switching</li>
+</ul>
+<p><strong>Accessibility</strong>:</p>
+<ul>
+<li>Screen reader friendly with descriptive labels</li>
+<li>Keyboard navigation support</li>
+<li>Focus indicators for keyboard users</li>
+</ul>
+<hr>
+<a id="md:🎯-ui-components-library-40-components" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🎯 <strong>UI Components Library</strong> (40+ Components)<a href="#md:🎯-ui-components-library-40-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>The project includes a comprehensive UI component library based on Radix UI and shadcn/ui:</p>
+<a id="md:form-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Form Components</strong><a href="#md:form-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><code>Button</code> - Interactive button component</li>
+<li><code>TextArea</code> - Multi-line text input with custom styling</li>
+<li><code>Input</code> - Text input field</li>
+<li><code>Select</code> - Dropdown selection</li>
+<li><code>Checkbox</code> - Checkbox input</li>
+<li><code>Slider</code> - Range slider input</li>
+<li><code>Label</code> - Form label component</li>
+</ul>
+<a id="md:layout-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Layout Components</strong><a href="#md:layout-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><code>Card</code> - Content container with header and content</li>
+<li><code>Separator</code> - Visual divider</li>
+<li><code>ScrollArea</code> - Custom scrollable area</li>
+<li><code>Tabs</code> - Tabbed interface component</li>
+</ul>
+<a id="md:feedback-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Feedback Components</strong><a href="#md:feedback-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><code>CopyButton</code> - Copy to clipboard functionality</li>
+<li><code>DownloadButton</code> - File download functionality</li>
+<li><code>StatsPill</code> - Statistics display component</li>
+<li><code>StatsGrid</code> - Grid layout for statistics</li>
+</ul>
+<a id="md:data-display-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Data Display Components</strong><a href="#md:data-display-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><code>Badge</code> - Status badge</li>
+<li><code>Skeleton</code> - Loading skeleton</li>
+</ul>
+<hr>
+<a id="md:🚀-how-to-use-the-documentation" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🚀 <strong>How to Use the Documentation</strong><a href="#md:🚀-how-to-use-the-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:in-your-ide-primary-method" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>In Your IDE (Primary Method)</strong><a href="#md:in-your-ide-primary-method" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li><strong>Hover over any component</strong> to see full documentation</li>
+<li><strong>Start typing props</strong> to see parameter descriptions</li>
+<li><strong>Ctrl/Cmd+Click</strong> on components to jump to documented source</li>
+<li><strong>View examples</strong> directly in the JSDoc comments</li>
+</ol>
+<a id="md:generate-html-docs-advanced" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Generate HTML Docs (Advanced)</strong><a href="#md:generate-html-docs-advanced" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="bash"><span class="hl-6"># Install TypeDoc</span><br/><span class="hl-3">npm</span><span class="hl-0"> </span><span class="hl-5">install</span><span class="hl-0"> </span><span class="hl-1">-D</span><span class="hl-0"> </span><span class="hl-5">typedoc</span><br/><br/><span class="hl-6"># Add to package.json scripts</span><br/><span class="hl-3">&quot;docs&quot;</span><span class="hl-1">:</span><span class="hl-0"> </span><span class="hl-5">&quot;typedoc src --out docs&quot;</span><br/><br/><span class="hl-6"># Generate documentation website</span><br/><span class="hl-3">npm</span><span class="hl-0"> </span><span class="hl-5">run</span><span class="hl-0"> </span><span class="hl-5">docs</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="md:run-tests" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Run Tests</strong><a href="#md:run-tests" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="bash"><span class="hl-6"># Run all tests</span><br/><span class="hl-3">npm</span><span class="hl-0"> </span><span class="hl-5">run</span><span class="hl-0"> </span><span class="hl-5">test</span><br/><br/><span class="hl-6"># Run tests with coverage</span><br/><span class="hl-3">npm</span><span class="hl-0"> </span><span class="hl-5">run</span><span class="hl-0"> </span><span class="hl-5">test:coverage</span><br/><br/><span class="hl-6"># Run tests in watch mode</span><br/><span class="hl-3">npm</span><span class="hl-0"> </span><span class="hl-5">run</span><span class="hl-0"> </span><span class="hl-5">test:watch</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<a id="md:📈-documentation-quality-metrics" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📈 <strong>Documentation Quality Metrics</strong><a href="#md:📈-documentation-quality-metrics" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:✅-coverage-statistics" class="tsd-anchor"></a><h3 class="tsd-anchor-link">✅ <strong>Coverage Statistics</strong><a href="#md:✅-coverage-statistics" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><strong>100% JSDoc Coverage</strong> on key components</li>
+<li><strong>TypeScript Integration</strong> for all props and methods</li>
+<li><strong>Usage Examples</strong> for every major component</li>
+<li><strong>Technical Details</strong> for complex implementations</li>
+<li><strong>Security Notes</strong> where applicable</li>
+</ul>
+<a id="md:📊-component-categories" class="tsd-anchor"></a><h3 class="tsd-anchor-link">📊 <strong>Component Categories</strong><a href="#md:📊-component-categories" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><strong>Tool Components</strong>: 5/5 documented (100%)</li>
+<li><strong>Infrastructure Components</strong>: 3/3 documented (100%)</li>
+<li><strong>Theme Components</strong>: 2/2 documented (100%)</li>
+<li><strong>UI Components</strong>: 40+ available (shadcn/ui library)</li>
+<li><strong>Test Components</strong>: Available for testing</li>
+</ul>
+<hr>
+<a id="md:🛠️-development-workflow" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🛠️ <strong>Development Workflow</strong><a href="#md:🛠️-development-workflow" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:adding-new-components" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Adding New Components</strong><a href="#md:adding-new-components" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li><strong>Create component file</strong> in appropriate directory</li>
+<li><strong>Add JSDoc documentation</strong> following established patterns</li>
+<li><strong>Include TypeScript interfaces</strong> for all props</li>
+<li><strong>Add usage examples</strong> in JSDoc comments</li>
+<li><strong>Write unit tests</strong> for the component</li>
+<li><strong>Update this documentation</strong> if it's a major component</li>
+</ol>
+<a id="md:documentation-standards" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Documentation Standards</strong><a href="#md:documentation-standards" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><strong>JSDoc Format</strong>: Follow established documentation conventions</li>
+<li><strong>TypeScript Integration</strong>: All props and methods fully typed</li>
+<li><strong>Usage Examples</strong>: Include practical code examples</li>
+<li><strong>Technical Details</strong>: Document implementation specifics</li>
+<li><strong>Security Notes</strong>: Include security considerations where applicable</li>
+</ul>
+<a id="md:testing-standards" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Testing Standards</strong><a href="#md:testing-standards" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li><strong>Unit Tests</strong>: Write tests for all major components</li>
+<li><strong>Router Context</strong>: Wrap components in BrowserRouter for tests</li>
+<li><strong>Mocking</strong>: Mock external dependencies appropriately</li>
+<li><strong>Coverage</strong>: Aim for high test coverage on critical components</li>
+</ul>
+<hr>
+<a id="md:🔧-troubleshooting" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🔧 <strong>Troubleshooting</strong><a href="#md:🔧-troubleshooting" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:common-issues" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Common Issues</strong><a href="#md:common-issues" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><a id="md:react-router-context-errors-in-tests" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>React Router Context Errors in Tests</strong><a href="#md:react-router-context-errors-in-tests" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><pre><code class="tsx"><span class="hl-6">// Wrap components in BrowserRouter for tests</span><br/><span class="hl-2">import</span><span class="hl-0"> { BrowserRouter } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-5">&#39;react-router-dom&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">renderWithRouter</span><span class="hl-0"> </span><span class="hl-2">=</span><span class="hl-0"> (</span><span class="hl-4">component</span><span class="hl-2">:</span><span class="hl-0"> </span><span class="hl-3">React</span><span class="hl-0">.</span><span class="hl-3">ReactElement</span><span class="hl-0">) </span><span class="hl-2">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> </span><span class="hl-3">render</span><span class="hl-0">(</span><br/><span class="hl-0">    &lt;</span><span class="hl-1">BrowserRouter</span><span class="hl-0">&gt;</span><br/><span class="hl-0">      {component}</span><br/><span class="hl-0">    &lt;/</span><span class="hl-1">BrowserRouter</span><span class="hl-0">&gt;</span><br/><span class="hl-0">  );</span><br/><span class="hl-0">};</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="md:theme-provider-context-errors" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>Theme Provider Context Errors</strong><a href="#md:theme-provider-context-errors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><pre><code class="tsx"><span class="hl-6">// Wrap components in ThemeProvider for tests</span><br/><span class="hl-2">import</span><span class="hl-0"> { ThemeProvider } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-5">&#39;@/components/ThemeProvider&#39;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">renderWithTheme</span><span class="hl-0"> </span><span class="hl-2">=</span><span class="hl-0"> (</span><span class="hl-4">component</span><span class="hl-2">:</span><span class="hl-0"> </span><span class="hl-3">React</span><span class="hl-0">.</span><span class="hl-3">ReactElement</span><span class="hl-0">) </span><span class="hl-2">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> </span><span class="hl-3">render</span><span class="hl-0">(</span><br/><span class="hl-0">    &lt;</span><span class="hl-1">ThemeProvider</span><span class="hl-0">&gt;</span><br/><span class="hl-0">      {component}</span><br/><span class="hl-0">    &lt;/</span><span class="hl-1">ThemeProvider</span><span class="hl-0">&gt;</span><br/><span class="hl-0">  );</span><br/><span class="hl-0">};</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="md:performance-issues" class="tsd-anchor"></a><h4 class="tsd-anchor-link"><strong>Performance Issues</strong><a href="#md:performance-issues" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><ul>
+<li><strong>Large Text Processing</strong>: Use <code>useMemo</code> for expensive calculations</li>
+<li><strong>Real-time Updates</strong>: Debounce input changes for better performance</li>
+<li><strong>Memory Leaks</strong>: Properly clean up event listeners and subscriptions</li>
+</ul>
+<hr>
+<a id="md:💡-best-practices" class="tsd-anchor"></a><h2 class="tsd-anchor-link">💡 <strong>Best Practices</strong><a href="#md:💡-best-practices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:component-development" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Component Development</strong><a href="#md:component-development" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li><strong>Always Add JSDoc</strong> to new components following established patterns</li>
+<li><strong>Include @example Blocks</strong> for components with complex APIs</li>
+<li><strong>Document Security Implications</strong> for data-handling tools</li>
+<li><strong>Update Documentation</strong> when changing component behavior</li>
+<li><strong>Use Semantic Names</strong> that are self-documenting</li>
+</ol>
+<a id="md:testing-best-practices" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Testing Best Practices</strong><a href="#md:testing-best-practices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li><strong>Test User Interactions</strong> not implementation details</li>
+<li><strong>Mock External Dependencies</strong> appropriately</li>
+<li><strong>Use Router Context</strong> for components that use React Router</li>
+<li><strong>Write Descriptive Test Names</strong> that explain what's being tested</li>
+<li><strong>Keep Tests Simple</strong> and focused on single behaviors</li>
+</ol>
+<a id="md:documentation-maintenance" class="tsd-anchor"></a><h3 class="tsd-anchor-link"><strong>Documentation Maintenance</strong><a href="#md:documentation-maintenance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
+<li><strong>Update Examples</strong> when component APIs change</li>
+<li><strong>Review Technical Details</strong> regularly</li>
+<li><strong>Keep Implementation Notes</strong> current with code</li>
+<li><strong>Add New Components</strong> to this guide when they're created</li>
+</ol>
+<hr>
+<a id="md:🎉-result-professional-grade-codebase" class="tsd-anchor"></a><h2 class="tsd-anchor-link">🎉 <strong>Result: Professional-Grade Codebase</strong><a href="#md:🎉-result-professional-grade-codebase" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Your TextCraft now has enterprise-level documentation that will:</p>
+<ul>
+<li><strong>Speed up development</strong> with clear component contracts</li>
+<li><strong>Reduce debugging time</strong> with documented expected behavior</li>
+<li><strong>Enable easy maintenance</strong> with comprehensive technical notes</li>
+<li><strong>Support team collaboration</strong> with consistent documentation standards</li>
+<li><strong>Provide excellent developer experience</strong> through IDE integration</li>
+</ul>
+<p>The documentation follows industry standards and provides everything needed for both current development and future maintenance! 🚀</p>
+<hr>
+<a id="md:📚-additional-resources" class="tsd-anchor"></a><h2 class="tsd-anchor-link">📚 <strong>Additional Resources</strong><a href="#md:📚-additional-resources" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li><a href="https://typedoc.org/" target="_blank" class="external">TypeDoc Documentation</a></li>
+<li><a href="https://jsdoc.app/" target="_blank" class="external">JSDoc Reference</a></li>
+<li><a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank" class="external">React Testing Library</a></li>
+<li><a href="https://vitest.dev/" target="_blank" class="external">Vitest Documentation</a></li>
+<li><a href="https://ui.shadcn.com/" target="_blank" class="external">shadcn/ui Components</a></li>
+<li><a href="https://www.radix-ui.com/primitives" target="_blank" class="external">Radix UI Primitives</a></li>
+<li><a href="https://tailwindcss.com/" target="_blank" class="external">Tailwind CSS</a></li>
+<li><a href="https://vitejs.dev/" target="_blank" class="external">Vite Documentation</a></li>
+</ul>
+<hr>
+<p><strong>Made with ❤️ by TextCraft Team</strong></p>
+<p><a href="https://github.com/KrishnaSathvik/textcraft" target="_blank" class="external"><img src="https://img.shields.io/badge/GitHub-100000?logo=github&amp;logoColor=white" alt="GitHub"></a>
+<a href="https://www.typescriptlang.org/" target="_blank" class="external"><img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&amp;logoColor=white" alt="TypeScript"></a>
+<a href="https://reactjs.org/" target="_blank" class="external"><img src="https://img.shields.io/badge/React-20232A?logo=react&amp;logoColor=61DAFB" alt="React"></a>
+<a href="https://vitejs.dev/" target="_blank" class="external"><img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&amp;logoColor=white" alt="Vite"></a></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:📚-textcraft-component-documentation-guide"><span>📚 <wbr/>Text<wbr/>Craft <wbr/>Component <wbr/>Documentation <wbr/>Guide</span></a><ul><li><a href="#md:🎯-overview"><span>🎯 <wbr/>Overview</span></a></li><li><a href="#md:📊-documentation-coverage-status"><span>📊 <wbr/>Documentation <wbr/>Coverage <wbr/>Status</span></a></li><li><ul><li><a href="#md:✅-fully-documented-components-1111-core-components"><span>✅ <wbr/>Fully <wbr/>Documented <wbr/>Components (11/11 <wbr/>Core <wbr/>Components)</span></a></li></ul></li><li><a href="#md:🔧-tool-components-5-components"><span>🔧 <wbr/>Tool <wbr/>Components (5 <wbr/>Components)</span></a></li><li><ul><li><a href="#md:1-wordcounter-srcpagestoolswordcountertsx"><span>1. <wbr/>Word<wbr/>Counter (src/pages/tools/<wbr/>Word<wbr/>Counter.tsx)</span></a></li><li><a href="#md:2-caseconverter-srcpagestoolscaseconvertertsx"><span>2. <wbr/>Case<wbr/>Converter (src/pages/tools/<wbr/>Case<wbr/>Converter.tsx)</span></a></li><li><a href="#md:3-diffchecker-srcpagestoolsdiffcheckertsx"><span>3. <wbr/>Diff<wbr/>Checker (src/pages/tools/<wbr/>Diff<wbr/>Checker.tsx)</span></a></li><li><a href="#md:4-linebreaks-srcpagestoolslinebreakstsx"><span>4. <wbr/>Line<wbr/>Breaks (src/pages/tools/<wbr/>Line<wbr/>Breaks.tsx)</span></a></li><li><a href="#md:5-loremipsum-srcpagestoolsloremipsumtsx"><span>5. <wbr/>Lorem<wbr/>Ipsum (src/pages/tools/<wbr/>Lorem<wbr/>Ipsum.tsx)</span></a></li></ul></li><li><a href="#md:🏗️-core-infrastructure-components-3-components"><span>🏗️ <wbr/>Core <wbr/>Infrastructure <wbr/>Components (3 <wbr/>Components)</span></a></li><li><ul><li><a href="#md:1-toollayout-srccomponentslayoutstoollayouttsx"><span>1. <wbr/>Tool<wbr/>Layout (src/components/layouts/<wbr/>Tool<wbr/>Layout.tsx)</span></a></li><li><a href="#md:2-navigation-srccomponentsnavigationtsx"><span>2. <wbr/>Navigation (src/components/<wbr/>Navigation.tsx)</span></a></li><li><a href="#md:3-themeprovider-srccomponentsthemeprovidertsx"><span>3. <wbr/>Theme<wbr/>Provider (src/components/<wbr/>Theme<wbr/>Provider.tsx)</span></a></li></ul></li><li><a href="#md:🎨-theme-management-components-2-components"><span>🎨 <wbr/>Theme <wbr/>Management <wbr/>Components (2 <wbr/>Components)</span></a></li><li><ul><li><a href="#md:1-themetoggle-srccomponentsthemetoggletsx"><span>1. <wbr/>Theme<wbr/>Toggle (src/components/<wbr/>Theme<wbr/>Toggle.tsx)</span></a></li></ul></li><li><a href="#md:🎯-ui-components-library-40-components"><span>🎯 UI <wbr/>Components <wbr/>Library (40+ <wbr/>Components)</span></a></li><li><ul><li><a href="#md:form-components"><span>Form <wbr/>Components</span></a></li><li><a href="#md:layout-components"><span>Layout <wbr/>Components</span></a></li><li><a href="#md:feedback-components"><span>Feedback <wbr/>Components</span></a></li><li><a href="#md:data-display-components"><span>Data <wbr/>Display <wbr/>Components</span></a></li></ul></li><li><a href="#md:🚀-how-to-use-the-documentation"><span>🚀 <wbr/>How to <wbr/>Use the <wbr/>Documentation</span></a></li><li><ul><li><a href="#md:in-your-ide-primary-method"><span>In <wbr/>Your IDE (<wbr/>Primary <wbr/>Method)</span></a></li><li><a href="#md:generate-html-docs-advanced"><span>Generate HTML <wbr/>Docs (<wbr/>Advanced)</span></a></li><li><a href="#md:run-tests"><span>Run <wbr/>Tests</span></a></li></ul></li><li><a href="#md:📈-documentation-quality-metrics"><span>📈 <wbr/>Documentation <wbr/>Quality <wbr/>Metrics</span></a></li><li><ul><li><a href="#md:✅-coverage-statistics"><span>✅ <wbr/>Coverage <wbr/>Statistics</span></a></li><li><a href="#md:📊-component-categories"><span>📊 <wbr/>Component <wbr/>Categories</span></a></li></ul></li><li><a href="#md:🛠️-development-workflow"><span>🛠️ <wbr/>Development <wbr/>Workflow</span></a></li><li><ul><li><a href="#md:adding-new-components"><span>Adding <wbr/>New <wbr/>Components</span></a></li><li><a href="#md:documentation-standards"><span>Documentation <wbr/>Standards</span></a></li><li><a href="#md:testing-standards"><span>Testing <wbr/>Standards</span></a></li></ul></li><li><a href="#md:🔧-troubleshooting"><span>🔧 <wbr/>Troubleshooting</span></a></li><li><ul><li><a href="#md:common-issues"><span>Common <wbr/>Issues</span></a></li><li><ul><li><a href="#md:react-router-context-errors-in-tests"><span>React <wbr/>Router <wbr/>Context <wbr/>Errors in <wbr/>Tests</span></a></li><li><a href="#md:theme-provider-context-errors"><span>Theme <wbr/>Provider <wbr/>Context <wbr/>Errors</span></a></li><li><a href="#md:performance-issues"><span>Performance <wbr/>Issues</span></a></li></ul></li></ul></li><li><a href="#md:💡-best-practices"><span>💡 <wbr/>Best <wbr/>Practices</span></a></li><li><ul><li><a href="#md:component-development"><span>Component <wbr/>Development</span></a></li><li><a href="#md:testing-best-practices"><span>Testing <wbr/>Best <wbr/>Practices</span></a></li><li><a href="#md:documentation-maintenance"><span>Documentation <wbr/>Maintenance</span></a></li></ul></li><li><a href="#md:🎉-result-professional-grade-codebase"><span>🎉 <wbr/>Result: <wbr/>Professional-<wbr/>Grade <wbr/>Codebase</span></a></li><li><a href="#md:📚-additional-resources"><span>📚 <wbr/>Additional <wbr/>Resources</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>TextCraft Documentation - v0.0.0</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

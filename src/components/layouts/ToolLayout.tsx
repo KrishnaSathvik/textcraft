@@ -1,62 +1,89 @@
 import { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '@/components/layout/Header';
+import Breadcrumb from '@/components/Breadcrumb';
 
-interface RelatedTool {
-  href: string;
-  label: string;
+/**
+ * Example data for tool demonstrations
+ */
+interface Example {
+  name: string;
+  input: string;
 }
 
+/**
+ * Props for the ToolLayout component
+ */
 interface ToolLayoutProps {
-  title: string;
-  description: string;
+  /** The main content/UI of the tool - typically the tool's input/output interface */
   children: ReactNode;
-  related?: RelatedTool[];
+  /** Optional title for the tool */
+  title?: string;
+  /** Optional description for the tool */
+  description?: string;
+  /** Optional examples for the tool */
+  examples?: Example[];
+  /** Optional callback when an example is selected */
+  onFillExample?: (example: Example) => void;
 }
 
-export default function ToolLayout({ title, description, children, related = [] }: ToolLayoutProps) {
+/**
+ * ToolLayout - A reusable wrapper component for text tools
+ * 
+ * Provides a consistent layout structure for all tools in the TextCraft application.
+ * Includes main content area with proper spacing and responsive design.
+ * 
+ * @example
+ * ```tsx
+ * <ToolLayout>
+ *   <YourToolContent />
+ * </ToolLayout>
+ * ```
+ * 
+ * @param props - The component props
+ * @returns JSX element containing the tool page layout
+ */
+export const ToolLayout = ({ 
+  children, 
+  title, 
+  description, 
+  examples, 
+  onFillExample 
+}: ToolLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="max-w-4xl mx-auto px-4 py-8">
-        <header className="mb-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            {title}
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {description}
-          </p>
-        </header>
-
-        <section className="bg-card border border-border rounded-lg p-6 mb-8">
-          {children}
-        </section>
-
-        {related.length > 0 && (
-          <section className="mb-8">
-            <h2 className="text-lg font-semibold mb-4 text-foreground">Related Tools</h2>
-            <div className="flex flex-wrap gap-3">
-              {related.map((tool) => (
-                <Link
-                  key={tool.href}
-                  to={tool.href}
-                  className="px-3 py-2 rounded-md bg-secondary hover:bg-hover transition-colors duration-200 text-secondary-foreground text-sm"
-                >
-                  {tool.label}
-                </Link>
-              ))}
+      {/* Tool Content - Responsive width with better desktop sizing */}
+      <div className="w-full px-2 sm:px-4 lg:px-6 xl:px-8">
+        <div className="max-w-4xl xl:max-w-5xl mx-auto">
+          <div className="mx-0 sm:mx-0">
+            {/* Breadcrumb Navigation */}
+            <div className="p-3 sm:p-6 pb-2">
+              <Breadcrumb />
             </div>
-          </section>
-        )}
+            
+            {/* Tool Header */}
+            {(title || description) && (
+              <div className="p-3 sm:p-6 border-b border-border">
+                <div className="text-center">
+                  {title && (
+                    <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold gradient-text mb-2 sm:mb-3">
+                      {title}
+                    </h1>
+                  )}
+                  {description && (
+                    <p className="text-xs sm:text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                      {description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
 
-        <section className="text-sm text-muted-foreground bg-secondary/30 rounded-lg p-4">
-          <p>
-            <strong className="text-foreground">Privacy:</strong> All processing happens in your browser. 
-            Your text is never sent to our servers or stored anywhere.
-          </p>
-        </section>
-      </main>
+            {/* Tool Content */}
+            <div className="w-full">
+              {children}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};

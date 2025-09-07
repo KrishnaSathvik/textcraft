@@ -239,31 +239,17 @@ export const About = () => {
               We'd love to hear from you! Whether you have feedback, suggestions, or just want to say hello, 
               we're always happy to connect with fellow writers and developers.
             </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold text-foreground mb-2">📧 Email Us</h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Send us an email directly
-                </p>
-                <a 
-                  href="mailto:textcraftdev@gmail.com" 
-                  className="text-primary hover:underline text-sm"
-                >
-                  textcraftdev@gmail.com
-                </a>
-              </div>
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold text-foreground mb-2">💼 Licensing</h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Interested in commercial licensing or custom development?
-                </p>
-                <a 
-                  href="mailto:textcraftdev@gmail.com" 
-                  className="text-primary hover:underline text-sm"
-                >
-                  Contact us for licensing
-                </a>
-              </div>
+            <div className="bg-card border border-border rounded-lg p-6 text-center">
+              <h3 className="font-semibold text-foreground mb-2">💼 Commercial Licensing</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Interested in commercial licensing or custom development?
+              </p>
+              <a 
+                href="mailto:textcraftdev@gmail.com" 
+                className="text-primary hover:underline text-sm"
+              >
+                Contact us for licensing
+              </a>
             </div>
           </section>
 

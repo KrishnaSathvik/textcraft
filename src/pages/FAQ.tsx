@@ -238,22 +238,13 @@ export const FAQ = () => {
           <p className="text-muted-foreground mb-6">
             Can't find what you're looking for? We're here to help!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <a 
               href="mailto:textcraftdev@gmail.com" 
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
             >
               <Code2 className="w-4 h-4" />
               Email Us
-            </a>
-            <a 
-              href="https://github.com/KrishnaSathvik/textcraft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 rounded-lg hover:bg-secondary transition-colors"
-            >
-              <Users className="w-4 h-4" />
-              View on GitHub
             </a>
           </div>
         </div>

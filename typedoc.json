@@ -65,7 +65,7 @@
   "gitRemote": "origin",
   "plugin": [],
   "disableSources": false,
-  "sourceLinkTemplate": "https://github.com/KrishnaSathvik/textcraft/blob/{gitRevision}/{path}#L{line}",
+  "sourceLinkTemplate": "",
   "treatWarningsAsErrors": false,
   "validation": {
     "notExported": true,

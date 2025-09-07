@@ -122,19 +122,12 @@ This is proprietary software. All rights reserved.
 ## 📞 Support
 
 - 📧 **Email**: testcraftdev@gmail.com
-- 🌐 **Website**: [www.textcraft.dev](https://www.textcraft.dev)
-
-## 🔗 Links
-
-- 🌐 **Website**: [www.textcraft.dev](https://www.textcraft.dev)
-- 📧 **Email**: testcraftdev@gmail.com
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by TextCraft</p>
   <p>
-    <a href="https://www.textcraft.dev">Website</a> •
     <a href="mailto:testcraftdev@gmail.com">Contact</a>
   </p>
 </div>

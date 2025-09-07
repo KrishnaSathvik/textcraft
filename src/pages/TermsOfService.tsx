@@ -189,8 +189,7 @@ export const TermsOfService = () => {
             </p>
             <div className="bg-card border border-border rounded-lg p-4 mt-4">
               <p className="text-foreground">
-                <strong>Email:</strong> textcraftdev@gmail.com<br />
-                <strong>Website:</strong> <a href="https://www.textcraft.dev" className="text-primary hover:underline">www.textcraft.dev</a>
+                <strong>Email:</strong> textcraftdev@gmail.com
               </p>
             </div>
           </section>

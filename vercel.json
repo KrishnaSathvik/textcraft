@@ -51,10 +51,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "app/api/analytics.js": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  ]
 }

@@ -51,7 +51,7 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
               <Code2 className="h-6 w-6 text-primary" />
-              <span className="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-violet-500 bg-clip-text text-transparent">
                 TextCraft
               </span>
             </Link>

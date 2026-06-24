@@ -291,6 +291,11 @@ All colors MUST be HSL.
     @apply shadow-sm;
   }
 
+  .home-tool-card,
+  .home-guide-card {
+    @apply shadow-sm;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .tool-surface-interactive {
       transition: none;

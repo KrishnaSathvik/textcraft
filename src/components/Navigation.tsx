@@ -1,20 +1,37 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Search, Code2, Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Search, Menu, X, Wrench, BookOpen, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { loadBlogSearchIndex } from '@/data/blogSearchIndex';
 
 /**
  * Available text tools in the navigation
  */
 const tools = [
-  { name: 'Word Counter', path: '/word-counter', full: 'Word Counter' },
-  { name: 'Case Converter', path: '/case-converter', full: 'Case Converter' },
-  { name: 'Line Breaks', path: '/line-breaks', full: 'Line Breaks Remover' },
-  { name: 'Diff Checker', path: '/diff-checker', full: 'Text Diff Checker' },
-  { name: 'Lorem Ipsum', path: '/lorem-ipsum', full: 'Lorem Ipsum Generator' },
-  { name: 'Text Sorter', path: '/text-sorter', full: 'Text Sorter' }
+  { name: 'Word Counter', path: '/word-counter', full: 'Word Counter', keywords: 'word count character reading time speaking time' },
+  { name: 'Case Converter', path: '/case-converter', full: 'Case Converter', keywords: 'case converter title case uppercase lowercase camelcase' },
+  { name: 'Line Breaks', path: '/line-breaks', full: 'Line Breaks Remover', keywords: 'line breaks remove clean pdf email whitespace' },
+  { name: 'Diff Checker', path: '/diff-checker', full: 'Text Diff Checker', keywords: 'diff compare text difference checker' },
+  { name: 'Lorem Ipsum', path: '/lorem-ipsum', full: 'Lorem Ipsum Generator', keywords: 'lorem ipsum placeholder generate dummy text' },
+  { name: 'Text Sorter', path: '/text-sorter', full: 'Text Sorter', keywords: 'sort text alphabetize list organize duplicates' }
 ];
+
+const staticPages = [
+  { name: 'Guides', path: '/blog', full: 'Guides & Blog', keywords: 'guides blog tutorials writing tips', type: 'page' as const },
+  { name: 'About', path: '/about', full: 'About TextCraft', keywords: 'about textcraft team', type: 'page' as const },
+  { name: 'FAQ', path: '/faq', full: 'Frequently Asked Questions', keywords: 'faq help questions answers', type: 'page' as const },
+  { name: 'Compare', path: '/comparisons', full: 'Tool Comparisons', keywords: 'compare alternatives tools', type: 'page' as const },
+];
+
+type SearchResultType = 'tool' | 'guide' | 'page';
+
+interface SearchResult {
+  type: SearchResultType;
+  name: string;
+  path: string;
+  searchText: string;
+}
 
 /**
  * Navigation - The main navigation component for TextCraft
@@ -55,6 +72,49 @@ export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
+  const searchTriggerRef = useRef<HTMLButtonElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [guideSearchItems, setGuideSearchItems] = useState<SearchResult[]>([]);
+  const guidesLoadStarted = useRef(false);
+
+  const staticSearchItems = useMemo<SearchResult[]>(
+    () => [
+      ...tools.map((tool) => ({
+        type: 'tool' as const,
+        name: tool.full,
+        path: tool.path,
+        searchText: `${tool.full} ${tool.keywords}`.toLowerCase(),
+      })),
+      ...staticPages.map((page) => ({
+        type: 'page' as const,
+        name: page.full,
+        path: page.path,
+        searchText: `${page.full} ${page.keywords}`.toLowerCase(),
+      })),
+    ],
+    []
+  );
+
+  useEffect(() => {
+    if (!isSearchOpen || guidesLoadStarted.current) return;
+    guidesLoadStarted.current = true;
+    void loadBlogSearchIndex().then((entries) => {
+      setGuideSearchItems(
+        entries.map((post) => ({
+          type: 'guide' as const,
+          name: post.title,
+          path: `/blog/${post.slug}`,
+          searchText: `${post.title} ${post.excerpt} ${post.tags.join(' ')} ${post.category}`.toLowerCase(),
+        }))
+      );
+    });
+  }, [isSearchOpen]);
+
+  const allSearchItems = useMemo<SearchResult[]>(
+    () => [...staticSearchItems, ...guideSearchItems],
+    [staticSearchItems, guideSearchItems]
+  );
 
   // Generate breadcrumb data
   const generateBreadcrumbs = () => {
@@ -123,6 +183,7 @@ export const Navigation = () => {
       if (e.key === 'Escape') {
         setIsSearchOpen(false);
         setSearchQuery('');
+        searchTriggerRef.current?.focus();
       }
     };
 
@@ -130,14 +191,37 @@ export const Navigation = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const filteredTools = tools.filter(tool =>
-    tool.full.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const isBlogActive =
+    location.pathname === '/blog' || location.pathname.startsWith('/blog/');
 
-  const handleToolSelect = (path: string) => {
+  const filteredResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return allSearchItems.slice(0, 12);
+    return allSearchItems.filter((item) => item.searchText.includes(q)).slice(0, 12);
+  }, [allSearchItems, searchQuery]);
+
+  const closeSearch = () => {
     setIsSearchOpen(false);
     setSearchQuery('');
+    searchTriggerRef.current?.focus();
+  };
+
+  const handleResultSelect = (path: string) => {
+    closeSearch();
     setIsMobileMenuOpen(false);
+    navigate(path);
+  };
+
+  const typeLabel: Record<SearchResultType, string> = {
+    tool: 'Tool',
+    guide: 'Guide',
+    page: 'Page',
+  };
+
+  const typeIcon: Record<SearchResultType, typeof Wrench> = {
+    tool: Wrench,
+    guide: BookOpen,
+    page: FileText,
   };
 
   return (
@@ -152,7 +236,7 @@ export const Navigation = () => {
                 alt="TextCraft Logo" 
                 className="w-5 h-5 sm:w-6 sm:h-6"
               />
-              <span className="text-lg sm:text-xl font-semibold text-foreground bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-semibold text-foreground tracking-tight">
                 TextCraft
               </span>
             </Link>
@@ -172,16 +256,28 @@ export const Navigation = () => {
                   {tool.name}
                 </Link>
               ))}
+              <Link
+                to="/blog"
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isBlogActive
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                }`}
+              >
+                Guides
+              </Link>
             </div>
 
             {/* Search & Mobile Menu */}
             <div className="flex items-center gap-2 sm:gap-3">
               <ThemeToggle />
               <Button
+                ref={searchTriggerRef}
                 variant="outline"
                 size="sm"
                 onClick={() => setIsSearchOpen(true)}
                 className="hidden sm:flex items-center gap-2"
+                aria-haspopup="dialog"
               >
                 <Search className="w-4 h-4" />
                 <span className="hidden md:inline">Search</span>
@@ -219,7 +315,18 @@ export const Navigation = () => {
                     {tool.full}
                   </Link>
                 ))}
-                
+                <Link
+                  to="/blog"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                    isBlogActive
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                  }`}
+                >
+                  Guides
+                </Link>
+
                 {/* Mobile Search Button */}
                 <button
                   onClick={() => {
@@ -229,7 +336,7 @@ export const Navigation = () => {
                   className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 >
                   <Search className="w-4 h-4" />
-                  Search Tools
+                  Search Tools & Guides
                 </button>
               </div>
             </div>
@@ -242,37 +349,67 @@ export const Navigation = () => {
       {isSearchOpen && (
         <div 
           className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
-          onClick={() => setIsSearchOpen(false)}
+          onClick={closeSearch}
+          role="presentation"
         >
-          <div className="fixed left-1/2 top-1/4 sm:top-1/3 -translate-x-1/2 -translate-y-1/2 w-[95vw] sm:w-[90vw] max-w-lg">
-            <div className="bg-card border border-border rounded-lg shadow-lg">
+          <div
+            className="fixed left-1/2 top-1/4 sm:top-[20%] -translate-x-1/2 w-[95vw] sm:w-[90vw] max-w-lg"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Search tools and guides"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-card border border-border rounded-lg shadow-lg overflow-hidden">
               <div className="flex items-center gap-3 p-4 border-b border-border">
-                <Search className="w-5 h-5 text-muted-foreground" />
+                <Search className="w-5 h-5 text-muted-foreground shrink-0" />
                 <input
-                  type="text"
-                  placeholder="Search tools..."
+                  ref={searchInputRef}
+                  type="search"
+                  placeholder="Search tools, guides, pages..."
+                  aria-label="Search tools and guides"
                   className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none text-base"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') closeSearch();
+                    if (e.key === 'Enter' && filteredResults[0]) {
+                      handleResultSelect(filteredResults[0].path);
+                    }
+                  }}
                 />
                 <kbd className="hidden sm:inline-flex px-2 py-1 text-xs text-muted-foreground bg-muted rounded">ESC</kbd>
               </div>
-              <div className="max-h-64 overflow-y-auto">
-                {filteredTools.length > 0 ? (
-                  filteredTools.map((tool) => (
-                    <Link
-                      key={tool.path}
-                      to={tool.path}
-                      onClick={() => handleToolSelect(tool.path)}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-secondary transition-colors border-b border-border last:border-b-0"
-                    >
-                      <div className="font-medium text-foreground text-sm sm:text-base">{tool.full}</div>
-                    </Link>
-                  ))
+              <div className="max-h-72 overflow-y-auto" role="listbox" aria-label="Search results">
+                {filteredResults.length > 0 ? (
+                  filteredResults.map((item) => {
+                    const Icon = typeIcon[item.type];
+                    return (
+                      <button
+                        key={`${item.type}-${item.path}`}
+                        type="button"
+                        role="option"
+                        onClick={() => handleResultSelect(item.path)}
+                        className="flex items-center gap-3 w-full px-4 py-3 hover:bg-secondary transition-colors border-b border-border last:border-b-0 text-left min-h-[44px]"
+                      >
+                        <Icon className="w-4 h-4 text-muted-foreground shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="font-medium text-foreground text-sm truncate">{item.name}</div>
+                        </div>
+                        <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded shrink-0">
+                          {typeLabel[item.type]}
+                        </span>
+                      </button>
+                    );
+                  })
+                ) : searchQuery && guideSearchItems.length === 0 ? (
+                  <div className="px-4 py-8 text-center text-muted-foreground text-sm">
+                    No results for &ldquo;{searchQuery}&rdquo;
+                    <span className="block text-xs mt-2">Guide index still loading…</span>
+                  </div>
                 ) : (
                   <div className="px-4 py-8 text-center text-muted-foreground text-sm">
-                    No tools found for "{searchQuery}"
+                    No results for &ldquo;{searchQuery}&rdquo;
                   </div>
                 )}
               </div>

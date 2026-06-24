@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "mastering-text-case-conversion",
+    "title": "Mastering Text Case Conversion: A Developer's Complete Guide",
+    "excerpt": "camelCase, snake_case, Title Case, and more—when to use each format, with fixed examples and a link to TextCraft's Case Converter.",
+    "tags": [
+      "Case Conversion",
+      "Title Case",
+      "camelCase",
+      "snake_case"
+    ],
+    "category": "case"
+  },
+  {
+    "slug": "text-diff-algorithms",
+    "title": "Text Diff Algorithms: Understanding and Implementing Change Detection",
+    "excerpt": "How diff algorithms detect changes, when line or word diff wins, and where to compare text online without installing tools.",
+    "tags": [
+      "Text Diff",
+      "Algorithms",
+      "Version Control"
+    ],
+    "category": "diff"
+  },
+  {
+    "slug": "word-counting-beyond-simple",
+    "title": "Word Counting: Beyond Simple Character Counting",
+    "excerpt": "Word counts for school essays, SEO posts, and social captions—plus reading time, speaking time, and edge cases handled by TextCraft Word Counter.",
+    "tags": [
+      "Word Counting",
+      "Reading Time",
+      "Essays",
+      "Blogging"
+    ],
+    "category": "counting"
+  },
+  {
+    "slug": "lorem-ipsum-generation",
+    "title": "Lorem Ipsum Generation: Beyond Placeholder Text",
+    "excerpt": "Placeholder text for wireframes and mockups—how much to generate, paragraph vs words, and using TextCraft's Lorem Ipsum Generator in your design workflow.",
+    "tags": [
+      "Lorem Ipsum",
+      "Placeholder Text",
+      "Design",
+      "Mockups"
+    ],
+    "category": "tools"
+  },
+  {
+    "slug": "text-encoding-character-sets",
+    "title": "Text Encoding and Character Sets: A Complete Guide",
+    "excerpt": "UTF-8, Unicode, BOM, and mojibake—how to store and exchange text without corruption.",
+    "tags": [
+      "Text Encoding",
+      "Unicode",
+      "UTF-8"
+    ],
+    "category": "encoding"
+  },
+  {
+    "slug": "text-processing-performance",
+    "title": "Text Processing Performance Optimization",
+    "excerpt": "Make browser-based text tools feel instant—string building, regex reuse, debouncing, and chunking large inputs.",
+    "tags": [
+      "Performance",
+      "JavaScript",
+      "Text Processing"
+    ],
+    "category": "performance"
+  },
+  {
+    "slug": "line-break-handling",
+    "title": "Line Break Handling: Cross-Platform Text Processing",
+    "excerpt": "LF vs CRLF explained for developers and anyone cleaning pasted text—plus when to use TextCraft's Line Breaks Remover for practical cleanup.",
+    "tags": [
+      "Line Breaks",
+      "CRLF",
+      "LF",
+      "Normalization"
+    ],
+    "category": "tools"
+  },
+  {
+    "slug": "text-validation-sanitization",
+    "title": "Text Validation and Sanitization: Security Best Practices",
+    "excerpt": "Validate format early, sanitize before storage, escape on output—text security basics for web apps.",
+    "tags": [
+      "Security",
+      "Validation",
+      "XSS"
+    ],
+    "category": "security"
+  },
+  {
+    "slug": "text-analysis-nlp-basics",
+    "title": "Text Analysis and NLP Basics for Developers",
+    "excerpt": "Tokenization, stop words, and frequency sketches—NLP starters without a machine learning stack.",
+    "tags": [
+      "NLP",
+      "Text Analysis",
+      "Tokenization"
+    ],
+    "category": "analysis"
+  },
+  {
+    "slug": "alphabetize-list-online",
+    "title": "How to Alphabetize a List of Names or Lines Online",
+    "excerpt": "Alphabetize names, sort lines A–Z, remove duplicates, and clean messy lists in seconds with TextCraft's browser-based Text Sorter.",
+    "tags": [
+      "Alphabetize",
+      "Text Sorter",
+      "Sort Lists",
+      "Remove Duplicates"
+    ],
+    "category": "sorting"
+  },
+  {
+    "slug": "remove-extra-line-breaks-from-pdf-word-email",
+    "title": "How to Remove Extra Line Breaks From Word, PDF, and Email Paste",
+    "excerpt": "Fix broken line breaks from PDF, Word, and email paste—join lines, remove blank rows, and copy clean text with TextCraft's Line Breaks Remover.",
+    "tags": [
+      "Line Breaks",
+      "PDF Paste",
+      "Email Text",
+      "Text Cleanup"
+    ],
+    "category": "tools"
+  },
+  {
+    "slug": "compare-two-text-versions-online",
+    "title": "How to Compare Two Text Versions Online Without Installing Software",
+    "excerpt": "Compare two text versions side by side, spot additions and deletions, and review edits in your browser with TextCraft's Diff Checker.",
+    "tags": [
+      "Text Diff",
+      "Compare Text",
+      "Document Review",
+      "Editing"
+    ],
+    "category": "diff"
+  },
+  {
+    "slug": "how-many-words-should-a-blog-post-be",
+    "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide",
+    "excerpt": "Practical word count ranges for blog posts, essays, landing pages, and social captions—plus how to check your draft before you publish.",
+    "tags": [
+      "Blog Writing",
+      "Word Count",
+      "SEO",
+      "Content Strategy",
+      "Reading Time"
+    ],
+    "category": "counting"
+  },
+  {
+    "slug": "title-case-vs-sentence-case-headlines",
+    "title": "Title Case vs Sentence Case: When to Use Each for Headlines and Buttons",
+    "excerpt": "Title case vs sentence case for headlines, buttons, emails, and UI labels—with examples and a fast way to fix ALL CAPS paste.",
+    "tags": [
+      "Title Case",
+      "Sentence Case",
+      "Headlines",
+      "Copywriting",
+      "UI Writing"
+    ],
+    "category": "case"
+  },
+  {
+    "slug": "reading-time-speaking-time-word-count",
+    "title": "Reading Time and Speaking Time: How Word Count Translates to Minutes",
+    "excerpt": "Turn word count into reading minutes and speaking minutes—for blog posts, speeches, podcasts, and video scripts.",
+    "tags": [
+      "Reading Time",
+      "Speaking Time",
+      "Word Count",
+      "Presentations",
+      "Video Scripts"
+    ],
+    "category": "counting"
+  },
+  {
+    "slug": "fix-broken-line-breaks-newsletter-paste",
+    "title": "Fix Broken Line Breaks When Pasting Into Newsletters and Blog Editors",
+    "excerpt": "Newsletter and blog paste often breaks every line mid-sentence. Join lines, remove blank rows, and publish clean copy with TextCraft Line Breaks Remover.",
+    "tags": [
+      "Newsletter",
+      "Line Breaks",
+      "Substack",
+      "Blog CMS",
+      "Paste Cleanup"
+    ],
+    "category": "tools"
+  },
+  {
+    "slug": "sort-bullet-lists-for-blog-posts",
+    "title": "How to Sort and Clean Bullet Lists for Blog Posts and Resource Roundups",
+    "excerpt": "Alphabetize tool roundups, dedupe resource lists, and tidy messy bullet paste before you publish—using TextCraft Text Sorter.",
+    "tags": [
+      "Bullet Lists",
+      "Blog Writing",
+      "Text Sorter",
+      "Resource Roundups",
+      "Content Planning"
+    ],
+    "category": "sorting"
+  }
+]

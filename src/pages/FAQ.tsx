@@ -12,61 +12,6 @@ import { ChevronDown, ChevronUp, HelpCircle, Shield, Zap, Code2, Users } from 'l
 export const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
-  // FAQ data for structured data
-  const faqData = [
-    {
-      question: "What is TextCraft?",
-      answer: "TextCraft is a collection of free, professional text processing tools that run entirely in your browser. Our tools include word counter, case converter, line breaks remover, text diff checker, and lorem ipsum generator."
-    },
-    {
-      question: "Are the tools really free?",
-      answer: "Yes! All TextCraft tools are completely free to use. There are no hidden costs, subscriptions, or premium features. We believe text processing tools should be accessible to everyone."
-    },
-    {
-      question: "Is my data secure?",
-      answer: "Absolutely! All text processing happens locally in your browser. We don't store, transmit, or collect any of your text data. Your information never leaves your device, ensuring complete privacy and security."
-    },
-    {
-      question: "Do I need to create an account?",
-      answer: "No account required! You can use all TextCraft tools immediately without any registration. Just visit the tool you need and start using it right away."
-    },
-    {
-      question: "Can I use these tools offline?",
-      answer: "Yes! Once you load the page, all tools work offline. You can bookmark the tools and use them even without an internet connection."
-    },
-    {
-      question: "Are there any usage limits?",
-      answer: "No usage limits! You can use our tools as much as you need, whenever you need them. Process as much text as you want without any restrictions."
-    }
-  ];
-
-  useSEO({
-    title: 'Frequently Asked Questions - TextCraft Text Processing Tools',
-    description: 'Find answers to common questions about TextCraft text processing tools. Learn about our free online tools, security, privacy, and how to get started.',
-    keywords: 'TextCraft FAQ, text processing tools questions, free tools help, word counter FAQ, case converter help, text tools support',
-    canonical: 'https://www.textcraft.dev/faq',
-    structuredData: {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      'mainEntity': faqData.map(faq => ({
-        '@type': 'Question',
-        'name': faq.question,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': faq.answer
-        }
-      }))
-    }
-  });
-
-  const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
-  };
-
   const faqCategories = [
     {
       title: "General Questions",
@@ -75,7 +20,7 @@ export const FAQ = () => {
       items: [
         {
           question: "What is TextCraft?",
-          answer: "TextCraft is a collection of free, privacy-focused text processing tools that run entirely in your browser. It includes word counter, case converter, line breaks remover, text diff checker, and lorem ipsum generator. All data processing happens locally on your device."
+          answer: "TextCraft is a collection of free, privacy-focused text processing tools that run entirely in your browser. It includes word counter, case converter, line breaks remover, text diff checker, lorem ipsum generator, and text sorter. All data processing happens locally on your device."
         },
         {
           question: "Is TextCraft really free?",
@@ -124,8 +69,8 @@ export const FAQ = () => {
           answer: "TextCraft tools are extremely fast because they run locally in your browser. There's no network latency, and processing happens instantly as you type or paste text."
         },
         {
-          question: "What file sizes are supported?",
-          answer: "File size limits depend on your browser's memory capacity. For most tools, you can process text up to 10MB without issues. Larger files may require more memory but are generally supported."
+          question: "What text sizes are supported?",
+          answer: "Text size limits depend on your browser's memory capacity. For most tools, you can paste and process large amounts of text (often 10MB or more) without issues. Larger inputs may require more memory but are generally supported."
         },
         {
           question: "How accurate are the word counts?",
@@ -140,7 +85,7 @@ export const FAQ = () => {
     {
       title: "Technical Details",
       icon: Code2,
-      color: "text-purple-500",
+      color: "text-primary",
       items: [
         {
           question: "What technologies does TextCraft use?",
@@ -148,11 +93,11 @@ export const FAQ = () => {
         },
         {
           question: "Is TextCraft open source?",
-          answer: "Yes! TextCraft is open source and available on GitHub. You can view the code, contribute improvements, or even run your own instance of the tools."
+          answer: "No. TextCraft is proprietary software. The website and tools are free to use at www.textcraft.dev, but the source code, design, and user interface are protected intellectual property."
         },
         {
-          question: "Can I contribute to TextCraft?",
-          answer: "Absolutely! We welcome contributions from the community. You can submit pull requests, report bugs, or suggest new features on our GitHub repository."
+          question: "Can I license TextCraft for commercial use?",
+          answer: "Personal and commercial use of the hosted tools at www.textcraft.dev is permitted under our Terms of Service. For redistribution, white-labeling, or source licensing, contact us at textcraftdev@gmail.com."
         },
         {
           question: "How accurate are the tools?",
@@ -167,7 +112,7 @@ export const FAQ = () => {
       items: [
         {
           question: "Why is a tool not working?",
-          answer: "Try refreshing the page and clearing your browser cache. If the problem persists, check that you're using a supported browser and that JavaScript is enabled. You can also report the issue on GitHub."
+          answer: "Try refreshing the page and clearing your browser cache. If the problem persists, check that you're using a supported browser and that JavaScript is enabled. You can also email us at textcraftdev@gmail.com."
         },
         {
           question: "The page is loading slowly. What should I do?",
@@ -179,11 +124,40 @@ export const FAQ = () => {
         },
         {
           question: "How do I report a bug or suggest a feature?",
-          answer: "You can report bugs or suggest features by opening an issue on our GitHub repository or emailing us. Please provide as much detail as possible, including your browser version and steps to reproduce any issues."
+          answer: "Email us at textcraftdev@gmail.com with as much detail as possible, including your browser version and steps to reproduce any issues."
         }
       ]
     }
   ];
+
+  const allFaqItems = faqCategories.flatMap((category) => category.items);
+
+  useSEO({
+    title: 'Frequently Asked Questions - TextCraft Text Processing Tools',
+    description: 'Find answers to common questions about TextCraft text processing tools. Learn about our free online tools, security, privacy, and how to get started.',
+    keywords: 'TextCraft FAQ, text processing tools questions, free tools help, word counter FAQ, case converter help, text tools support',
+    canonical: 'https://www.textcraft.dev/faq',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: allFaqItems.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  });
+
+  const toggleItem = (index: number) => {
+    setOpenItems(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
 
   return (
     <ToolLayout

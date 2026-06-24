@@ -8,7 +8,9 @@ describe('Utils', () => {
     })
 
     it('handles conditional classes', () => {
-      expect(cn('class1', true && 'class2', false && 'class3')).toBe('class1 class2')
+      const showSecond = true;
+      const showThird = false;
+      expect(cn('class1', showSecond && 'class2', showThird && 'class3')).toBe('class1 class2')
     })
 
     it('handles undefined and null values', () => {
@@ -28,10 +30,11 @@ describe('Utils', () => {
     })
 
     it('handles complex combinations', () => {
+      const hidden = false;
       expect(cn(
         'base-class',
         { 'conditional-class': true },
-        false && 'hidden-class',
+        hidden && 'hidden-class',
         ['array-class1', 'array-class2'],
         'final-class'
       )).toBe('base-class conditional-class array-class1 array-class2 final-class')

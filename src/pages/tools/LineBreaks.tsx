@@ -4,10 +4,19 @@ import { TextArea } from '@/components/ui/TextArea';
 import { CopyButton } from '@/components/ui/CopyButton';
 import { DownloadButton } from '@/components/ui/DownloadButton';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ToolPanel } from '@/components/tools/ToolPanel';
 import { Checkbox } from '@/components/ui/checkbox';
 import { cleanupText, CleanupOptions } from '@/lib/text/cleanup';
-import { Trash2, RotateCcw, Target, Zap, CheckCircle, FileText, BarChart3, Lightbulb } from 'lucide-react';
+import { useSEO } from '@/hooks/useSEO';
+import { RelatedTools } from '@/components/RelatedTools';
+import { SITE_URL } from '@/config/site';
+import { Trash2, RotateCcw } from 'lucide-react';
+import { ToolHelpAccordion } from '@/components/tools/ToolHelpAccordion';
+import { ToolActionBar } from '@/components/tools/ToolActionBar';
+import { TOOL_GUIDES } from '@/lib/toolGuides';
+import { TOOL_HELP_CONTENT } from '@/lib/toolHelpContent';
+import { TOOL_EXAMPLES } from '@/lib/toolExamples';
+import type { ToolExample } from '@/types/tool';
 
 const cleanupOptionsList = [
   {
@@ -54,6 +63,24 @@ export default function LineBreaksPage() {
     normalizeLineBreaks: false
   });
 
+  useSEO({
+    title: 'Line Breaks Remover - Clean & Normalize Text | TextCraft',
+    description:
+      'Remove extra line breaks, trim trailing spaces, normalize whitespace, and clean pasted text. Free browser-based text cleanup tool.',
+    keywords: 'line breaks remover, whitespace cleaner, text normalizer, trim spaces',
+    canonical: `${SITE_URL}/line-breaks`,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Line Breaks Remover',
+      description: 'Clean and normalize text whitespace and line breaks',
+      url: `${SITE_URL}/line-breaks`,
+      applicationCategory: 'Text Processing Tool',
+      operatingSystem: 'Web Browser',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    },
+  });
+
   const cleanedText = useMemo(() => {
     if (!text) return '';
     return cleanupText(text, options);
@@ -84,58 +111,69 @@ export default function LineBreaksPage() {
     setPreviousText('');
   };
 
+  const guide = TOOL_GUIDES['line-breaks'];
+  const help = TOOL_HELP_CONTENT['line-breaks'];
+
+  const handleFillExample = (example: ToolExample) => {
+    setText(example.input);
+    setPreviousText('');
+    setOptions({
+      removeExtraBlankLines: true,
+      joinLines: true,
+      trimTrailingSpaces: false,
+      smartToAsciiQuotes: false,
+      removeExtraSpaces: false,
+      normalizeLineBreaks: true,
+    });
+  };
+
   return (
     <ToolLayout
       title="Line Breaks Remover"
       description="Clean up and normalize text whitespace, remove extra line breaks, and fix formatting issues."
+      examples={TOOL_EXAMPLES['line-breaks']}
+      onFillExample={handleFillExample}
     >
-      <div className="space-y-8">
-        {/* How to Use */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <FileText className="h-5 w-5 text-primary" />
-              How to Use Line Breaks Remover
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-primary font-bold">1</span>
-                </div>
-                <h3 className="font-semibold mb-2">Paste Your Text</h3>
-                <p className="text-sm text-muted-foreground">Copy and paste your messy text into the left text area. The tool will show a live preview.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-primary font-bold">2</span>
-                </div>
-                <h3 className="font-semibold mb-2">Select Options</h3>
-                <p className="text-sm text-muted-foreground">Choose which cleanup options to apply: remove extra lines, trim spaces, join lines, etc.</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-primary font-bold">3</span>
-                </div>
-                <h3 className="font-semibold mb-2">Apply & Export</h3>
-                <p className="text-sm text-muted-foreground">Apply the changes, copy the cleaned text, or download it as a file.</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="space-y-5 px-3 sm:px-6 pb-4">
+        <div className="space-y-4">
+        {/* Text Processing — primary focus */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <h3 className="font-medium text-foreground text-sm">Original Text</h3>
+            <TextArea
+              value={text}
+              onValueChange={setText}
+              label="Original text"
+              placeholder="Paste your text here to clean up line breaks and whitespace..."
+              rows={12}
+            />
+          </div>
 
-        {/* Tool Logic */}
-        <div className="space-y-6">
-        {/* Cleanup Options */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Cleanup Options</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <h3 className="font-medium text-foreground text-sm">Cleaned Text</h3>
+              {hasChanges && (
+                <span className="text-xs bg-primary/15 text-primary px-2 py-0.5 rounded">
+                  {cleanedText.length - text.length > 0 ? '+' : ''}{cleanedText.length - text.length} chars
+                </span>
+              )}
+            </div>
+            <TextArea
+              value={cleanedText}
+              onValueChange={() => {}}
+              label="Cleaned text preview"
+              rows={12}
+              className="bg-code-bg"
+              readOnly
+            />
+          </div>
+        </div>
+
+        {/* Cleanup Options — compact 2-col */}
+        <ToolPanel title="Cleanup options">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {cleanupOptionsList.map((option) => (
-                <div key={option.key} className="flex items-start space-x-3">
+                <div key={option.key} className="flex items-start space-x-2.5">
                   <Checkbox
                     id={option.key}
                     checked={options[option.key]}
@@ -144,56 +182,24 @@ export default function LineBreaksPage() {
                     }
                     className="mt-0.5"
                   />
-                  <div className="grid gap-1.5 leading-none">
+                  <div className="grid gap-0.5 leading-none min-w-0">
                     <label
                       htmlFor={option.key}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      className="text-sm font-medium leading-snug cursor-pointer"
                     >
                       {option.label}
                     </label>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                       {option.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
-
-        {/* Text Processing */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground">Original Text</h3>
-            <TextArea
-              value={text}
-              onValueChange={setText}
-              placeholder="Paste your text here to clean up line breaks and whitespace..."
-              rows={12}
-            />
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-foreground">Cleaned Text</h3>
-              {hasChanges && (
-                <span className="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded">
-                  {cleanedText.length - text.length > 0 ? '+' : ''}{cleanedText.length - text.length} chars
-                </span>
-              )}
-            </div>
-            <TextArea
-              value={cleanedText}
-              onValueChange={() => {}} // Read-only
-              rows={12}
-              className="bg-code-bg"
-              readOnly
-            />
-          </div>
-        </div>
+        </ToolPanel>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-between">
+        <ToolActionBar>
           <div className="flex flex-wrap gap-2">
             <Button
               variant="outline"
@@ -233,116 +239,48 @@ export default function LineBreaksPage() {
               disabled={!cleanedText}
             />
           </div>
-        </div>
+        </ToolActionBar>
 
-        {/* Preview Summary */}
+        {/* Summary when changes exist */}
         {hasChanges && (
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-sm grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div>
-                  <span className="text-muted-foreground text-xs sm:text-sm">Original lines:</span>
-                  <div className="font-semibold text-sm sm:text-base">{text.split('\n').length}</div>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-xs sm:text-sm">Cleaned lines:</span>
-                  <div className="font-semibold text-sm sm:text-base">{cleanedText.split('\n').length}</div>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-xs sm:text-sm">Original chars:</span>
-                  <div className="font-semibold text-sm sm:text-base">{text.length}</div>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-xs sm:text-sm">Cleaned chars:</span>
-                  <div className="font-semibold text-sm sm:text-base">{cleanedText.length}</div>
-                </div>
+          <div className="tool-surface p-3 text-xs sm:text-sm">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <div>
+                <span className="text-muted-foreground">Original lines:</span>
+                <div className="font-semibold text-foreground">{text.split('\n').length}</div>
               </div>
-            </CardContent>
-          </Card>
+              <div>
+                <span className="text-muted-foreground">Cleaned lines:</span>
+                <div className="font-semibold text-foreground">{cleanedText.split('\n').length}</div>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Original chars:</span>
+                <div className="font-semibold text-foreground">{text.length}</div>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Cleaned chars:</span>
+                <div className="font-semibold text-foreground">{cleanedText.length}</div>
+              </div>
+            </div>
+          </div>
         )}
         </div>
 
-        {/* Why Use + Key Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-primary" />
-                Why Use Line Breaks Remover?
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Clean Text Formatting</p>
-                  <p className="text-sm text-muted-foreground">Remove inconsistent line breaks, extra spaces, and formatting issues from copied text.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Improve Readability</p>
-                  <p className="text-sm text-muted-foreground">Normalize text structure for better reading experience and professional appearance.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Data Processing</p>
-                  <p className="text-sm text-muted-foreground">Prepare text for databases, APIs, and data analysis by standardizing format.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Code Preparation</p>
-                  <p className="text-sm text-muted-foreground">Clean up text before processing in code, removing unwanted whitespace and line breaks.</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Zap className="h-5 w-5 text-primary" />
-                Key Features
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Remove extra blank lines and normalize spacing</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Trim trailing spaces and tabs</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Join lines with single spaces</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Convert smart quotes to ASCII</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Normalize line break formats</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Real-time preview and character count</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
-                <span className="text-sm">Customizable cleanup options</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <RelatedTools
+          tools={[
+            { name: 'Text Sorter', path: '/text-sorter' },
+            { name: 'Case Converter', path: '/case-converter' },
+          ]}
+          blogPost={{ title: guide.title, slug: guide.slug }}
+        />
 
+        <ToolHelpAccordion
+          toolName="Line Breaks Remover"
+          howToSteps={help.howToSteps}
+          whyUseItems={help.whyUseItems}
+          keyFeatures={help.keyFeatures}
+        />
       </div>
     </ToolLayout>
   );

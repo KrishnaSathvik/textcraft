@@ -117,10 +117,11 @@ export const TermsOfService = () => {
               intellectual property laws.
             </p>
 
-            <h3 className="text-xl font-semibold text-foreground mb-3">Open Source License</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-3">Proprietary Software</h3>
             <p className="text-muted-foreground leading-relaxed">
-              TextCraft is open source and available on GitHub. You may view the code, contribute 
-              improvements, or even run your own instance of the tools.
+              TextCraft is proprietary software. The hosted tools at www.textcraft.dev are free to use,
+              but the source code, design, and user interface are protected intellectual property.
+              See our Terms of Service and LICENSE for details.
             </p>
           </section>
 

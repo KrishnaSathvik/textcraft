@@ -1,98 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
   <url>
     <loc>https://www.textcraft.dev/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Tool Pages -->
+
   <url>
     <loc>https://www.textcraft.dev/word-counter</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://www.textcraft.dev/case-converter</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://www.textcraft.dev/line-breaks</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://www.textcraft.dev/diff-checker</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://www.textcraft.dev/lorem-ipsum</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://www.textcraft.dev/text-sorter</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Information Pages -->
+
   <url>
-    <loc>https://www.textcraft.dev/about</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.textcraft.dev/blog</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/faq</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.textcraft.dev/faq</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.textcraft.dev/about</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/comparisons</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/privacy</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/terms</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/mastering-text-case-conversion</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.textcraft.dev/blog</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.textcraft.dev/comparisons</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.textcraft.dev/blog/text-diff-algorithms</loc>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
-  
-  <!-- Legal Pages -->
+
   <url>
-    <loc>https://www.textcraft.dev/privacy</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.textcraft.dev/blog/word-counting-beyond-simple</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.textcraft.dev/terms</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.textcraft.dev/blog/lorem-ipsum-generation</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-  
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/text-encoding-character-sets</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/text-processing-performance</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/line-break-handling</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/text-validation-sanitization</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/text-analysis-nlp-basics</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/alphabetize-list-online</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/remove-extra-line-breaks-from-pdf-word-email</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/compare-two-text-versions-online</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/how-many-words-should-a-blog-post-be</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/title-case-vs-sentence-case-headlines</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/reading-time-speaking-time-word-count</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/fix-broken-line-breaks-newsletter-paste</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.textcraft.dev/blog/sort-bullet-lists-for-blog-posts</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

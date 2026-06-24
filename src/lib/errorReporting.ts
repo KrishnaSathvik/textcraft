@@ -12,7 +12,7 @@ interface ErrorReport {
   userAgent: string;
   timestamp: string;
   userId?: string;
-  context?: Record<string, any>;
+  context?: Record<string, unknown>;
 }
 
 class ErrorReporter {
@@ -22,7 +22,7 @@ class ErrorReporter {
   /**
    * Report an error
    */
-  reportError(error: Error, context?: Record<string, any>) {
+  reportError(error: Error, context?: Record<string, unknown>) {
     const errorReport: ErrorReport = {
       message: error.message,
       stack: error.stack,
@@ -99,7 +99,7 @@ errorReporter.setupGlobalErrorHandlers();
  * React Error Boundary Hook
  */
 export const useErrorReporting = () => {
-  const reportError = (error: Error, context?: Record<string, any>) => {
+  const reportError = (error: Error, context?: Record<string, unknown>) => {
     errorReporter.reportError(error, context);
   };
 

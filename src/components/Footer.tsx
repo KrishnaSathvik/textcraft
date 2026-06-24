@@ -1,32 +1,11 @@
 import { Link } from 'react-router-dom';
 
 /**
- * Footer - The main footer component for ByteToolBox
- * 
- * Features:
- * - Essential page links (About, Blog, FAQ, Compare, Privacy, Terms)
- * - Copyright information
- * - Responsive design
- * - Consistent styling with the app theme
- * 
- * @example
- * ```tsx
- * // Used in main app layout
- * <Footer />
- * 
- * // Automatically handles:
- * // - Responsive footer layout
- * // - Theme-consistent styling
- * // - Navigation to essential pages
- * ```
- * 
- * Responsive Behavior:
- * - Desktop: Horizontal layout with links and copyright
- * - Mobile: Stacked layout for better mobile experience
- * 
- * @returns JSX element containing the complete footer interface
+ * Footer - The main footer component for TextCraft
  */
 export const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-nav-background border-t border-border">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8">
@@ -36,19 +15,19 @@ export const Footer = () => {
             <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
               <Link 
                 to="/about" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
                 About
               </Link>
               <Link 
                 to="/blog" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
-                Blog
+                Guides
               </Link>
               <Link 
                 to="/faq" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
                 FAQ
               </Link>
@@ -56,19 +35,19 @@ export const Footer = () => {
             <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
               <Link 
                 to="/comparisons" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
                 Compare
               </Link>
               <Link 
                 to="/privacy" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
                 Privacy
               </Link>
               <Link 
                 to="/terms" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1 px-2 rounded-md hover:bg-secondary/50"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-md hover:bg-secondary/50 min-h-[44px] sm:min-h-0 inline-flex items-center"
               >
                 Terms
               </Link>
@@ -81,7 +60,7 @@ export const Footer = () => {
               Your text processing toolkit. All tools run locally in your browser.
             </div>
             <div className="text-xs text-muted-foreground">
-              © 2025 TextCraft. All rights reserved.
+              © {year} TextCraft. All rights reserved.
             </div>
           </div>
         </div>

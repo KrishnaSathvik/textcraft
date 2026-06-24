@@ -47,8 +47,8 @@ All colors MUST be HSL.
     --popover: 220 13% 11%;
     --popover-foreground: 220 9% 96%;
     
-    --primary: 262 83% 58%;
-    --primary-foreground: 220 9% 96%;
+    --primary: 173 48% 46%;
+    --primary-foreground: 0 0% 100%;
     
     --secondary: 220 13% 14%;
     --secondary-foreground: 220 9% 88%;
@@ -56,15 +56,15 @@ All colors MUST be HSL.
     --muted: 220 13% 14%;
     --muted-foreground: 220 9% 65%;
     
-    --accent: 262 83% 58%;
-    --accent-foreground: 220 9% 96%;
+    --accent: 186 42% 44%;
+    --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 220 9% 96%;
     
     --border: 220 13% 18%;
     --input: 220 13% 14%;
-    --ring: 262 83% 58%;
+    --ring: 173 48% 46%;
     
     --radius: 0.5rem;
     
@@ -89,8 +89,11 @@ All colors MUST be HSL.
     --hover-bg: 220 13% 18%;
     --active-bg: 220 13% 22%;
     
-    /* Beautiful gradient */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(292 84% 61%));
+    /* Brand gradient — calm teal */
+    --gradient-primary: linear-gradient(135deg, hsl(173 48% 46%), hsl(186 42% 44%));
+    --gradient-start: 173 48% 46%;
+    --gradient-end: 186 42% 44%;
+    --gradient-accent: 192 38% 42%;
   }
   
   .light {
@@ -104,7 +107,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 4%;
     
-    --primary: 262 83% 58%;
+    --primary: 173 45% 38%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 220 14% 96%;
@@ -113,7 +116,7 @@ All colors MUST be HSL.
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
     
-    --accent: 262 83% 58%;
+    --accent: 186 40% 34%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84% 60%;
@@ -121,7 +124,7 @@ All colors MUST be HSL.
     
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 262 83% 58%;
+    --ring: 173 45% 38%;
     
     /* App specific colors */
     --app-background: 0 0% 100%;
@@ -143,6 +146,11 @@ All colors MUST be HSL.
     /* Interactive states for light theme */
     --hover-bg: 220 14% 96%;
     --active-bg: 220 14% 92%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(173 45% 38%), hsl(186 40% 36%));
+    --gradient-start: 173 45% 38%;
+    --gradient-end: 186 40% 36%;
+    --gradient-accent: 192 36% 34%;
   }
 }
 
@@ -269,5 +277,89 @@ All colors MUST be HSL.
   
   .border-tool-border {
     border-color: hsl(var(--tool-border));
+  }
+
+  .tool-surface {
+    @apply bg-card border border-border rounded-lg transition-colors;
+  }
+
+  .tool-surface-interactive {
+    @apply tool-surface hover:border-primary/40 hover:shadow-sm;
+  }
+
+  .tool-workspace-header {
+    @apply shadow-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tool-surface-interactive {
+      transition: none;
+    }
+  }
+
+  .badge-pill {
+    @apply text-xs font-medium px-2 py-0.5 rounded-md border border-border bg-secondary/50 text-muted-foreground;
+  }
+
+  .badge-pill-primary {
+    @apply border-primary/30 bg-primary/5 text-primary hover:bg-primary/10 transition-colors;
+  }
+
+  .blog-prose {
+    @apply max-w-[65ch] mx-auto;
+  }
+
+  .blog-prose h2 {
+    @apply text-xl font-semibold mt-8 mb-3 text-foreground tracking-tight;
+  }
+
+  .blog-prose h3 {
+    @apply text-lg font-semibold mt-6 mb-2 text-foreground;
+  }
+
+  .blog-prose p {
+    @apply mb-4 leading-7 text-muted-foreground;
+  }
+
+  .blog-prose pre {
+    @apply bg-code-bg border border-border rounded-lg p-4 overflow-x-auto text-sm my-4;
+  }
+
+  .blog-prose code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .blog-prose table {
+    @apply w-full text-sm border-collapse;
+  }
+
+  .blog-prose .blog-table-wrap {
+    @apply my-5;
+  }
+
+  .blog-prose ul {
+    @apply mb-4 text-muted-foreground leading-7;
+  }
+
+  .blog-prose li {
+    @apply text-muted-foreground;
+  }
+
+  .blog-prose a {
+    @apply text-primary hover:underline font-medium;
+  }
+
+  /* Keep button-style links readable when nested near prose content */
+  .blog-cta-link {
+    @apply text-primary-foreground no-underline hover:text-primary-foreground hover:no-underline;
+  }
+
+  .blog-prose th,
+  .blog-prose td {
+    @apply border border-border px-3 py-2 text-left;
+  }
+
+  .blog-prose th {
+    @apply bg-secondary/50 font-medium text-foreground;
   }
 }

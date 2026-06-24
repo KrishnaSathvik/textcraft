@@ -1,5 +1,5 @@
 import { ToolLayout } from '@/components/layouts/ToolLayout';
-import { Code2, Shield, Zap, Users, Heart, Github, Twitter, Linkedin } from 'lucide-react';
+import { Code2, Shield, Zap, Users, Heart } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
 
 /**
@@ -12,7 +12,7 @@ export const About = () => {
   useSEO({
     title: 'About TextCraft - Privacy-Focused Text Processing Tools | Free Online Utilities',
     description: 'Learn about TextCraft - the privacy-focused text processing tools platform built for writers and developers. Fast, secure, completely free, and runs entirely in your browser.',
-    keywords: 'about textcraft, text processing tools, privacy-focused, free tools, online utilities, browser-based tools, open source, writer tools, developer community',
+    keywords: 'about textcraft, text processing tools, privacy-focused, free tools, online utilities, browser-based tools, writer tools',
     canonical: 'https://www.textcraft.dev/about',
     structuredData: {
       '@context': 'https://schema.org',
@@ -157,7 +157,7 @@ export const About = () => {
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-6">Our Tools</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              TextCraft includes five essential text processing tools, each designed to solve 
+              TextCraft includes six essential text processing tools, each designed to solve 
               common text processing problems quickly and securely:
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -166,7 +166,8 @@ export const About = () => {
                 { name: 'Case Converter', desc: 'Transform text between different cases and formats' },
                 { name: 'Line Breaks Remover', desc: 'Clean up and normalize text whitespace and formatting' },
                 { name: 'Text Diff Checker', desc: 'Compare two texts and highlight differences side by side' },
-                { name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text for your projects and mockups' }
+                { name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text for your projects and mockups' },
+                { name: 'Text Sorter', desc: 'Sort lines alphabetically, by length, and remove duplicates' },
               ].map((tool, index) => (
                 <div key={index} className="bg-card border border-border rounded-lg p-4">
                   <h3 className="font-semibold text-foreground mb-2">{tool.name}</h3>
@@ -200,7 +201,6 @@ export const About = () => {
                   <li><strong>Vitest</strong> - Fast unit testing</li>
                   <li><strong>ESLint</strong> - Code quality</li>
                   <li><strong>TypeDoc</strong> - Documentation generation</li>
-                  <li><strong>Monaco Editor</strong> - VS Code editor</li>
                   <li><strong>Lucide Icons</strong> - Beautiful icon set</li>
                 </ul>
               </div>

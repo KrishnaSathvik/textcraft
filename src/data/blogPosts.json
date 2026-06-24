@@ -1,0 +1,1153 @@
+[
+  {
+    "id": 1,
+    "slug": "mastering-text-case-conversion",
+    "title": "Mastering Text Case Conversion: A Developer's Complete Guide",
+    "metaTitle": "Text Case Conversion Guide | camelCase, snake_case, Title Case",
+    "metaDescription": "Learn text case formats, when writers and developers use each style, and how to convert case online with TextCraft's Case Converter.",
+    "excerpt": "camelCase, snake_case, Title Case, and more—when to use each format, with fixed examples and a link to TextCraft's Case Converter.",
+    "quickAnswer": "Pick the case style that matches your context—Title Case for headings, sentence case for body copy, camelCase or snake_case for code. Convert instantly with TextCraft's Case Converter by pasting text and selecting the target format.",
+    "keyTakeaways": [
+      "Title Case and sentence case matter for blogs, ads, and UI labels.",
+      "camelCase and snake_case are standard in JavaScript, Python, and APIs.",
+      "Consistent casing prevents broken URLs and variable names.",
+      "TextCraft converts case in the browser without uploading your text."
+    ],
+    "content": "## Understanding text case formats\n\n### Common case types\n\n**sentence case** — First word capitalized: `Convert my headline`\n\n**Title Case** — Major Words Capitalized: `Convert My Headline`\n\n**camelCase** — `convertMyHeadline`\n\n**PascalCase** — `ConvertMyHeadline`\n\n**snake_case** — `convert_my_headline`\n\n**kebab-case** — `convert-my-headline`\n\n**UPPERCASE** — `CONVERT MY HEADLINE`\n\n## When writers use case conversion\n\n- **Blog titles:** Switch ALL CAPS email subjects to Title Case.\n- **Amazon listings:** Normalize supplier titles to readable Title Case.\n- **Social bios:** Fix accidental `shift key` ALL CAPS paragraphs.\n\n## When developers use case conversion\n\n- **API fields:** `user_id` in JSON → `userId` in TypeScript.\n- **CSS classes:** BEM or kebab-case from component names.\n- **Database columns:** snake_case to match SQL conventions.\n\n## How to convert case with TextCraft\n\nOpen [Case Converter](/case-converter), paste your text, and pick the target format. Copy the result into your editor, CMS, or codebase.\n\n## Example: fix an ALL CAPS subject line\n\n**Before:** `TEAM OFFSITE AGENDA FOR MARCH`\n\n**After (Title Case):** `Team Offsite Agenda For March`\n\n## Example: variable naming\n\n**Before:** `user profile id`\n\n**After (snake_case):** `user_profile_id`\n\n**After (camelCase):** `userProfileId`\n\n## Working code samples (JavaScript)\n\n```javascript\nfunction toSnakeCase(str) {\n  return str\n    .trim()\n    .replace(/([a-z])([A-Z])/g, '$1_$2')\n    .replace(/[\\s-]+/g, '_')\n    .toLowerCase();\n}\n\nfunction toKebabCase(str) {\n  return str\n    .trim()\n    .replace(/([a-z])([A-Z])/g, '$1-$2')\n    .replace(/[\\s_]+/g, '-')\n    .toLowerCase();\n}\n```\n\n## Best practices\n\n1. Pick one convention per project and document it.\n2. Do not hand-edit hundreds of labels—use a converter for bulk renames.\n3. Watch acronyms (`API`, `URL`)—some style guides keep them uppercase in Title Case.\n\n## Common pitfalls\n\n- Applying Title Case to **code symbols** breaks compilation.\n- Kebab-case in **JavaScript variable names** is invalid.\n- Locale rules differ—Turkish dotted/dotless I needs special handling in production i18n apps.",
+    "relatedToolSlug": "case-converter",
+    "relatedTools": [
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "alphabetize-list-online",
+        "title": "How to Alphabetize a List of Names or Lines Online"
+      },
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the difference between camelCase and PascalCase?",
+        "answer": "camelCase starts lowercase (myVariable); PascalCase starts uppercase (MyClass). Both join words without spaces."
+      },
+      {
+        "question": "When should I use Title Case?",
+        "answer": "Use Title Case for headlines, product names, and buttons where each major word should be capitalized."
+      },
+      {
+        "question": "Can I convert an entire paragraph at once?",
+        "answer": "Yes. Paste the full paragraph into Case Converter and choose the target format."
+      },
+      {
+        "question": "Does TextCraft upload my text?",
+        "answer": "No. Conversion runs locally in your browser."
+      }
+    ],
+    "category": "case",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "8 min read",
+    "tags": [
+      "Case Conversion",
+      "Title Case",
+      "camelCase",
+      "snake_case"
+    ],
+    "featured": false
+  },
+  {
+    "id": 2,
+    "slug": "text-diff-algorithms",
+    "title": "Text Diff Algorithms: Understanding and Implementing Change Detection",
+    "metaTitle": "Text Diff Algorithms Explained | LCS, Myers, and Line Diff",
+    "metaDescription": "Learn how text diff algorithms work, when to use line vs word diff, and how to compare text online with TextCraft's Diff Checker.",
+    "excerpt": "How diff algorithms detect changes, when line or word diff wins, and where to compare text online without installing tools.",
+    "quickAnswer": "Diff algorithms find the shortest edit path between two strings. For everyday review, use TextCraft's Diff Checker; for version control, tools like git use optimized algorithms such as Myers diff on lines.",
+    "keyTakeaways": [
+      "Character diffs are noisy; line diffs match how people edit documents.",
+      "LCS (longest common subsequence) underpins many diff implementations.",
+      "Writers and lawyers review meaning; developers review patches.",
+      "TextCraft offers instant browser-based comparison for two pasted versions."
+    ],
+    "content": "## What is text diffing?\n\nDiffing finds insertions, deletions, and replacements between two texts. Good diffs minimize noise so humans approve the right changes.\n\n## Line diff vs word diff\n\n| Mode | Best for |\n|------|----------|\n| Line | Code, policies, lists |\n| Word | Long paragraphs with tiny edits |\n\nTry both in [Text Diff Checker](/diff-checker) when unsure.\n\n## Basic approach: longest common subsequence\n\nMany tools build a table of matching segments between two sequences, then walk backward to mark changes. Lines are the usual unit in documents; characters in spell-check UIs.\n\n## Simple word diff sketch (JavaScript)\n\n```javascript\nfunction wordDiff(oldText, newText) {\n  const oldWords = oldText.split(/\\s+/);\n  const newWords = newText.split(/\\s+/);\n  const changes = [];\n  const max = Math.max(oldWords.length, newWords.length);\n  for (let i = 0; i < max; i++) {\n    if (oldWords[i] !== newWords[i]) {\n      changes.push({ index: i, from: oldWords[i] ?? '', to: newWords[i] ?? '' });\n    }\n  }\n  return changes;\n}\n```\n\nProduction systems add smarter matching so shifted paragraphs do not look like total rewrites.\n\n## When to compare online vs in git\n\n- **Online (TextCraft):** One-off paste from email, Word, or CMS previews.\n- **Git / IDE:** Ongoing project history with merge and blame.\n\nSee also: [Compare two text versions online](/blog/compare-two-text-versions-online).\n\n## Best practices\n\n- Normalize line endings before diffing Windows vs Mac paste.\n- Collapse unrelated sections so highlights stay readable.\n- Never treat a visual diff as legal approval by itself.\n\n## Common pitfalls\n\n- Huge files in the browser can slow down—split chapters first.\n- Whitespace-only edits still count as changes.\n- Unicode combining characters can look identical but diff differently.",
+    "relatedToolSlug": "diff-checker",
+    "relatedTools": [
+      {
+        "name": "Text Diff Checker",
+        "path": "/diff-checker"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "compare-two-text-versions-online",
+        "title": "How to Compare Two Text Versions Online Without Installing Software"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What diff algorithm does git use?",
+        "answer": "Git uses a Myers diff implementation with histogram and patience improvements in newer versions—optimized for source lines."
+      },
+      {
+        "question": "Should I use line or word diff for essays?",
+        "answer": "Start with line diff for structure; switch to word diff if one paragraph changed slightly."
+      },
+      {
+        "question": "Can I diff without installing software?",
+        "answer": "Yes. Use TextCraft Diff Checker in your browser."
+      }
+    ],
+    "category": "diff",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "10 min read",
+    "tags": [
+      "Text Diff",
+      "Algorithms",
+      "Version Control"
+    ],
+    "featured": false
+  },
+  {
+    "id": 3,
+    "slug": "word-counting-beyond-simple",
+    "title": "Word Counting: Beyond Simple Character Counting",
+    "metaTitle": "Word Count Guide | Essays, SEO, Reading Time, and Edge Cases",
+    "metaDescription": "Word counts for essays, blogs, and social posts—plus reading time, speaking time, and how to count accurately with TextCraft Word Counter.",
+    "excerpt": "Word counts for school essays, SEO posts, and social captions—plus reading time, speaking time, and edge cases handled by TextCraft Word Counter.",
+    "quickAnswer": "Paste your draft into TextCraft Word Counter to see words, characters, sentences, paragraphs, and estimated reading time instantly—all in your browser.",
+    "keyTakeaways": [
+      "Essay limits count words, not characters—verify with the same rules your school uses.",
+      "Bloggers target reading time (often 5–8 minutes) as much as raw word count.",
+      "Hyphenated words and numbers may count differently per style guide.",
+      "Reading time ≈ words ÷ 225 wpm; speaking time ≈ words ÷ 130 wpm (TextCraft shows both)."
+    ],
+    "content": "## Why word count still matters\n\nTeachers set **500 words**. SEO teams want **1,500-word guides**. Speakers need **7-minute scripts**. Each scenario cares about a different metric—words, characters, or time.\n\n## For students and writers\n\n- **Essays:** Hit assignment minimums without padding.\n- **Cover letters:** Stay under one page (~250–400 words).\n- **NaNoWriMo:** Track daily word totals.\n\nOpen [Word Counter](/word-counter), paste your draft, and watch counts update as you edit.\n\n## For bloggers and marketers\n\n- **Reading time:** 1,000 words ≈ 4–5 minutes at average reading speed.\n- **Meta descriptions:** ~150–160 characters, not words.\n- **Newsletters:** Shorter issues often improve completion rates—count before send.\n\n## Reading and speaking time example\n\n| Words | Reading (~225 wpm) | Speaking (~130 wpm) |\n|-------|--------------------|---------------------|\n| 300 | ~1.3 min | ~2.3 min |\n| 800 | ~3.6 min | ~6.2 min |\n| 1,500 | ~6.7 min | ~11.5 min |\n\nTextCraft calculates these from your paste automatically.\n\n## Edge cases that trip counters\n\n- **Hyphenated words:** `state-of-the-art` may count as one or three depending on rules.\n- **Numbers:** `2026` may or may not count as a word.\n- **Footnotes and citations:** Decide whether references count toward limits.\n- **CJK text:** Character-based limits differ from English word counts.\n\n## Simple JavaScript word split (English)\n\n```javascript\nfunction countWords(text) {\n  const trimmed = text.trim();\n  if (!trimmed) return 0;\n  return trimmed.split(/\\s+/).filter(Boolean).length;\n}\n```\n\nFor production multilingual apps, use locale-aware segmenters (`Intl.Segmenter`).\n\n## Best practices\n\n- Count the **final exported text**, not the Google Doc with comments.\n- Match your school's definition before submitting.\n- Pair word count with [Case Converter](/case-converter) for headline cleanup.",
+    "relatedToolSlug": "word-counter",
+    "relatedTools": [
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      },
+      {
+        "name": "Text Diff Checker",
+        "path": "/diff-checker"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "compare-two-text-versions-online",
+        "title": "How to Compare Two Text Versions Online Without Installing Software"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many words should a blog post be?",
+        "answer": "Many informational posts land between 1,000 and 2,000 words, but intent matters more than a fixed number. Match depth to the query."
+      },
+      {
+        "question": "Do emojis count in word count?",
+        "answer": "Usually no—they are symbols, not words—unless your instructor or platform says otherwise."
+      },
+      {
+        "question": "How is reading time calculated?",
+        "answer": "TextCraft divides word count by an average reading speed (about 225 words per minute) to estimate minutes."
+      },
+      {
+        "question": "Is my essay text uploaded?",
+        "answer": "No. Counting happens locally in your browser."
+      }
+    ],
+    "category": "counting",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "9 min read",
+    "tags": [
+      "Word Counting",
+      "Reading Time",
+      "Essays",
+      "Blogging"
+    ],
+    "featured": false
+  },
+  {
+    "id": 4,
+    "slug": "lorem-ipsum-generation",
+    "title": "Lorem Ipsum Generation: Beyond Placeholder Text",
+    "metaTitle": "Lorem Ipsum Guide | Placeholder Text for Mockups and Layouts",
+    "metaDescription": "Use Lorem Ipsum and realistic placeholder text in mockups, wireframes, and prototypes—with TextCraft's Lorem Ipsum Generator.",
+    "excerpt": "Placeholder text for wireframes and mockups—how much to generate, paragraph vs words, and using TextCraft's Lorem Ipsum Generator in your design workflow.",
+    "quickAnswer": "Generate Latin placeholder or word-count–based filler in TextCraft's Lorem Ipsum Generator, then paste into Figma frames, HTML prototypes, or slide decks to judge layout before real copy exists.",
+    "keyTakeaways": [
+      "Placeholder text tests line length and hierarchy—not final meaning.",
+      "Match paragraph count and word count to expected real content.",
+      "Latin Lorem is neutral; English-like filler can distract in user tests.",
+      "TextCraft generates placeholder text locally—no external API required."
+    ],
+    "content": "## Why designers still use Lorem Ipsum\n\nClients focus on **words** when they should judge **layout**. Neutral Latin (or structured gibberish) keeps reviews about spacing, type size, and grid—not draft marketing copy.\n\n## Designer / mockup workflow\n\n1. **Wireframe** — Block paragraphs with rough counts.\n2. **Hi-fi mock** — Generate exact paragraphs in [Lorem Ipsum Generator](/lorem-ipsum).\n3. **Prototype** — Paste into Figma, Webflow, or HTML.\n4. **User test** — Swap in real copy only when testing comprehension.\n\n## How much placeholder to generate\n\n| UI element | Starting point |\n|------------|----------------|\n| Hero | 8–15 words headline + 20–40 words subcopy |\n| Card grid | 2–3 sentences per card |\n| Blog template | 3–5 paragraphs, ~400–600 words total |\n\nGenerate by **paragraphs** when layout is paragraph-based; by **words** when filling a fixed box.\n\n## Example: card blurb\n\n**Words:** 24\n\n```\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus at urna interdum gravida.\n```\n\n## Built-in generation (no external API)\n\nTextCraft generates placeholder text **in your browser**. You do not need a third-party API key or network call—paste results directly into your project.\n\n> **Note:** Earlier drafts of generic articles sometimes claim multi-language Lorem or live API services. TextCraft's tool outputs Latin-style placeholder and word-count-based filler—switch to real localized copy before launch.\n\n## Best practices\n\n- Label design files `COPY TBD` so stakeholders know text is temporary.\n- Match **line length** (characters per line) to production CMS width.\n- Do not ship Lorem to production—search engines and users expect real content.\n\n## Common pitfalls\n\n- Too little text hides overflow bugs.\n- Too much text breaks mobile layouts.\n- Using joke filler text in compliance or health UI looks unprofessional.",
+    "relatedToolSlug": "lorem-ipsum",
+    "relatedTools": [
+      {
+        "name": "Lorem Ipsum Generator",
+        "path": "/lorem-ipsum"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many paragraphs of Lorem do I need for a blog mockup?",
+        "answer": "Start with 3–5 paragraphs (400–600 words) to stress-test headings, pull quotes, and images."
+      },
+      {
+        "question": "Is Lorem Ipsum readable Latin?",
+        "answer": "It is scrambled Latin-like text meant to be unreadable so viewers focus on design."
+      },
+      {
+        "question": "Does TextCraft call an external API?",
+        "answer": "No. Generation runs locally in the browser."
+      }
+    ],
+    "category": "tools",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Lorem Ipsum",
+      "Placeholder Text",
+      "Design",
+      "Mockups"
+    ],
+    "featured": false
+  },
+  {
+    "id": 5,
+    "slug": "text-encoding-character-sets",
+    "title": "Text Encoding and Character Sets: A Complete Guide",
+    "metaDescription": "UTF-8, Unicode, BOM, and mojibake explained for developers handling multilingual text.",
+    "excerpt": "UTF-8, Unicode, BOM, and mojibake—how to store and exchange text without corruption.",
+    "quickAnswer": "Use UTF-8 for new projects. Decode bytes with the correct encoding, strip BOMs when they cause double-encoding, and never assume ASCII when users paste international text.",
+    "keyTakeaways": [
+      "UTF-8 is the default for web and APIs.",
+      "Mojibake means bytes were read with the wrong encoding.",
+      "BOMs can break scripts that expect raw UTF-8."
+    ],
+    "content": "## What is text encoding?\n\nComputers store text as bytes. Encoding maps characters to bytes; decoding maps bytes back to characters. Wrong guesses produce **mojibake** (`Ã©` instead of `é`).\n\n## Prefer UTF-8\n\nUTF-8 encodes ASCII in one byte and uses multiple bytes only for other scripts. It is the standard for HTML, JSON, and modern databases.\n\n## Detect and strip BOM\n\n```javascript\nfunction stripBom(text) {\n  return text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;\n}\n```\n\n## Best practices\n\n- Declare `<meta charset=\"utf-8\">` in HTML.\n- Set `Content-Type: charset=utf-8` on APIs.\n- Test paste with emoji and accented characters in browser tools like [Line Breaks Remover](/line-breaks).",
+    "relatedTools": [
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "line-break-handling",
+        "title": "Line Break Handling: Cross-Platform Text Processing"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I still use Latin-1?",
+        "answer": "Only for legacy systems. New work should use UTF-8 end to end."
+      }
+    ],
+    "category": "encoding",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "8 min read",
+    "tags": [
+      "Text Encoding",
+      "Unicode",
+      "UTF-8"
+    ],
+    "featured": false
+  },
+  {
+    "id": 6,
+    "slug": "text-processing-performance",
+    "title": "Text Processing Performance Optimization",
+    "metaTitle": "Text Processing Performance | Fast String Ops in JavaScript",
+    "metaDescription": "Optimize text processing in browser apps: avoid slow string concat, cache regex, debounce input, and keep TextCraft tools snappy on large paste.",
+    "excerpt": "Make browser-based text tools feel instant—string building, regex reuse, debouncing, and chunking large inputs.",
+    "quickAnswer": "Build strings with arrays and `.join()`, compile regex once, debounce live counters on large paste, and avoid blocking the main thread—patterns TextCraft uses across Word Counter, Diff Checker, and other tools.",
+    "keyTakeaways": [
+      "Repeated string `+=` in loops allocates new strings each time.",
+      "Reuse `RegExp` objects instead of creating them per keystroke.",
+      "Debounce 150–300ms for word count on 10k+ character paste.",
+      "Chunk work with `requestIdleCallback` or Web Workers for huge files."
+    ],
+    "content": "## Why text performance matters in browser tools\n\nTextCraft tools run **client-side**. A sluggish loop on a 50k-character paste feels broken even if the math is correct. Performance is UX.\n\n## Measure before optimizing\n\n```javascript\nfunction measure(label, fn) {\n  const start = performance.now();\n  const result = fn();\n  console.log(`${label}: ${(performance.now() - start).toFixed(2)} ms`);\n  return result;\n}\n```\n\n## Fast string building\n\n```javascript\n// Slow for huge arrays of parts\nlet out = '';\nfor (const part of parts) out += part;\n\n// Faster\nconst out = parts.join('');\n```\n\n## Cache regular expressions\n\n```javascript\nconst WORD_RE = /\\b[\\w']+\\b/gu;\nfunction countWords(text) {\n  return (text.match(WORD_RE) || []).length;\n}\n```\n\n## Debounce live counters\n\nFor word counters and diff previews, wait until typing pauses:\n\n```javascript\nfunction debounce(fn, ms = 200) {\n  let t;\n  return (...args) => {\n    clearTimeout(t);\n    t = setTimeout(() => fn(...args), ms);\n  };\n}\n```\n\n## When this article is enough\n\nThis is a **developer supplement**, not a tool tutorial. Users fixing paste or counting words should start with [Word Counter](/word-counter) or [Line Breaks Remover](/line-breaks). Engineers extending TextCraft-style apps should profile real paste sizes first.\n\n## Common pitfalls\n\n- Optimizing regex before proving paste size is the bottleneck.\n- Running diff on megabyte logs in the main thread—chunk or workerize.\n- Forgetting mobile CPUs—test on a phone, not only a laptop.",
+    "relatedToolSlug": "word-counter",
+    "relatedTools": [
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Text Diff Checker",
+        "path": "/diff-checker"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why is my word counter slow on large text?",
+        "answer": "Recalculating on every keypress with heavy regex can block the UI—debounce input and reuse compiled patterns."
+      },
+      {
+        "question": "Are TextCraft tools server-side?",
+        "answer": "No. They run in your browser, so main-thread performance directly affects responsiveness."
+      }
+    ],
+    "category": "performance",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "8 min read",
+    "tags": [
+      "Performance",
+      "JavaScript",
+      "Text Processing"
+    ],
+    "featured": false
+  },
+  {
+    "id": 7,
+    "slug": "line-break-handling",
+    "title": "Line Break Handling: Cross-Platform Text Processing",
+    "metaTitle": "Line Break Formats | LF, CRLF, and Normalization Guide",
+    "metaDescription": "Understand LF vs CRLF line endings, normalize text for code and documents, and clean pasted breaks with TextCraft Line Breaks Remover.",
+    "excerpt": "LF vs CRLF explained for developers and anyone cleaning pasted text—plus when to use TextCraft's Line Breaks Remover for practical cleanup.",
+    "quickAnswer": "Windows often uses CRLF (`\\r\\n`), Unix/Mac uses LF (`\\n`). Normalize line endings when code or copy behaves differently across machines—or use TextCraft Line Breaks Remover for quick paste cleanup.",
+    "keyTakeaways": [
+      "Mixed line endings cause noisy diffs and broken scripts.",
+      "Normalize early in ETL and document pipelines.",
+      "Writers care about joined paragraphs; developers care about `\\n` bytes.",
+      "For PDF/Word paste fixes, see the practical cleanup guide linked below."
+    ],
+    "content": "## Understanding line break formats\n\n| Name | Sequence | Common on |\n|------|----------|-----------|\n| LF | `\\n` | Linux, macOS, modern editors |\n| CRLF | `\\r\\n` | Windows, some enterprise apps |\n| CR | `\\r` | Legacy Mac (rare today) |\n\n## Detect line ending type (JavaScript)\n\n```javascript\nfunction detectLineBreakType(text) {\n  const crlf = (text.match(/\\r\\n/g) || []).length;\n  const lf = (text.match(/\\n/g) || []).length - crlf;\n  const cr = (text.match(/\\r/g) || []).length - crlf;\n  if (crlf > 0 && lf === 0 && cr === 0) return 'CRLF';\n  if (lf > 0 && cr === 0) return 'LF';\n  if (cr > 0 && lf === 0) return 'CR';\n  return 'MIXED';\n}\n```\n\n## Normalize to LF\n\n```javascript\nfunction toLf(text) {\n  return text.replace(/\\r\\n/g, '\\n').replace(/\\r/g, '\\n');\n}\n```\n\n## Practical paste cleanup (writers)\n\nIf you are fixing **PDF or email paste** rather than byte-level endings, use the step-by-step guide: [Remove extra line breaks from PDF, Word, and email](/blog/remove-extra-line-breaks-from-pdf-word-email) with [Line Breaks Remover](/line-breaks).\n\n## Best practices for developers\n\n- Set `core.autocrlf` intentionally in git—know your team's OS mix.\n- Strip `\\r` before JSON APIs that reject control characters.\n- Log mixed-ending files in CI when linting fixtures.\n\n## Common pitfalls\n\n- Regex counts wrong when CRLF pairs overlap LF counts.\n- Joining lines destroys poetry, lyrics, and line-based code.\n- Assuming Notepad and VS Code save the same bytes by default.",
+    "relatedToolSlug": "line-breaks",
+    "relatedTools": [
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Text Sorter",
+        "path": "/text-sorter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "remove-extra-line-breaks-from-pdf-word-email",
+        "title": "How to Remove Extra Line Breaks From Word, PDF, and Email Paste"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the difference between LF and CRLF?",
+        "answer": "LF is one newline character; CRLF is carriage return plus line feed. Windows traditionally uses CRLF; Unix uses LF."
+      },
+      {
+        "question": "How do I fix PDF paste line breaks?",
+        "answer": "Use TextCraft Line Breaks Remover to join broken lines—see our dedicated PDF/Word/email cleanup article."
+      },
+      {
+        "question": "Will normalization change my words?",
+        "answer": "It only changes invisible line ending characters, not letters."
+      }
+    ],
+    "category": "tools",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Line Breaks",
+      "CRLF",
+      "LF",
+      "Normalization"
+    ],
+    "featured": false
+  },
+  {
+    "id": 8,
+    "slug": "text-validation-sanitization",
+    "title": "Text Validation and Sanitization: Security Best Practices",
+    "metaDescription": "Validate and sanitize text input to reduce XSS risk and data quality issues in web apps.",
+    "excerpt": "Validate format early, sanitize before storage, escape on output—text security basics for web apps.",
+    "quickAnswer": "Validate structure on the server, reject unexpected control characters, sanitize HTML if you must accept rich text, and escape output in templates. Client-side checks in browser tools are for UX only—not security boundaries.",
+    "keyTakeaways": [
+      "Never trust pasted text from the clipboard for security policy.",
+      "Whitelist allowed patterns when possible.",
+      "Escape HTML on output unless using a vetted sanitizer."
+    ],
+    "content": "## Validation vs sanitization\n\n- **Validation:** Is this string allowed? (email format, max length)\n- **Sanitization:** Remove or neutralize dangerous fragments\n\n## XSS-aware handling\n\n```javascript\nfunction escapeHtml(text) {\n  return text\n    .replace(/&/g, '&amp;')\n    .replace(/</g, '&lt;')\n    .replace(/>/g, '&gt;')\n    .replace(/\"/g, '&quot;');\n}\n```\n\nBrowser text tools like TextCraft process input locally—they are not a substitute for server-side sanitization in your app.\n\n## Best practices\n\n- Validate on server regardless of client checks.\n- Log rejected payloads for abuse monitoring.\n- Use CSP headers to limit inline script damage.",
+    "relatedTools": [
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      },
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      }
+    ],
+    "relatedPosts": [],
+    "faqs": [
+      {
+        "question": "Does TextCraft sanitize my text on a server?",
+        "answer": "TextCraft does not upload your text. Your own apps must still sanitize before storing user content."
+      }
+    ],
+    "category": "security",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "8 min read",
+    "tags": [
+      "Security",
+      "Validation",
+      "XSS"
+    ],
+    "featured": false
+  },
+  {
+    "id": 9,
+    "slug": "text-analysis-nlp-basics",
+    "title": "Text Analysis and NLP Basics for Developers",
+    "metaDescription": "Tokenization, stop words, and simple frequency analysis—practical NLP starters without a ML stack.",
+    "excerpt": "Tokenization, stop words, and frequency sketches—NLP starters without a machine learning stack.",
+    "quickAnswer": "Start NLP experiments with tokenization, lowercasing, stop-word removal, and frequency counts—then use TextCraft Word Counter when you only need words, characters, and reading time without building a pipeline.",
+    "keyTakeaways": [
+      "Preprocessing quality dominates simple NLP results.",
+      "Stop words skew keyword lists if not removed.",
+      "Word frequency ≠ importance without TF-IDF or embeddings."
+    ],
+    "content": "## Basic pipeline\n\n1. Lowercase and normalize whitespace\n2. Tokenize on spaces or `Intl.Segmenter`\n3. Remove stop words\n4. Count or score tokens\n\n```javascript\nfunction tokens(text) {\n  return text.toLowerCase().split(/\\s+/).filter(Boolean);\n}\n```\n\nFor production keyword extraction, pair counts with domain dictionaries—not raw frequency alone.\n\nWhen you only need **word and character metrics**, use [Word Counter](/word-counter) instead of building a one-off script.",
+    "relatedToolSlug": "word-counter",
+    "relatedTools": [
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need machine learning for word frequency?",
+        "answer": "No. Counts are deterministic; ML helps classification, entities, and sentiment at scale."
+      }
+    ],
+    "category": "analysis",
+    "author": "TextCraft Team",
+    "date": "2025-09-05",
+    "updated": "2026-06-24",
+    "readTime": "9 min read",
+    "tags": [
+      "NLP",
+      "Text Analysis",
+      "Tokenization"
+    ],
+    "featured": false
+  },
+  {
+    "id": 10,
+    "slug": "alphabetize-list-online",
+    "title": "How to Alphabetize a List of Names or Lines Online",
+    "metaTitle": "Alphabetize List Online | Sort Names and Text Lines A–Z",
+    "metaDescription": "Learn how to alphabetize names, sort text lines A–Z, remove duplicates, and clean lists online using TextCraft's Text Sorter.",
+    "excerpt": "Alphabetize names, sort lines A–Z, remove duplicates, and clean messy lists in seconds with TextCraft's browser-based Text Sorter.",
+    "quickAnswer": "Paste your list into TextCraft's Text Sorter, choose A–Z alphabetical order, optionally remove duplicate lines, and copy the cleaned result. Everything runs in your browser—nothing is uploaded.",
+    "keyTakeaways": [
+      "One name or phrase per line is the easiest format to sort.",
+      "A–Z and Z–A sorting work for names, titles, bullet lists, and spreadsheet paste.",
+      "Remove duplicates after sorting to clean mailing lists and attendee rosters.",
+      "TextCraft processes lists locally in your browser for privacy."
+    ],
+    "content": "## What does it mean to alphabetize a list?\n\nAlphabetizing means arranging lines in standard dictionary order (A–Z). Each line is treated as one item—useful for names, countries, product SKUs, classroom rosters, or any list you copied from Notes, Excel, or email.\n\n## When should you sort text lines online?\n\n- **Event planning:** Sort guest names for place cards or check-in sheets.\n- **School work:** Organize bibliography entries or vocabulary lists.\n- **Marketing:** Clean exported contact lists before mail merge.\n- **Development:** Sort config keys, file paths, or test fixtures for readable diffs.\n- **Everyday tasks:** Tidy a messy Notes app list before sharing.\n\n## How to use TextCraft Text Sorter\n\n1. Open the [Text Sorter](/text-sorter) tool.\n2. Paste your list—one item per line works best.\n3. Pick **A–Z** (or Z–A, random, or reverse).\n4. Turn on **Remove duplicate lines** if needed.\n5. Copy or download the sorted output.\n\n## Example: alphabetize a list of names\n\n**Before:**\n\n```\nZoe Martinez\nAaron Brooks\nMia Chen\nDev Patel\n```\n\n**After (A–Z):**\n\n```\nAaron Brooks\nDev Patel\nMia Chen\nZoe Martinez\n```\n\n## Example: remove duplicate lines\n\n**Before:**\n\n```\napple\nbanana\napple\ncherry\nbanana\n```\n\n**After (sorted + deduplicated):**\n\n```\napple\nbanana\ncherry\n```\n\n## Alphabetical vs reverse vs random sorting\n\n- **A–Z:** Standard alphabetical order for directories and indexes.\n- **Z–A:** Reverse order—handy when you want newest-last names pushed to the top visually.\n- **Random:** Shuffle lines for raffles, random picks, or quiz order.\n- **Reverse:** Flip the current line order without re-sorting.\n\n## Common sorting mistakes\n\n- Pasting a **comma-separated** line instead of one item per row—split first or paste from a column.\n- Leading spaces that push lines to the wrong position—trim whitespace before sorting.\n- Sorting **Last, First** names as plain text—they sort by surname only if each full name is on one line.\n- Forgetting that **capital letters** sort before lowercase in plain ASCII sorts.\n\n## Best practices for clean lists\n\n- Put one entry per line.\n- Remove empty lines before sorting if you do not want blank rows.\n- Dedupe after sorting so duplicates are easy to spot.\n- Keep a copy of the original paste until you verify the output.\n\n## Privacy and browser-side sorting\n\nTextCraft runs entirely in your browser. Your list is not sent to a server, stored in our database, or shared with third parties. Close the tab and the session data is gone from the tool.",
+    "relatedToolSlug": "text-sorter",
+    "relatedTools": [
+      {
+        "name": "Text Sorter",
+        "path": "/text-sorter"
+      },
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "remove-extra-line-breaks-from-pdf-word-email",
+        "title": "How to Remove Extra Line Breaks From Word, PDF, and Email Paste"
+      },
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I alphabetize a list online?",
+        "answer": "Paste your list into TextCraft Text Sorter with one item per line, select A–Z alphabetical order, and copy the result. No install or account needed."
+      },
+      {
+        "question": "Can I remove duplicate lines?",
+        "answer": "Yes. Enable the remove-duplicates option in Text Sorter after pasting your list. Duplicates are removed based on exact line matches."
+      },
+      {
+        "question": "Can I sort names alphabetically?",
+        "answer": "Yes. Put each full name on its own line. The tool sorts by character order from left to right—use 'Last, First' format if you need surname-primary sorting."
+      },
+      {
+        "question": "Can I randomize a list?",
+        "answer": "Yes. Choose the random/shuffle sort option to reorder lines unpredictably—useful for drawings or random question order."
+      },
+      {
+        "question": "Can I sort copied spreadsheet data?",
+        "answer": "Copy a single column from Excel or Google Sheets so each cell becomes one line when pasted. Avoid pasting tab-separated rows if you only want one column sorted."
+      },
+      {
+        "question": "Is my text uploaded anywhere?",
+        "answer": "No. TextCraft processes text locally in your browser. Lists are not uploaded to our servers."
+      }
+    ],
+    "category": "sorting",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "6 min read",
+    "tags": [
+      "Alphabetize",
+      "Text Sorter",
+      "Sort Lists",
+      "Remove Duplicates"
+    ],
+    "featured": false
+  },
+  {
+    "id": 11,
+    "slug": "remove-extra-line-breaks-from-pdf-word-email",
+    "title": "How to Remove Extra Line Breaks From Word, PDF, and Email Paste",
+    "metaTitle": "Remove Extra Line Breaks Online | Clean PDF, Word, and Email Text",
+    "metaDescription": "Learn how to remove unwanted line breaks, blank lines, and extra spaces from copied PDF, Word, email, and document text.",
+    "excerpt": "Fix broken line breaks from PDF, Word, and email paste—join lines, remove blank rows, and copy clean text with TextCraft's Line Breaks Remover.",
+    "quickAnswer": "Paste messy text into TextCraft's Line Breaks Remover, choose whether to join broken lines or remove blank lines, then copy the cleaned text. Processing happens in your browser.",
+    "keyTakeaways": [
+      "PDF and email paste often inserts a line break at every visual line—not every sentence.",
+      "Join lines to turn hard-wrapped paragraphs back into flowing text.",
+      "Remove blank lines to compact lists and signatures.",
+      "TextCraft does not upload your pasted content."
+    ],
+    "content": "## Why copied text gets weird line breaks\n\nPDF viewers, email clients, and some Word exports break text at **visual line width**, not at sentence boundaries. When you paste, each wrapped line becomes its own row—so a single paragraph can look like ten short lines.\n\nWindows, Mac, and older files may also mix **LF**, **CRLF**, or **CR** line endings, which adds invisible inconsistency.\n\n## How to use TextCraft Line Breaks Remover\n\n1. Open [Line Breaks Remover](/line-breaks).\n2. Paste the text you copied from PDF, Word, Gmail, Outlook, or Slack.\n3. Choose **join lines** to merge broken paragraphs, or **remove blank lines** for extra spacing.\n4. Optionally trim trailing spaces on each line.\n5. Copy the cleaned text back to your doc, CMS, or email.\n\n## Before and after example\n\n**Before (paste from a PDF):**\n\n```\nThe quarterly report shows\nsteady growth across all\nregions. Revenue increased\nfour percent year over year.\n```\n\n**After (joined into one paragraph):**\n\n```\nThe quarterly report shows steady growth across all regions. Revenue increased four percent year over year.\n```\n\n## Cleaning text copied from PDFs\n\nPDF text is positioned on a page, not stored as paragraphs. Expect mid-sentence breaks and hyphenation at line ends (`infor-\\nmation`). After joining lines, search for stray hyphens before line breaks and fix words manually if needed.\n\n## Cleaning text copied from emails\n\nReply chains and mobile signatures introduce blank lines and `>` quote markers. Remove blank lines first, then join remaining content. For heavily quoted threads, paste only the section you need before cleaning.\n\n## Removing blank lines vs joining lines\n\n- **Join lines:** Best for prose paragraphs broken by soft wraps.\n- **Remove blank lines:** Best for lists, CSV paste, or signatures with double spacing.\n- Use both in sequence: join paragraphs first, then strip empty rows if any remain.\n\n## Common cleanup mistakes\n\n- Joining **poetry or line-based lyrics**—you will merge lines that should stay separate.\n- Joining **bulleted lists** without putting each bullet on its own line first.\n- Assuming cleanup fixes **missing words** from a bad PDF scan—it only fixes line structure.\n- Forgetting to **proofread** once after automated cleanup.\n\n## Best practices for clean text formatting\n\n- Paste into a plain-text tool before moving to Word or HTML.\n- Keep the original paste until the cleaned version looks right.\n- For publishing, paste cleaned text into your editor and apply styles there—not in the PDF copy step.\n\n## Privacy and browser-side cleanup\n\nTextCraft runs in your browser. Pasted text is not uploaded, logged, or stored on our servers.",
+    "relatedToolSlug": "line-breaks",
+    "relatedTools": [
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Text Sorter",
+        "path": "/text-sorter"
+      },
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "line-break-handling",
+        "title": "Line Break Handling: Cross-Platform Text Processing"
+      },
+      {
+        "slug": "alphabetize-list-online",
+        "title": "How to Alphabetize a List of Names or Lines Online"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I remove line breaks online?",
+        "answer": "Paste your text into TextCraft Line Breaks Remover, select join lines or remove blank lines, and copy the result. The tool works in any modern browser."
+      },
+      {
+        "question": "Why does PDF text paste with broken lines?",
+        "answer": "PDFs store positioned text, not flowing paragraphs. Each visual line becomes a separate line when copied."
+      },
+      {
+        "question": "Can I remove blank lines?",
+        "answer": "Yes. Use the remove blank lines option to delete empty rows while keeping non-empty lines."
+      },
+      {
+        "question": "Can I remove extra spaces too?",
+        "answer": "Line Breaks Remover focuses on line structure. Trim spaces on each line where available, then paste into Word or your editor for full spacing cleanup."
+      },
+      {
+        "question": "Will this change my words?",
+        "answer": "No. The tool adjusts line breaks and blank lines—it does not rewrite sentences or change spelling."
+      },
+      {
+        "question": "Is my pasted text uploaded anywhere?",
+        "answer": "No. Cleanup runs locally in your browser."
+      }
+    ],
+    "category": "tools",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Line Breaks",
+      "PDF Paste",
+      "Email Text",
+      "Text Cleanup"
+    ],
+    "featured": false
+  },
+  {
+    "id": 12,
+    "slug": "compare-two-text-versions-online",
+    "title": "How to Compare Two Text Versions Online Without Installing Software",
+    "metaTitle": "Compare Two Text Versions Online | Find Text Differences Fast",
+    "metaDescription": "Learn how to compare two text versions online, find additions and deletions, review edits, and avoid common text comparison mistakes.",
+    "excerpt": "Compare two text versions side by side, spot additions and deletions, and review edits in your browser with TextCraft's Diff Checker.",
+    "quickAnswer": "Paste the original text in the left panel and the revised text in the right panel of TextCraft's Diff Checker. Added and removed segments are highlighted so you can review changes without installing diff software.",
+    "keyTakeaways": [
+      "A text diff shows what changed between two versions of the same content.",
+      "Line diff is best for documents; word diff helps with small edits in long paragraphs.",
+      "Useful for blog drafts, contract reviews, homework revisions, and config checks.",
+      "TextCraft compares text locally—nothing is uploaded to a server."
+    ],
+    "content": "## What is a text diff checker?\n\nA diff checker compares two text inputs and highlights **additions**, **deletions**, and sometimes **moves**. Instead of reading both versions word by word, you see exactly what changed.\n\n## When should you compare two text versions?\n\n- **Bloggers & writers:** Compare draft 2 vs draft 3 before publishing.\n- **Students:** See what you changed between essay revisions.\n- **Legal & ops:** Review clause edits in contracts or policy updates.\n- **Developers:** Sanity-check config or snippet changes without opening IDE plugins.\n- **Teams:** Verify email copy or release notes before send.\n\n## How to use TextCraft Diff Checker\n\n1. Open [Text Diff Checker](/diff-checker).\n2. Paste the **original** text in the first box.\n3. Paste the **updated** text in the second box.\n4. Switch between **line** and **word** diff if the tool offers both modes.\n5. Scan highlighted changes and copy the version you need.\n\n## Example: original vs edited paragraph\n\n**Original:**\n\n```\nOur shipping policy covers domestic orders only.\nReturns are accepted within 30 days.\n```\n\n**Edited:**\n\n```\nOur shipping policy covers domestic and international orders.\nReturns are accepted within 45 days with receipt.\n```\n\nThe diff highlights `and international`, `45` instead of `30`, and `with receipt` as changes—so you approve only what you expect.\n\n## Line diff vs word diff\n\n- **Line diff:** Compares row by row—best for code, lists, policies, and multi-paragraph docs.\n- **Word diff:** Finer granularity inside long lines—best when a single paragraph changed slightly.\n\n## Reviewing blog edits, contracts, and code snippets\n\n- **Blog posts:** Line diff shows moved paragraphs; word diff catches swapped adjectives.\n- **Contracts:** Read every highlighted clause; do not rely on diff alone for legal sign-off.\n- **Code:** Line diff maps to how version control shows patches, but always run tests after merging.\n\n## Common comparison mistakes\n\n- Comparing **different documents** entirely—diff works best on related versions.\n- Ignoring **whitespace-only** changes that still highlight as edits.\n- Pasting with **different line endings** (Windows vs Mac) and misreading formatting noise.\n- Forgetting that order matters—swapped paragraphs show as delete + add.\n\n## Best practices for reviewing changes\n\n- Label mentally which box is “before” and which is “after.”\n- Collapse unrelated sections before paste so the diff stays focused.\n- After review, save the approved version in your CMS or doc system.\n\n## Privacy and browser-side comparison\n\nBoth texts stay in your browser during comparison. TextCraft does not upload them for processing or storage.",
+    "relatedToolSlug": "diff-checker",
+    "relatedTools": [
+      {
+        "name": "Text Diff Checker",
+        "path": "/diff-checker"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "text-diff-algorithms",
+        "title": "Text Diff Algorithms: Understanding and Implementing Change Detection"
+      },
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I compare two texts online?",
+        "answer": "Paste the original and updated text into the two panels in TextCraft Diff Checker. Changes are highlighted automatically."
+      },
+      {
+        "question": "What is a text diff checker?",
+        "answer": "It is a tool that shows additions and deletions between two text versions so you can review edits quickly."
+      },
+      {
+        "question": "What is the difference between line diff and word diff?",
+        "answer": "Line diff compares whole lines; word diff compares within lines. Use line diff for structured docs and word diff for small in-paragraph edits."
+      },
+      {
+        "question": "Can I compare code snippets?",
+        "answer": "Yes. Paste code into both panels. Line diff behaves similarly to patch views, but use your IDE or git for production merges."
+      },
+      {
+        "question": "Can I compare document text?",
+        "answer": "Yes. Copy text from Word or Google Docs into both boxes. Remove track-changes markup first for a cleaner comparison."
+      },
+      {
+        "question": "Is my text uploaded anywhere?",
+        "answer": "No. Comparison runs locally in your browser."
+      }
+    ],
+    "category": "diff",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Text Diff",
+      "Compare Text",
+      "Document Review",
+      "Editing"
+    ],
+    "featured": false
+  },
+  {
+    "id": 13,
+    "slug": "how-many-words-should-a-blog-post-be",
+    "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide",
+    "metaTitle": "How Many Words Should a Blog Post Be? | Word Count Guide",
+    "metaDescription": "Learn practical word count ranges for blog posts, SEO articles, essays, landing pages, and social posts, plus how to check word count quickly.",
+    "excerpt": "Practical word count ranges for blog posts, essays, landing pages, and social captions—plus how to check your draft before you publish.",
+    "quickAnswer": "Most blog posts land between 800 and 2,000 words depending on intent: short updates can work at 500–800 words, while tutorials and guides often need 1,500–2,500 words. Paste your draft into TextCraft Word Counter to see exact word count, reading time, and whether you are in range before publishing.",
+    "keyTakeaways": [
+      "Match length to search intent—a quick answer post can be shorter than a step-by-step guide.",
+      "1,000–1,800 words is a common sweet spot for informational blog posts that rank and retain readers.",
+      "Essays and assignments follow instructor rules (often 500–1,000 words), not SEO benchmarks.",
+      "Reading time matters as much as word count—aim for 5–8 minutes for many how-to articles.",
+      "Check the final exported text, not the draft with comments or track changes."
+    ],
+    "content": "## Common blog post word count ranges\n\nThere is no single magic number, but these ranges help writers plan before drafting:\n\n| Post type | Typical word count | Why |\n|-----------|-------------------|-----|\n| News update or announcement | 400–800 | Readers want the point fast |\n| How-to tutorial | 1,200–2,500 | Steps, screenshots, and examples need room |\n| Listicle (10 tips) | 1,000–1,800 | ~100–150 words per item plus intro |\n| Pillar guide / cornerstone | 2,000–4,000+ | Covers a topic comprehensively |\n| Product comparison | 1,500–2,500 | Tables, pros/cons, and verdict |\n\nUse these as planning targets, then verify with [Word Counter](/word-counter) after you write.\n\n## Short posts vs long-form guides\n\n**Short posts** work when the reader already knows the context: a product changelog, a weekly roundup, or a single-tip email newsletter. If someone can act on your advice in under three minutes, a 600-word post may be enough.\n\n**Long-form guides** earn their length when they replace a scattered Google search—troubleshooting a problem end to end, comparing options, or teaching a skill from zero. Padding with fluff hurts both readers and rankings; every section should answer a real question.\n\nAsk: *Would a reader feel cheated if this were shorter?* If yes, add substance. If no, cut.\n\n## Word count by content type\n\nBeyond blogs, writers hit different limits:\n\n- **College essays:** Often 500, 750, or 1,000 words—always confirm the syllabus.\n- **Cover letters:** 250–400 words (about one screen).\n- **Landing pages:** Hero + benefits sections often total 400–800 words above the fold; full pages may reach 1,200+.\n- **LinkedIn posts:** 150–300 words for engagement; articles can go longer.\n- **Meta descriptions:** ~150–160 **characters**, not words—count separately.\n- **YouTube scripts:** Plan speaking time (see our [reading and speaking time guide](/blog/reading-time-speaking-time-word-count)).\n\n## How word count affects readability\n\nLonger is not automatically better. Dense 3,000-word walls without headings lose readers. Shorter posts with clear structure often outperform bloated competitors.\n\nSignals that length is working:\n\n- Subheadings every 200–400 words\n- Short paragraphs (2–4 sentences)\n- Bullets or tables for scannable facts\n- A clear takeaway in the first 100 words\n\nIf your word count is high but time-on-page is low, tighten—not expand.\n\n## SEO word count myths\n\n**Myth:** Google requires 2,000+ words to rank.\n**Reality:** Top results for many queries are 800–1,500 words. Depth and relevance beat arbitrary length.\n\n**Myth:** Longer posts always rank higher.\n**Reality:** Thin content fails; so does repetitive filler. Match top-ranking pages for your keyword, then add unique examples.\n\n**Myth:** Word count alone fixes traffic.\n**Reality:** Title, intent match, internal links, and usefulness matter more than hitting a number.\n\n## How to use TextCraft Word Counter\n\n1. Open [Word Counter](/word-counter).\n2. Paste your draft (from Google Docs, Notion, or your CMS export).\n3. Review **words**, **characters**, **sentences**, and **paragraphs** in real time.\n4. Check **reading time** and **speaking time** estimates.\n5. Use **Copy** or **Download** if you need to save a snapshot for an editor.\n\nEverything runs in your browser—your draft is not uploaded to a server.\n\n## Example: checking a draft before publishing\n\nYou finished a post titled *\"How to Clean Up Pasted Text.\"* Before scheduling:\n\n1. Paste the body into Word Counter.\n2. Result: **1,247 words**, **5 min 32 sec** reading time.\n3. Your content brief asked for 1,200–1,500 words—you are in range.\n4. The intro is 180 words; you trim 40 words to get readers to the steps faster.\n5. Re-paste and confirm: **1,207 words**, reading time still under six minutes.\n\nThat two-minute check prevents awkward surprises after publish.\n\n## Reading time and speaking time\n\nTextCraft estimates:\n\n- **Reading time** at ~225 words per minute (average silent reading)\n- **Speaking time** at ~130 words per minute (presentations, podcasts, video)\n\n| Words | Reading time | Speaking time |\n|-------|--------------|---------------|\n| 500 | ~2 min | ~4 min |\n| 1,000 | ~4.5 min | ~8 min |\n| 1,500 | ~7 min | ~12 min |\n| 2,000 | ~9 min | ~15 min |\n\nFor a deeper breakdown, read [Reading Time and Speaking Time: How Word Count Translates to Minutes](/blog/reading-time-speaking-time-word-count).",
+    "relatedToolSlug": "word-counter",
+    "relatedTools": [
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      },
+      {
+        "slug": "reading-time-speaking-time-word-count",
+        "title": "Reading Time and Speaking Time: How Word Count Translates to Minutes"
+      },
+      {
+        "slug": "mastering-text-case-conversion",
+        "title": "Mastering Text Case Conversion: A Developer's Complete Guide"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the best word count for a blog post?",
+        "answer": "For many informational topics, 1,000–1,800 words is a practical target. Match length to intent—quick updates can be shorter; tutorials and guides often need more depth."
+      },
+      {
+        "question": "Is 500 words enough for a blog post?",
+        "answer": "Yes, for focused updates, announcements, or narrow questions with a single clear answer. It is usually too short for comprehensive how-to guides unless the topic is genuinely simple."
+      },
+      {
+        "question": "Are longer blog posts better for SEO?",
+        "answer": "Not automatically. Longer posts can cover more subtopics, but quality, intent match, and structure matter more than hitting an arbitrary word count."
+      },
+      {
+        "question": "How many words should an essay be?",
+        "answer": "Follow your assignment prompt—common limits are 500, 750, 1,000, or 1,500 words. Use Word Counter on your exported final text, not a draft with comments."
+      },
+      {
+        "question": "How do I check word count online?",
+        "answer": "Paste your text into TextCraft Word Counter. Counts update instantly in your browser with no account required."
+      },
+      {
+        "question": "What is reading time?",
+        "answer": "Reading time estimates how long an average reader needs to finish your text. TextCraft divides word count by about 225 words per minute."
+      }
+    ],
+    "category": "counting",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "8 min read",
+    "tags": [
+      "Blog Writing",
+      "Word Count",
+      "SEO",
+      "Content Strategy",
+      "Reading Time"
+    ],
+    "featured": true
+  },
+  {
+    "id": 14,
+    "slug": "title-case-vs-sentence-case-headlines",
+    "title": "Title Case vs Sentence Case: When to Use Each for Headlines and Buttons",
+    "metaTitle": "Title Case vs Sentence Case | Headline Capitalization Guide",
+    "metaDescription": "Learn the difference between title case and sentence case, when to use each, and how to convert headings, buttons, emails, and labels quickly.",
+    "excerpt": "Title case vs sentence case for headlines, buttons, emails, and UI labels—with examples and a fast way to fix ALL CAPS paste.",
+    "quickAnswer": "Title Case capitalizes major words in headlines and product names; sentence case capitalizes only the first word and proper nouns—common for buttons, form labels, and body-style headings. Use TextCraft Case Converter to switch between them in one click.",
+    "keyTakeaways": [
+      "Title case fits blog titles, book covers, and marketing headlines.",
+      "Sentence case fits buttons, nav labels, and modern editorial style guides.",
+      "ALL CAPS from email or PDF paste should be converted—not published as-is.",
+      "Pick one style per surface (site nav vs blog H1) and stay consistent.",
+      "TextCraft converts case locally—nothing leaves your browser."
+    ],
+    "content": "## What is title case?\n\n**Title case** (headline case) capitalizes the first letter of major words. Minor words—*a*, *an*, *the*, *and*, *but*, *or*, *for*, *nor*, *on*, *at*, *to*, *from*, *by*—are often lowercase unless they start the title.\n\n**Example:** `How to Write Headlines That Get Clicks`\n\nStyle guides disagree on minor words (AP, Chicago, APA differ slightly). For web publishing, consistency across your site matters more than debating every *of* and *in*.\n\n## What is sentence case?\n\n**Sentence case** capitalizes only the first word and proper nouns—like a normal sentence.\n\n**Example:** `How to write headlines that get clicks`\n\nSentence case feels conversational. Many product teams use it for buttons (`Save changes`), navigation (`Account settings`), and email subject lines in modern brands.\n\n## Title case vs sentence case at a glance\n\n| | Title Case | Sentence case |\n|---|------------|---------------|\n| **Feel** | Formal, editorial, \"published\" | Friendly, product UI, modern blog |\n| **Common uses** | Blog H1, ebook titles, press releases | Buttons, labels, Slack/Notion headings |\n| **Example** | `Five Tips for Better Newsletters` | `Five tips for better newsletters` |\n| **Risk** | Can feel stiff on short UI strings | Can feel casual for formal reports |\n\nNeither is \"wrong\"—mismatching them on the same page looks unpolished.\n\n## When to use title case\n\n- **Blog post titles** in WordPress, Ghost, or Substack\n- **Email newsletter subject lines** (traditional marketing)\n- **Report and whitepaper titles**\n- **Slide deck titles** on a title slide\n- **Book and chapter headings** in formal documents\n\nIf your CMS auto-formats H1 as title case, match your social preview and Open Graph title to the same style.\n\n## When to use sentence case\n\n- **Button labels:** `Create account`, not `Create Account` (unless your design system says otherwise)\n- **Form field labels:** `Email address`\n- **Navigation menus** in apps (Google, Apple, and many SaaS products use sentence case)\n- **In-app notifications:** `Your export is ready`\n- **Modern editorial blogs** that prefer a conversational tone\n\nCheck your company's design system—if it specifies sentence case for UI, do not title-case buttons for \"marketing flair.\"\n\n## Examples for headlines, buttons, emails, and labels\n\n**Blog headline (title case):**\n`Title Case vs Sentence Case: A Practical Guide for Writers`\n\n**Same headline (sentence case):**\n`Title case vs sentence case: a practical guide for writers`\n\n**Button (sentence case):**\n`Publish post`\n\n**Button (title case—use only if your design system requires it):**\n`Publish Post`\n\n**Email subject (title case):**\n`Your Weekly Writing Roundup`\n\n**Email subject (sentence case):**\n`Your weekly writing roundup`\n\n**Fixing ALL CAPS from an old PDF:**\n`TEAM OFFSITE AGENDA` → Title case: `Team Offsite Agenda` → Sentence case: `Team offsite agenda`\n\n## How to convert text with TextCraft Case Converter\n\n1. Open [Case Converter](/case-converter).\n2. Paste your headline, button label, or email subject.\n3. Select **Title Case** or **sentence case** (and preview UPPERCASE, lowercase, etc.).\n4. Click **Apply** or copy the preview pane.\n5. Paste into your CMS, Figma, or email tool.\n\nTry the **hello world** example chip on the tool page to test instantly.\n\n## Common capitalization mistakes\n\n- **Publishing ALL CAPS subjects** from forwarded email—always normalize first.\n- **Title-casing every button** on a sentence-case design system.\n- **Inconsistent H1 vs social card title**—readers notice in previews.\n- **Capitalizing every word in a long UI string**—`Save Your Changes Now` vs `Save your changes now`.\n- **Mixing styles in one nav bar**—`Home`, `about us`, `Contact Us`.\n\nFor developer-oriented formats (camelCase, snake_case), see [Mastering Text Case Conversion](/blog/mastering-text-case-conversion).",
+    "relatedToolSlug": "case-converter",
+    "relatedTools": [
+      {
+        "name": "Case Converter",
+        "path": "/case-converter"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "mastering-text-case-conversion",
+        "title": "Mastering Text Case Conversion: A Developer's Complete Guide"
+      },
+      {
+        "slug": "how-many-words-should-a-blog-post-be",
+        "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide"
+      },
+      {
+        "slug": "alphabetize-list-online",
+        "title": "How to Alphabetize a List of Names or Lines Online"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is title case?",
+        "answer": "Title case capitalizes major words in a headline or title. Minor words like 'and' or 'the' may stay lowercase in the middle of a title, depending on your style guide."
+      },
+      {
+        "question": "What is sentence case?",
+        "answer": "Sentence case capitalizes only the first word and proper nouns, like a normal sentence. It is common for buttons, labels, and modern editorial headlines."
+      },
+      {
+        "question": "Which is better for headlines?",
+        "answer": "Title case is traditional for blog titles and formal publications. Sentence case is popular for a conversational tone. Pick one and use it consistently on your site."
+      },
+      {
+        "question": "Should button labels use title case or sentence case?",
+        "answer": "Most modern product design systems use sentence case for buttons ('Save draft'). Title case on buttons ('Save Draft') is less common unless your brand guide requires it."
+      },
+      {
+        "question": "How do I convert uppercase text to sentence case?",
+        "answer": "Paste the text into TextCraft Case Converter and choose sentence case or lowercase, then apply or copy the result."
+      },
+      {
+        "question": "Can I convert text online?",
+        "answer": "Yes. TextCraft Case Converter runs in your browser—paste text, pick a format, and copy the output with no signup."
+      }
+    ],
+    "category": "case",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Title Case",
+      "Sentence Case",
+      "Headlines",
+      "Copywriting",
+      "UI Writing"
+    ],
+    "featured": true
+  },
+  {
+    "id": 15,
+    "slug": "reading-time-speaking-time-word-count",
+    "title": "Reading Time and Speaking Time: How Word Count Translates to Minutes",
+    "metaTitle": "Reading Time and Speaking Time from Word Count | TextCraft",
+    "metaDescription": "Learn how word count translates into reading time and speaking time for blog posts, presentations, scripts, speeches, and videos.",
+    "excerpt": "Turn word count into reading minutes and speaking minutes—for blog posts, speeches, podcasts, and video scripts.",
+    "quickAnswer": "Divide word count by ~225 for reading minutes (silent reading) and ~130 for speaking minutes (presentations and video). TextCraft Word Counter shows both automatically when you paste your script or blog draft.",
+    "keyTakeaways": [
+      "Average reading speed is about 200–250 words per minute; TextCraft uses 225 wpm.",
+      "Average speaking speed is about 120–150 words per minute; TextCraft uses 130 wpm.",
+      "A 5-minute speech is roughly 650 words; a 5-minute read is roughly 1,125 words.",
+      "Adjust for audience, complexity, and pauses—estimates are starting points.",
+      "Paste your final script into Word Counter before recording or going live."
+    ],
+    "content": "## How reading time is estimated\n\nReading time answers: *How long will someone need to finish this article?*\n\nTextCraft divides your **word count** by an average silent reading speed of **225 words per minute (wpm)**. That matches typical adult reading of plain English prose on a screen.\n\nFactors that slow readers down:\n\n- Dense technical jargon\n- Long sentences and few paragraph breaks\n- Tables, code blocks, or footnotes\n- Non-native language readers in your audience\n\nIf your post is unusually technical, mentally add 10–20% to the estimate.\n\n## How speaking time is estimated\n\nSpeaking time answers: *How long will this take to present aloud?*\n\nTextCraft uses **130 wpm**—a comfortable pace for presentations, podcasts, and YouTube voiceovers with natural pauses.\n\nFactors that change pace:\n\n- **Keynote energy:** 140–160 wpm\n- **Tutorial or explainer:** 120–140 wpm\n- **Dramatic speech or emphasis:** under 120 wpm\n- **Ad-libs and Q&A:** add buffer time not in the script\n\n## Reading time by word count\n\n| Words | Approx. reading time (225 wpm) |\n|-------|-------------------------------|\n| 300 | 1 min 20 sec |\n| 500 | 2 min 13 sec |\n| 800 | 3 min 33 sec |\n| 1,000 | 4 min 27 sec |\n| 1,500 | 6 min 40 sec |\n| 2,000 | 8 min 53 sec |\n| 3,000 | 13 min 20 sec |\n\nPaste your draft into [Word Counter](/word-counter) for an exact count—the reading time updates as you edit.\n\n## Speaking time by word count\n\n| Words | Approx. speaking time (130 wpm) |\n|-------|--------------------------------|\n| 300 | 2 min 18 sec |\n| 500 | 3 min 51 sec |\n| 650 | 5 min 0 sec |\n| 1,000 | 7 min 41 sec |\n| 1,500 | 11 min 32 sec |\n| 2,000 | 15 min 23 sec |\n\n## Blog posts, scripts, speeches, and videos\n\n**Blog posts:** Display estimated reading time near the title (\"6 min read\") to set expectations. Readers abandon articles that feel longer than promised.\n\n**Conference talks:** A 20-minute slot often allows ~2,400–2,600 spoken words at 130 wpm, minus intro and applause buffer—target ~2,300 words in script.\n\n**Podcast episodes:** 30 minutes of talking is roughly 3,900 words at 130 wpm—add room for banter if you work from bullet points instead of a full script.\n\n**YouTube videos:** A 10-minute voiceover is about 1,300 spoken words; on-camera demos need extra unscripted time.\n\n**Student presentations:** A 5-minute class presentation is roughly **650 words** scripted—practice aloud and trim if you run over.\n\n## Why reading speed varies\n\n- **Familiarity with the topic** speeds experts through jargon-heavy posts.\n- **Mobile vs desktop**—shorter sessions on phones favor shorter pieces.\n- **Skimming**—many readers scan headings; structure matters more than raw length.\n- **Literacy and language**—global audiences may read slower than 225 wpm averages.\n\nUse estimates for planning; validate with a timed read-aloud for anything high-stakes.\n\n## How to use TextCraft Word Counter\n\n1. Open [Word Counter](/word-counter).\n2. Paste your blog draft, speech, or video script.\n3. Note **Words**, **Reading time**, and **Speaking time** in the stats panel.\n4. Edit until reading time fits your target (e.g., under 8 minutes for a standard blog post).\n5. Copy or download if you need to share metrics with an editor or client.\n\n## Example: estimate a 5-minute talk\n\nYour assignment: a **5-minute persuasive speech**.\n\n1. Target: 5 × 130 wpm ≈ **650 words** maximum.\n2. Draft in Google Docs, paste into Word Counter: **742 words**.\n3. Speaking time shows **~5 min 42 sec**—too long.\n4. Cut one anecdote and tighten the conclusion.\n5. New count: **658 words**, speaking time **~5 min 4 sec**—ready to practice aloud.\n\nAlways rehearse once with a timer; pauses and applause are not in the word count.\n\nFor blog-length planning by content type, see [How Many Words Should a Blog Post Be?](/blog/how-many-words-should-a-blog-post-be).",
+    "relatedToolSlug": "word-counter",
+    "relatedTools": [
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Text Diff Checker",
+        "path": "/diff-checker"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "how-many-words-should-a-blog-post-be",
+        "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide"
+      },
+      {
+        "slug": "word-counting-beyond-simple",
+        "title": "Word Counting: Beyond Simple Character Counting"
+      },
+      {
+        "slug": "compare-two-text-versions-online",
+        "title": "How to Compare Two Text Versions Online Without Installing Software"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many words is a 5-minute speech?",
+        "answer": "About 600–700 words at a typical speaking pace of 120–140 words per minute. TextCraft estimates 650 words at 130 wpm."
+      },
+      {
+        "question": "How long does it take to read 1,000 words?",
+        "answer": "About 4–5 minutes for an average adult reading silently at 200–250 words per minute. TextCraft shows ~4 min 27 sec at 225 wpm."
+      },
+      {
+        "question": "How many words per minute do people read?",
+        "answer": "Silent reading averages roughly 200–250 words per minute for English prose. Speed drops for technical or unfamiliar content."
+      },
+      {
+        "question": "How many words per minute do people speak?",
+        "answer": "Presentations and podcasts typically run 120–150 words per minute including short pauses. TextCraft uses 130 wpm for estimates."
+      },
+      {
+        "question": "How do I calculate reading time?",
+        "answer": "Divide word count by your chosen wpm (TextCraft uses 225). Or paste text into Word Counter for an instant estimate."
+      },
+      {
+        "question": "How do I calculate speaking time?",
+        "answer": "Divide word count by speaking wpm (TextCraft uses 130). Practice aloud—a timer catches pacing issues formulas miss."
+      }
+    ],
+    "category": "counting",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "7 min read",
+    "tags": [
+      "Reading Time",
+      "Speaking Time",
+      "Word Count",
+      "Presentations",
+      "Video Scripts"
+    ],
+    "featured": false
+  },
+  {
+    "id": 16,
+    "slug": "fix-broken-line-breaks-newsletter-paste",
+    "title": "Fix Broken Line Breaks When Pasting Into Newsletters and Blog Editors",
+    "metaTitle": "Fix Newsletter Paste Line Breaks | Clean Text for Substack and Blogs",
+    "metaDescription": "Fix awkward line breaks when pasting from PDF, Word, or email into Substack, Beehiiv, Mailchimp, or your blog CMS. Clean text before you publish.",
+    "excerpt": "Newsletter and blog paste often breaks every line mid-sentence. Join lines, remove blank rows, and publish clean copy with TextCraft Line Breaks Remover.",
+    "quickAnswer": "When pasted newsletter or blog copy shows one short line per row, open TextCraft Line Breaks Remover, enable join lines and remove extra blank lines, then paste the cleaned text into Substack, Beehiiv, WordPress, or Mailchimp. Your wording stays the same—only line structure changes.",
+    "keyTakeaways": [
+      "Newsletter tools and CMS editors expect flowing paragraphs—not PDF-style hard wraps.",
+      "Paste from Word, Google Docs, PDF, or email often inserts a line break at every visual line.",
+      "Join lines first for prose; remove blank lines for tight newsletter spacing.",
+      "Clean text before the final publish step—fixes are harder after HTML is generated.",
+      "TextCraft runs in your browser; newsletter drafts are not uploaded."
+    ],
+    "content": "## Why newsletter paste breaks your formatting\n\nYou wrote a clean draft in Google Docs or copied a quote from a PDF. You paste into **Substack**, **Beehiiv**, **Mailchimp**, or **WordPress**—and suddenly every sentence spans three or four short lines. Subscribers see choppy paragraphs; mobile readers scroll through unnecessary breaks.\n\nThis is not a bug in your writing. **Copy sources break text at page width**, not at sentence ends. Newsletter editors treat each newline as a real line break unless you paste plain, joined text first.\n\n## Common paste problems for bloggers and newsletter writers\n\n| Source | What goes wrong | What readers see |\n|--------|-----------------|------------------|\n| PDF excerpt | Line break every ~60 characters | Staccato one-liners |\n| Word / Docs export | Mixed CRLF and soft breaks | Uneven spacing in CMS |\n| Email reply chain | Blank lines + `>` quotes | Huge gaps in body |\n| Slack / Teams copy | Single-line chunks | Broken intro paragraphs |\n| Old blog export | Extra `<br>` when re-pasted | Double-spaced mess |\n\n## Substack, Beehiiv, and blog CMS paste workflow\n\n1. Write or collect source text (do not publish the raw paste).\n2. Open [Line Breaks Remover](/line-breaks).\n3. Paste into the **original text** panel.\n4. Enable **join lines with single spaces** for body copy.\n5. Enable **remove extra blank lines** if spacing looks too loose.\n6. Optionally **trim trailing spaces** on each line.\n7. Copy **cleaned text** into your newsletter or blog editor.\n8. Apply headings, links, and bold **inside the CMS**—not in the cleanup tool.\n\nFor PDF-specific hyphenation (`infor-\\nmation`), fix split words manually after joining—automation cannot guess every hyphen.\n\n## Before and after: newsletter intro paragraph\n\n**Before (paste from a PDF recap):**\n\n```\nThis week we shipped three updates\nthat writers asked for most: faster\nword count, cleaner paste, and\nbetter mobile tools.\n```\n\n**After (joined for Substack body):**\n\n```\nThis week we shipped three updates that writers asked for most: faster word count, cleaner paste, and better mobile tools.\n```\n\n## When to join lines vs remove blank lines\n\n- **Join lines:** Body paragraphs, pull quotes, story sections—anything meant to read as prose.\n- **Remove blank lines:** Footer blocks, sponsor lines, or signatures with double spacing.\n- **Do not join:** Poetry, song lyrics, or **bullet lists** where each line must stay separate—put one bullet per line, then only remove blank rows.\n\nSee also: [Remove extra line breaks from PDF, Word, and email](/blog/remove-extra-line-breaks-from-pdf-word-email) for document-focused cleanup.\n\n## Mistakes newsletter writers make\n\n- Publishing PDF paste **without a cleanup pass**—looks unprofessional on mobile.\n- Joining lines on a **numbered or bulleted list**—merge items accidentally (sort bullets first with [Text Sorter](/text-sorter) if needed).\n- Cleaning **only in the CMS preview**—some editors cache bad HTML; paste clean plain text first.\n- Forgetting the **subject line** is separate—cleanup tool is for body copy.\n\n## Quick checklist before you hit Send\n\n- [ ] Body paragraphs flow without mid-sentence line breaks\n- [ ] No double blank rows between sections (unless intentional)\n- [ ] Links and bold added after cleanup, in the editor\n- [ ] Mobile preview checked once with final HTML\n- [ ] Word count checked with [Word Counter](/word-counter) if you target a length band\n\n## Privacy for draft newsletter text\n\nTextCraft processes paste **locally in your browser**. Your draft is not uploaded to TextCraft servers—useful when pasting client copy or embargoed announcements.",
+    "relatedToolSlug": "line-breaks",
+    "relatedTools": [
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      },
+      {
+        "name": "Text Sorter",
+        "path": "/text-sorter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "remove-extra-line-breaks-from-pdf-word-email",
+        "title": "How to Remove Extra Line Breaks From Word, PDF, and Email Paste"
+      },
+      {
+        "slug": "how-many-words-should-a-blog-post-be",
+        "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide"
+      },
+      {
+        "slug": "line-break-handling",
+        "title": "Line Break Handling: Cross-Platform Text Processing"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why does my newsletter paste have line breaks on every line?",
+        "answer": "PDFs, emails, and narrow columns break text at visual width. Each wrapped line becomes its own row when pasted. Join lines to restore normal paragraphs."
+      },
+      {
+        "question": "How do I fix Substack paste formatting?",
+        "answer": "Paste your draft into TextCraft Line Breaks Remover, join lines for body copy, copy the result, then paste into Substack's editor as plain text before adding formatting."
+      },
+      {
+        "question": "Should I clean text before or after adding links?",
+        "answer": "Clean plain text first, then add links, bold, and headings in your newsletter or CMS editor. Cleanup tools work on text structure, not HTML."
+      },
+      {
+        "question": "Will joining lines change my words?",
+        "answer": "No. Joining inserts spaces between lines—it does not rewrite sentences or fix typos."
+      },
+      {
+        "question": "Can I remove blank lines only?",
+        "answer": "Yes. Use remove extra blank lines without joining if your paragraphs are fine but spacing is too loose."
+      },
+      {
+        "question": "Is my newsletter draft uploaded?",
+        "answer": "No. TextCraft Line Breaks Remover runs entirely in your browser."
+      }
+    ],
+    "category": "tools",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "6 min read",
+    "tags": [
+      "Newsletter",
+      "Line Breaks",
+      "Substack",
+      "Blog CMS",
+      "Paste Cleanup"
+    ],
+    "featured": true
+  },
+  {
+    "id": 17,
+    "slug": "sort-bullet-lists-for-blog-posts",
+    "title": "How to Sort and Clean Bullet Lists for Blog Posts and Resource Roundups",
+    "metaTitle": "Sort Bullet Lists for Blog Posts | Clean and Alphabetize Online",
+    "metaDescription": "Sort bullet lists A–Z, remove duplicates, and clean resource roundups, tool lists, and link collections before publishing your blog post.",
+    "excerpt": "Alphabetize tool roundups, dedupe resource lists, and tidy messy bullet paste before you publish—using TextCraft Text Sorter.",
+    "quickAnswer": "Put one bullet or resource per line in TextCraft Text Sorter, choose A–Z sort, enable remove duplicates if needed, and paste the cleaned list into your blog outline or CMS. Each line becomes one bullet when you add list formatting in WordPress, Notion, or your editor.",
+    "keyTakeaways": [
+      "One resource or bullet per line is the format Text Sorter expects.",
+      "A–Z order helps readers scan tool roundups and link lists faster.",
+      "Remove duplicates after exporting from spreadsheets or collaborative docs.",
+      "Sort outlines and FAQ question lists—not full paragraphs.",
+      "TextCraft sorts locally; your unpublished list stays on your device."
+    ],
+    "content": "## Why bloggers sort bullet lists before publishing\n\n**Resource roundups**, **tool comparisons**, and **\"best of\" lists** start messy: links arrive from spreadsheets, teammates paste in random order, and duplicates sneak in after the third revision. Readers expect **scannable A–Z order** or a deliberate priority order—you should not make them hunt.\n\nSorting before publish also catches **duplicate tools**, **broken copy-paste rows**, and **inconsistent naming** (`Notion` vs `notion` on separate lines).\n\n## Lists that benefit from sorting\n\n- **Tool roundups:** \"12 writing apps we recommend\"\n- **Resource pages:** Templates, checklists, free ebooks\n- **Glossary entries:** Terms and one-line definitions\n- **FAQ question banks:** Before you write answers\n- **Conference links:** Sessions, speakers, sponsors\n- **Newsletter link sections:** \"What we're reading this week\"\n\nDo **not** sort narrative bullets that tell a story in a fixed sequence (step 1, step 2, step 3)—only reorder when sequence does not matter.\n\n## How to use TextCraft Text Sorter on bullet paste\n\n1. Open [Text Sorter](/text-sorter).\n2. Paste your list with **one item per line** (strip bullet characters `•`, `-`, `*` if your editor added them—or leave them; sorting still works on full lines).\n3. Choose **Alphabetical A–Z** (or Z–A, by length, or remove duplicates).\n4. Review the **sorted output** panel.\n5. Copy and paste into WordPress, Notion, Google Docs, or your CMS.\n6. Re-apply bullet or numbered list styling in the editor.\n\nTry the **Names list** example chip on the tool page to see the flow instantly.\n\n## Example: cleaning a \"best tools\" roundup\n\n**Before (paste from a shared doc):**\n\n```\nGrammarly\nNotion\nTextCraft\nGrammarly\nHemingway Editor\nCanva\n```\n\n**After (A–Z + duplicates removed):**\n\n```\nCanva\nGrammarly\nHemingway Editor\nNotion\nTextCraft\n```\n\n## Spreadsheet and Notion paste tips\n\n- **Excel / Sheets:** Copy a **single column** so each cell is one line. Tab-separated rows paste as one messy line—split first or copy column-only.\n- **Notion:** Toggle list to plain text or export block, one item per line.\n- **Word:** Convert bullets to text (Paste Special → Unformatted) before sorting, then re-bullet after.\n\nFor name lists and rosters, see [Alphabetize a list online](/blog/alphabetize-list-online).\n\n## Sort options bloggers use most\n\n| Option | Use when |\n|--------|----------|\n| A–Z | Resource lists, glossaries, neutral roundups |\n| Z–A | Reverse-chronology feel without dates |\n| Remove duplicates | After merging team contributions |\n| Sort by length | Short links first in sidebar widgets |\n| Reverse order | Quick flip of an existing list |\n\n## Pair with other TextCraft tools\n\n- **[Line Breaks Remover](/line-breaks):** Fix PDF paste **before** sorting bullets.\n- **[Word Counter](/word-counter):** Check total word count after your roundup prose is done.\n- **[Case Converter](/case-converter):** Normalize ALL CAPS tool names to Title Case for headings.\n\n## Common mistakes\n\n- Sorting **multi-line bullets** where one item wrapped to two lines—join or merge first.\n- Expecting **semantic dedupe** (`NYT` vs `New York Times`)—only exact line matches remove.\n- Forgetting to **re-apply list styles** after paste—plain lines need bullet formatting in CMS.\n- Sorting **numbered steps** in a tutorial—use A–Z only when order is arbitrary.\n\n## Privacy\n\nTextCraft Text Sorter runs in your browser. Unpublished outlines and client resource lists are not uploaded.",
+    "relatedToolSlug": "text-sorter",
+    "relatedTools": [
+      {
+        "name": "Text Sorter",
+        "path": "/text-sorter"
+      },
+      {
+        "name": "Line Breaks Remover",
+        "path": "/line-breaks"
+      },
+      {
+        "name": "Word Counter",
+        "path": "/word-counter"
+      }
+    ],
+    "relatedPosts": [
+      {
+        "slug": "alphabetize-list-online",
+        "title": "How to Alphabetize a List of Names or Lines Online"
+      },
+      {
+        "slug": "how-many-words-should-a-blog-post-be",
+        "title": "How Many Words Should a Blog Post Be? A Practical Word Count Guide"
+      },
+      {
+        "slug": "fix-broken-line-breaks-newsletter-paste",
+        "title": "Fix Broken Line Breaks When Pasting Into Newsletters and Blog Editors"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How do I alphabetize a bullet list for a blog post?",
+        "answer": "Paste one item per line into TextCraft Text Sorter, select alphabetical A–Z, copy the sorted output, then re-apply bullet formatting in your blog editor."
+      },
+      {
+        "question": "Can I remove duplicate links from a resource list?",
+        "answer": "Yes. Use the remove-duplicates sort option after pasting one URL or tool name per line. Only exact duplicate lines are removed."
+      },
+      {
+        "question": "Should I sort before or after writing descriptions?",
+        "answer": "Sort the list of names or links first when order is arbitrary. Write descriptions after the final order is set so you do not mismatch items."
+      },
+      {
+        "question": "Will sorting change my bullet symbols?",
+        "answer": "TextCraft sorts line text. Paste back into your CMS and apply bullets or numbers there for consistent styling."
+      },
+      {
+        "question": "Can I sort a list from Excel?",
+        "answer": "Copy a single column so each row becomes one line when pasted. Multi-column paste may need cleanup first."
+      },
+      {
+        "question": "Is my list uploaded to TextCraft?",
+        "answer": "No. Sorting happens locally in your browser."
+      }
+    ],
+    "category": "sorting",
+    "author": "TextCraft Team",
+    "date": "2026-06-24",
+    "updated": "2026-06-24",
+    "readTime": "6 min read",
+    "tags": [
+      "Bullet Lists",
+      "Blog Writing",
+      "Text Sorter",
+      "Resource Roundups",
+      "Content Planning"
+    ],
+    "featured": true
+  }
+]

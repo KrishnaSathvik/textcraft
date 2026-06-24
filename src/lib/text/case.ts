@@ -67,10 +67,10 @@ export const transformCase = (text: string, caseType: CaseType): string => {
 };
 
 export const caseOptions: { value: CaseType; label: string; description: string }[] = [
-  { value: 'upper', label: 'UPPERCASE', description: 'CONVERT ALL TEXT TO UPPERCASE' },
-  { value: 'lower', label: 'lowercase', description: 'convert all text to lowercase' },
-  { value: 'title', label: 'Title Case', description: 'Convert Text To Title Case' },
   { value: 'sentence', label: 'Sentence case', description: 'Convert text to sentence case' },
+  { value: 'title', label: 'Title Case', description: 'Convert Text To Title Case' },
+  { value: 'lower', label: 'lowercase', description: 'convert all text to lowercase' },
+  { value: 'upper', label: 'UPPERCASE', description: 'CONVERT ALL TEXT TO UPPERCASE' },
   { value: 'capitalize', label: 'Capitalize Words', description: 'Capitalize Each Word In The Text' },
   { value: 'camel', label: 'camelCase', description: 'convertTextToCamelCase' },
   { value: 'kebab', label: 'kebab-case', description: 'convert-text-to-kebab-case' },

@@ -5,44 +5,13 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonical?: string;
-  structuredData?: Record<string, any>;
+  structuredData?: Record<string, unknown>;
   ogImage?: string;
   ogType?: string;
   twitterCard?: string;
+  robots?: string;
 }
 
-/**
- * Custom hook for managing SEO meta tags and structured data
- * 
- * This hook automatically updates the document head with SEO-optimized
- * meta tags, Open Graph tags, Twitter Cards, and structured data.
- * 
- * @param props - SEO configuration object
- * @param props.title - Page title (will be appended to site name)
- * @param props.description - Meta description (max 160 characters)
- * @param props.keywords - Comma-separated keywords
- * @param props.canonical - Canonical URL for the page
- * @param props.structuredData - JSON-LD structured data object
- * @param props.ogImage - Open Graph image URL
- * @param props.ogType - Open Graph content type (default: 'website')
- * @param props.twitterCard - Twitter Card type (default: 'summary_large_image')
- * 
- * @example
- * ```tsx
- * useSEO({
- *   title: 'Word Counter - Free Online Text Analysis Tool',
- *   description: 'Count words, characters, sentences instantly. Free online word counter with reading time estimates.',
- *   keywords: 'word counter, character count, text analysis, reading time',
- *   canonical: 'https://www.textcraft.dev/word-counter',
- *   structuredData: {
- *     '@context': 'https://schema.org',
- *     '@type': 'WebApplication',
- *     name: 'Word Counter',
- *     description: 'Free online word counting tool'
- *   }
- * });
- * ```
- */
 export const useSEO = ({
   title,
   description,
@@ -51,27 +20,24 @@ export const useSEO = ({
   structuredData,
   ogImage = 'https://www.textcraft.dev/og-image.png',
   ogType = 'website',
-  twitterCard = 'summary_large_image'
+  twitterCard = 'summary_large_image',
+  robots = 'index, follow',
 }: SEOProps) => {
   useEffect(() => {
-    // Update document title
     const siteName = 'TextCraft';
     document.title = title?.includes(siteName) ? title : `${title || ''} | ${siteName}`;
 
-    // Update meta description
     updateMetaTag('name', 'description', description);
-    
-    // Update keywords
+    updateMetaTag('name', 'robots', robots);
+
     if (keywords) {
       updateMetaTag('name', 'keywords', keywords);
     }
 
-    // Update canonical URL
     if (canonical) {
       updateCanonical(canonical);
     }
 
-    // Update Open Graph tags
     updateMetaTag('property', 'og:title', title);
     updateMetaTag('property', 'og:description', description);
     updateMetaTag('property', 'og:type', ogType);
@@ -79,30 +45,24 @@ export const useSEO = ({
     updateMetaTag('property', 'og:url', canonical || window.location.href);
     updateMetaTag('property', 'og:site_name', siteName);
 
-    // Update Twitter Card tags
     updateMetaTag('name', 'twitter:card', twitterCard);
     updateMetaTag('name', 'twitter:title', title);
     updateMetaTag('name', 'twitter:description', description);
     updateMetaTag('name', 'twitter:image', ogImage);
 
-    // Add structured data
     if (structuredData) {
       addStructuredData(structuredData);
     }
 
-    // Cleanup function to remove structured data when component unmounts
     return () => {
       removeStructuredData();
     };
-  }, [title, description, keywords, canonical, structuredData, ogImage, ogType, twitterCard]);
+  }, [title, description, keywords, canonical, structuredData, ogImage, ogType, twitterCard, robots]);
 };
 
-/**
- * Updates or creates a meta tag in the document head
- */
 const updateMetaTag = (attribute: string, value: string, content: string) => {
   const existingTag = document.querySelector(`meta[${attribute}="${value}"]`);
-  
+
   if (existingTag) {
     existingTag.setAttribute('content', content);
   } else {
@@ -113,12 +73,9 @@ const updateMetaTag = (attribute: string, value: string, content: string) => {
   }
 };
 
-/**
- * Updates the canonical URL
- */
 const updateCanonical = (url: string) => {
   let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-  
+
   if (canonicalLink) {
     canonicalLink.href = url;
   } else {
@@ -129,13 +86,9 @@ const updateCanonical = (url: string) => {
   }
 };
 
-/**
- * Adds structured data as JSON-LD script
- */
-const addStructuredData = (data: Record<string, any>) => {
-  // Remove existing structured data
+const addStructuredData = (data: Record<string, unknown>) => {
   removeStructuredData();
-  
+
   const script = document.createElement('script');
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(data);
@@ -143,9 +96,6 @@ const addStructuredData = (data: Record<string, any>) => {
   document.head.appendChild(script);
 };
 
-/**
- * Removes structured data script
- */
 const removeStructuredData = () => {
   const existingScript = document.getElementById('structured-data');
   if (existingScript) {

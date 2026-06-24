@@ -14,8 +14,8 @@
 // Google Analytics 4 configuration
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -35,8 +35,8 @@ export const initializeAnalytics = (measurementId: string) => {
 
   // Initialize gtag
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function() {
-    window.dataLayer.push(arguments);
+  window.gtag = function (...args: unknown[]) {
+    window.dataLayer.push(args);
   };
 
   window.gtag('js', new Date());
@@ -69,7 +69,7 @@ export const trackPageView = (pageTitle: string, pagePath: string) => {
  * @param action - Action performed (e.g., 'format', 'convert', 'generate')
  * @param details - Additional details about the action
  */
-export const trackToolUsage = (toolName: string, action: string, details?: Record<string, any>) => {
+export const trackToolUsage = (toolName: string, action: string, details?: Record<string, unknown>) => {
   if (typeof window === 'undefined' || !window.gtag) return;
 
   window.gtag('event', 'tool_usage', {
@@ -113,7 +113,7 @@ export const trackTextProcessing = (
 export const trackInteraction = (
   interaction: string,
   toolName: string,
-  details?: Record<string, any>
+  details?: Record<string, unknown>
 ) => {
   if (typeof window === 'undefined' || !window.gtag) return;
 
@@ -131,7 +131,7 @@ export const trackInteraction = (
  * @param toolName - Name of the tool where error occurred
  * @param details - Additional error details
  */
-export const trackError = (error: string, toolName: string, details?: Record<string, any>) => {
+export const trackError = (error: string, toolName: string, details?: Record<string, unknown>) => {
   if (typeof window === 'undefined' || !window.gtag) return;
 
   window.gtag('event', 'error', {

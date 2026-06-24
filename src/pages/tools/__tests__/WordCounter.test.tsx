@@ -20,7 +20,7 @@ describe('WordCounter', () => {
     render(<WordCounterPage />)
     
     expect(screen.getByText('Word Counter')).toBeInTheDocument()
-    expect(screen.getByText('Count words, characters, sentences, and paragraphs with live reading time estimates. Free and instant analysis.')).toBeInTheDocument()
+    expect(screen.getByText(/Professional word counting tool/i)).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 
@@ -89,7 +89,7 @@ describe('WordCounter', () => {
     await user.type(textarea, testData.sampleTexts.medium)
     
     // Should show reading time in the reading time section
-    expect(screen.getByText('📖 Reading Time')).toBeInTheDocument()
+    expect(screen.getByText('Reading Time')).toBeInTheDocument()
   })
 
   it('handles clear button', async () => {

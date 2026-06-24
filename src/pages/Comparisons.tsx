@@ -113,7 +113,8 @@ export const Comparisons = () => {
     caseConverter: true,
     lineBreaks: true,
     diffChecker: true,
-    loremIpsum: true
+    loremIpsum: true,
+    textSorter: true,
   };
 
   const comparisonFeatures = [
@@ -126,7 +127,7 @@ export const Comparisons = () => {
     {
       name: 'Tool Selection',
       description: 'Comprehensive collection of text processing tools',
-      textcraft: '✅ 5 essential tools',
+      textcraft: '✅ 6 essential tools',
       competitors: '❌ Limited selection'
     },
     {
@@ -142,10 +143,10 @@ export const Comparisons = () => {
       competitors: '❌ Inconsistent UI'
     },
     {
-      name: 'File Support',
-      description: 'Upload and process files directly',
-      textcraft: '✅ Full file support',
-      competitors: '❌ Limited file support'
+      name: 'Copy & download',
+      description: 'Copy results to clipboard or download processed text',
+      textcraft: '✅ Copy and download',
+      competitors: '❌ Varies by site'
     },
     {
       name: 'Mobile Friendly',
@@ -193,8 +194,8 @@ export const Comparisons = () => {
             </div>
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <Code2 className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-foreground mb-2">5 Essential Tools</h3>
-              <p className="text-sm text-muted-foreground">Complete collection of text processing tools in one place. No need to visit multiple sites.</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">6 Essential Tools</h3>
+              <p className="text-sm text-muted-foreground">Word counter, case converter, line breaks remover, diff checker, lorem ipsum generator, and text sorter — all in one place.</p>
             </div>
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <Zap className="w-12 h-12 text-warning mx-auto mb-4" />

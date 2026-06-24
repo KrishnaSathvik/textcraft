@@ -1,7 +1,6 @@
-// Service Worker for TextCraft
-// Provides offline functionality and caching
+// Service Worker for TextCraft — offline shell caching
 
-const CACHE_NAME = 'textcraft-v1';
+const CACHE_NAME = 'textcraft-v2';
 const urlsToCache = [
   '/',
   '/word-counter',
@@ -9,91 +8,60 @@ const urlsToCache = [
   '/line-breaks',
   '/diff-checker',
   '/lorem-ipsum',
+  '/text-sorter',
   '/about',
   '/privacy',
   '/terms',
   '/faq',
   '/blog',
   '/comparisons',
-  '/offline.html'
+  '/offline.html',
 ];
 
-// Install event - cache resources
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-      .catch((error) => {
-        console.log('Cache install failed:', error);
-      })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
   );
 });
 
-// Fetch event - serve from cache when offline
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        if (response) {
-          return response;
-        }
-        
-        return fetch(event.request)
-          .then((response) => {
-            // Check if we received a valid response
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
 
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-
+      return fetch(event.request)
+        .then((response) => {
+          if (!response || response.status !== 200 || response.type !== 'basic') {
             return response;
-          })
-          .catch(() => {
-            // If both cache and network fail, show offline page
-            if (event.request.destination === 'document') {
-              return caches.match('/offline.html');
-            }
-            // Return a basic response for non-document requests
-            return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+          }
+
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
           });
-      })
-      .catch(() => {
-        // If cache match fails, try to fetch from network
-        return fetch(event.request)
-          .catch(() => {
-            // If all else fails, show offline page for documents
-            if (event.request.destination === 'document') {
-              return caches.match('/offline.html');
-            }
-            return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
-          });
-      })
+
+          return response;
+        })
+        .catch(() => {
+          if (event.request.destination === 'document') {
+            return caches.match('/offline.html');
+          }
+          return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+        });
+    })
   );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames
+          .filter((cacheName) => cacheName !== CACHE_NAME)
+          .map((cacheName) => caches.delete(cacheName))
+      )
+    )
   );
 });

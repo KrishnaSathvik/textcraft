@@ -1,75 +1,46 @@
 import { ReactNode } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
+import { ExampleChips } from '@/components/tools/ExampleChips';
+import type { ToolExample } from '@/types/tool';
 
-/**
- * Example data for tool demonstrations
- */
-interface Example {
-  name: string;
-  input: string;
-}
-
-/**
- * Props for the ToolLayout component
- */
 interface ToolLayoutProps {
-  /** The main content/UI of the tool - typically the tool's input/output interface */
   children: ReactNode;
-  /** Optional title for the tool */
   title?: string;
-  /** Optional description for the tool */
   description?: string;
-  /** Optional examples for the tool */
-  examples?: Example[];
-  /** Optional callback when an example is selected */
-  onFillExample?: (example: Example) => void;
+  examples?: ToolExample[];
+  onFillExample?: (example: ToolExample) => void;
+  metrics?: ReactNode;
+  attachWorkspace?: boolean;
 }
 
-/**
- * ToolLayout - A reusable wrapper component for text tools
- * 
- * Provides a consistent layout structure for all tools in the TextCraft application.
- * Includes main content area with proper spacing and responsive design.
- * 
- * @example
- * ```tsx
- * <ToolLayout>
- *   <YourToolContent />
- * </ToolLayout>
- * ```
- * 
- * @param props - The component props
- * @returns JSX element containing the tool page layout
- */
-export const ToolLayout = ({ 
-  children, 
-  title, 
-  description, 
-  examples, 
-  onFillExample 
+export const ToolLayout = ({
+  children,
+  title,
+  description,
+  examples,
+  onFillExample,
+  metrics,
+  attachWorkspace = false,
 }: ToolLayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Tool Content - Responsive width with better desktop sizing */}
       <div className="w-full px-2 sm:px-4 lg:px-6 xl:px-8">
         <div className="max-w-4xl xl:max-w-5xl mx-auto">
           <div className="mx-0 sm:mx-0">
-            {/* Breadcrumb Navigation */}
             <div className="p-3 sm:p-6 pb-2">
               <Breadcrumb />
             </div>
-            
-            {/* Tool Header */}
+
             {(title || description) && (
-              <div className="p-3 sm:p-6 border-b border-border">
+              <div className="px-3 sm:px-6 py-3 sm:py-4 border-b border-border">
                 <div className="text-center">
                   {title && (
-                    <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold gradient-text mb-2 sm:mb-3">
+                    <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-1.5 sm:mb-2 tracking-tight">
                       {title}
                     </h1>
                   )}
                   {description && (
-                    <p className="text-xs sm:text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                       {description}
                     </p>
                   )}
@@ -77,10 +48,31 @@ export const ToolLayout = ({
               </div>
             )}
 
-            {/* Tool Content */}
-            <div className="w-full">
+            <main className="w-full pb-16 lg:pb-6">
+              {((examples && examples.length > 0 && onFillExample) || metrics) && (
+                <div
+                  className={
+                    attachWorkspace
+                      ? 'px-3 sm:px-6 pt-3 sm:pt-4'
+                      : 'px-3 sm:px-6 pt-3 sm:pt-4 pb-4 sm:pb-5'
+                  }
+                >
+                  <div
+                    className={
+                      attachWorkspace
+                        ? 'tool-workspace-header rounded-t-lg rounded-b-none border border-border/60 border-b-0 bg-secondary/15 divide-y divide-border/40'
+                        : 'tool-workspace-header rounded-lg border border-border/60 bg-secondary/15 divide-y divide-border/40'
+                    }
+                  >
+                    {examples && examples.length > 0 && onFillExample && (
+                      <ExampleChips examples={examples} onSelect={onFillExample} />
+                    )}
+                    {metrics}
+                  </div>
+                </div>
+              )}
               {children}
-            </div>
+            </main>
           </div>
         </div>
       </div>

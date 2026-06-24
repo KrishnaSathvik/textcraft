@@ -20,6 +20,11 @@ interface WebVitals {
   TTFB: number | null;
 }
 
+type LayoutShiftEntry = PerformanceEntry & { hadRecentInput?: boolean; value?: number };
+type FirstInputEntry = PerformanceEntry & { processingStart: number };
+type NavigationTimingEntry = PerformanceEntry & { responseStart: number; requestStart: number };
+type ResourceTimingEntry = PerformanceEntry & { initiatorType?: string; responseEnd: number; requestStart: number };
+
 class PerformanceMonitor {
   private isProduction = import.meta.env.PROD;
   private metrics: PerformanceMetric[] = [];
@@ -48,12 +53,13 @@ class PerformanceMonitor {
    */
   private trackCLS() {
     let clsValue = 0;
-    let clsEntries: PerformanceEntry[] = [];
+    const clsEntries: PerformanceEntry[] = [];
 
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if (!(entry as any).hadRecentInput) {
-          clsValue += (entry as any).value;
+        const layoutEntry = entry as LayoutShiftEntry;
+        if (!layoutEntry.hadRecentInput) {
+          clsValue += layoutEntry.value ?? 0;
           clsEntries.push(entry);
         }
       }
@@ -75,7 +81,8 @@ class PerformanceMonitor {
   private trackFID() {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        const fid = (entry as any).processingStart - entry.startTime;
+        const inputEntry = entry as FirstInputEntry;
+        const fid = inputEntry.processingStart - entry.startTime;
         this.reportMetric('FID', fid, 1);
       }
     });
@@ -118,7 +125,8 @@ class PerformanceMonitor {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (entry.entryType === 'navigation') {
-          const ttfb = (entry as any).responseStart - (entry as any).requestStart;
+          const navEntry = entry as NavigationTimingEntry;
+          const ttfb = navEntry.responseStart - navEntry.requestStart;
           this.reportMetric('TTFB', ttfb, 1);
         }
       }
@@ -144,10 +152,11 @@ class PerformanceMonitor {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (entry.entryType === 'resource') {
-          const resourceTime = entry.responseEnd - entry.requestStart;
+          const resourceEntry = entry as ResourceTimingEntry;
+          const resourceTime = resourceEntry.responseEnd - resourceEntry.requestStart;
           this.reportMetric('ResourceLoad', resourceTime, 1, {
             name: entry.name,
-            type: (entry as any).initiatorType
+            type: resourceEntry.initiatorType,
           });
         }
       }
@@ -159,7 +168,7 @@ class PerformanceMonitor {
   /**
    * Report a performance metric
    */
-  private reportMetric(name: string, value: number, delta: number, context?: Record<string, any>) {
+  private reportMetric(name: string, value: number, delta: number, context?: Record<string, unknown>) {
     const metric: PerformanceMetric = {
       name,
       value,
@@ -184,7 +193,7 @@ class PerformanceMonitor {
   /**
    * Send metric to analytics service
    */
-  private async sendMetric(metric: PerformanceMetric, context?: Record<string, any>) {
+  private async sendMetric(metric: PerformanceMetric, context?: Record<string, unknown>) {
     // Skip if no endpoint is configured
     if (!this.endpoint) {
       return;
@@ -221,9 +230,10 @@ class PerformanceMonitor {
       TTFB: null
     };
 
-    this.metrics.forEach(metric => {
-      if (metric.name in vitals) {
-        (vitals as any)[metric.name] = metric.value;
+    this.metrics.forEach((metric) => {
+      const key = metric.name as keyof WebVitals;
+      if (key in vitals) {
+        vitals[key] = metric.value;
       }
     });
 

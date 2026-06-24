@@ -3,7 +3,7 @@
 > Professional text processing tools that run entirely in your browser. Fast, secure, and always available.
 
 [![Website](https://img.shields.io/badge/Website-www.textcraft.dev-blue)](https://www.textcraft.dev)
-[![Email](https://img.shields.io/badge/Email-testcraftdev@gmail.com-red)](mailto:testcraftdev@gmail.com)
+[![Email](https://img.shields.io/badge/Email-textcraftdev@gmail.com-red)](mailto:textcraftdev@gmail.com)
 
 ## ✨ Features
 
@@ -31,13 +31,16 @@ Compare two texts and highlight differences side by side. Great for reviewing ch
 ### Lorem Ipsum Generator
 Generate placeholder text for your projects and mockups. Choose from different types and lengths of Lorem Ipsum text.
 
+### Text Sorter
+Sort and organize text lines alphabetically, by length, remove duplicates, and clean up lists.
+
 ## 🌐 Live Website
 
 Visit [www.textcraft.dev](https://www.textcraft.dev) to use TextCraft online.
 
 ## 📧 Contact
 
-- **Email**: testcraftdev@gmail.com
+- **Email**: textcraftdev@gmail.com
 - **Website**: [www.textcraft.dev](https://www.textcraft.dev)
 
 ## ⚠️ Important Notice
@@ -79,7 +82,7 @@ TextCraft is proprietary software. The source code, design, and user interface a
 
 Found a bug? Please report it!
 
-Email us at **testcraftdev@gmail.com** with:
+Email us at **textcraftdev@gmail.com** with:
 - Clear description of the problem
 - Steps to reproduce
 - Expected vs actual behavior
@@ -90,14 +93,14 @@ Email us at **testcraftdev@gmail.com** with:
 
 Have an idea for a new tool or improvement?
 
-Email us at **testcraftdev@gmail.com** with:
+Email us at **textcraftdev@gmail.com** with:
 - Description of the feature
 - Use cases and benefits
 - Any mockups or examples
 
 ## 📧 Support
 
-For any questions, issues, or feature requests, please contact us at **testcraftdev@gmail.com**.
+For any questions, issues, or feature requests, please contact us at **textcraftdev@gmail.com**.
 
 ## 📄 License
 
@@ -113,7 +116,7 @@ This is proprietary software. All rights reserved.
 
 ## 📊 Project Status
 
-- ✅ **Core Tools** - All 5 text processing tools implemented
+- ✅ **Core Tools** - All 6 text processing tools implemented
 - ✅ **Responsive Design** - Mobile and desktop optimized
 - ✅ **SEO Optimized** - Search engine friendly
 - ✅ **Analytics Ready** - Google Analytics 4 integration
@@ -121,13 +124,13 @@ This is proprietary software. All rights reserved.
 
 ## 📞 Support
 
-- 📧 **Email**: testcraftdev@gmail.com
+- 📧 **Email**: textcraftdev@gmail.com
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by TextCraft</p>
   <p>
-    <a href="mailto:testcraftdev@gmail.com">Contact</a>
+    <a href="mailto:textcraftdev@gmail.com">Contact</a>
   </p>
 </div>

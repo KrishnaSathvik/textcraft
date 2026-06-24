@@ -10,9 +10,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
 /**
- * Loading skeleton component for tools
+ * ToolSkeleton - loading placeholder for lazy-loaded routes
  */
-const ToolSkeleton = () => (
+export const ToolSkeleton = () => (
   <div className="space-y-8">
     {/* Header skeleton */}
     <Card>

@@ -21,15 +21,11 @@ export const useAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize Google Analytics if configured
-    if (isAnalyticsConfigured()) {
-      const measurementId = getGoogleAnalyticsId();
-      if (measurementId) {
-        initializeAnalytics(measurementId);
-        console.log('✅ Google Analytics initialized with ID:', measurementId);
-      }
-    } else {
-      console.log('⚠️ Google Analytics not configured. Update src/config/analytics.ts with your Measurement ID');
+    if (!isAnalyticsConfigured()) return;
+
+    const measurementId = getGoogleAnalyticsId();
+    if (measurementId) {
+      initializeAnalytics(measurementId);
     }
   }, []);
 

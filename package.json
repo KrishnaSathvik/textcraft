@@ -9,7 +9,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsx scripts/generate-static-routes.ts && playwright install chromium && tsx scripts/prerender-full-html.ts",
+    "build": "vite build && tsx scripts/generate-static-routes.ts && tsx scripts/maybe-prerender.ts",
+    "prerender": "playwright install chromium && tsx scripts/prerender-full-html.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

@@ -159,8 +159,8 @@ async function main() {
     process.exit(1);
   }
 
-  if (process.env.SKIP_FULL_PRERENDER === '1') {
-    console.log('SKIP_FULL_PRERENDER=1 — skipping full-body prerender');
+  if (process.env.SKIP_FULL_PRERENDER === '1' || process.env.VERCEL === '1') {
+    console.log('Skipping full-body prerender (Vercel or SKIP_FULL_PRERENDER=1)');
     return;
   }
 
